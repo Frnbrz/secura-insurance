@@ -1,9 +1,13 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -31,16 +35,28 @@
       }
     },
     {
-      "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
       "extends": [
         "plugin:prettier/recommended",
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {
-        "prettier/prettier": ["error", { "parser": "angular" }]
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
       }
     }
+  ],
+  "extends": [
+    "plugin:storybook/recommended"
   ]
 }
