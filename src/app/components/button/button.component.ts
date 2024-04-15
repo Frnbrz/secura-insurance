@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common'
+import { Component, Input } from '@angular/core'
+import { MatButtonModule } from '@angular/material/button'
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MatButtonModule, NgIf],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-
+  @Input() className = 'primary'
+  @Input() type: 'primary' | 'outline' = 'primary'
 }
