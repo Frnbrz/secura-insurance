@@ -29,3 +29,24 @@ $color-text-light: #F7F7FC;
 // FONT
 $default-font-size: 16px;
 $default-font-family: 'Roboto', sans-serif;
+
+
+
+
+$indigo-palette: (
+  25: $color-primary-25,
+  50: $color-primary-50,
+  75: $color-primary-75,
+  100: $color-primary,
+  contrast: (25: $color-text,
+    50: $color-text,
+    75: $color-text,
+    100: $color-text,
+  )
+);
+
+
+
+@use '@angular/material' as mat;
+
+$my-palette: mat.$indigo-palette;
