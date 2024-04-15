@@ -1,0 +1,37 @@
+body {
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+  size: 64px;
+  letter-spacing: 0%;
+
+  &--subtitle {
+    font-weight: normal;
+    size: 24px;
+  }
+
+  &--small {
+    font-weight: bold;
+    size: 10px;
+    letter-spacing: 0%;
+  }
+}
+
+.heading-secondary {
+  font-weight: bold;
+  size: 40px;
+  letter-spacing: 0%;
+}
+
+.heading-terciary {
+  font-weight: 600;
+  size: 40px;
+  letter-spacing: 0%;
+}

@@ -1,11 +1,11 @@
-/* BASE */
-@import 'scss/base/base';
-@import 'scss/base/typography';
-@import 'scss/base/utilities';
-@import 'scss/base/animations';
-
 /* ABSTRACTS */
 
-@import 'scss/abstracts/variables';
-@import 'scss/abstracts/mixins';
-@import 'scss/abstracts/functions';
+@import 'assets/scss/abstracts/variables';
+@import 'assets/scss/abstracts/mixins';
+@import 'assets/scss/abstracts/functions';
+
+/* BASE */
+@import 'assets/scss/base/base';
+@import 'assets/scss/base/typography';
+@import 'assets/scss/base/utilities';
+@import 'assets/scss/base/animations';
