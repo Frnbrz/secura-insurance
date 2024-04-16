@@ -3,6 +3,7 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -12,6 +13,43 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 
+.title {
+  font-weight: bold;
+  size: 64px;
+  letter-spacing: 0%;
+
+  &--subtitle {
+    font-weight: normal;
+    size: 24px;
+  }
+
+  &--small {
+    font-weight: bold;
+    size: 10px;
+    letter-spacing: 0%;
+  }
+}
+
+.heading-secondary {
+  font-weight: bold;
+  size: 40px;
+  letter-spacing: 0%;
+}
+
+.heading-terciary {
+  font-weight: 600;
+  size: 40px;
+  letter-spacing: 0%;
+}
+
+// TYPOGRAPHY
+$my-custom-typography-config: mat.define-typography-config($headline-1: mat.define-typography-level(64px, 64px, 700, $letter-spacing: 0%),
+    $headline-2: mat.define-typography-level(40px, 40px, 700, $letter-spacing: 0%),
+    $headline-3: mat.define-typography-level(24px, 24px, 600, $letter-spacing: 0%),
+    $subtitle-1: mat.define-typography-level(24px, 24px, 400, $letter-spacing: 0%),
+    $body-1: mat.define-typography-level(16px, 16px, 400, $letter-spacing: 0%),
+    $subtitle-2: mat.define-typography-level(16px, 16px, 700, $letter-spacing: 0%),
+    $caption: mat.define-typography-level(10px, 10px, 500, $letter-spacing: 0%));
 
 
 $secura-insurance-primary: mat.define-palette($custom-palette, 50);
@@ -23,7 +61,7 @@ $secura-insurance-warn: mat.define-palette(mat.$red-palette);
 $secura-insurance-theme: mat.define-light-theme((color: (primary: $secura-insurance-primary,
         accent: $secura-insurance-accent,
         warn: $secura-insurance-warn,
-      )));
+      ), typography: $my-custom-typography-config));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
