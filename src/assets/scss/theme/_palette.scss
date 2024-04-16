@@ -1,0 +1,49 @@
+@import '../abstracts/variables';
+
+$custom-palette: (
+  50: $color-primary-25,
+  100: $color-primary-50,
+  200: $color-primary-75,
+  300: $color-primary,
+  400: $color-primary,
+  500: $color-primary,
+  600: $color-primary,
+  700: $color-primary,
+  800: $color-primary,
+  900: $color-primary,
+  contrast: (50: $color-text,
+    100: $color-text,
+    200: $color-text,
+    300: $color-text,
+    400: $color-text,
+    500: $color-text,
+    600: $color-text,
+    700: $color-text,
+    800: $color-text,
+    900: $color-text,
+  )
+);
+
+$accent-palette: (
+  50: $color-primary-25,
+  100: $color-primary-50,
+  200: $color-primary-75,
+  300: $color-text-acent,
+  400: $color-text-acent,
+  500: $color-text-acent,
+  600: $color-text-acent,
+  700: $color-text-acent,
+  800: $color-text-acent,
+  900: $color-text-acent,
+  contrast: (50: $color-text,
+    100: $color-text,
+    200: $color-text,
+    300: $color-text,
+    400: $color-text,
+    500: $color-text,
+    600: $color-text,
+    700: $color-text,
+    800: $color-text,
+    900: $color-text,
+  )
+);
