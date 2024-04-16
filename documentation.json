@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-a0b304f3442a4c5594543c2bb420a05e143e0a2d1394bb035c1acb605c4046ecf3560b5ce9904b2c6db41810b24701d70e07a8272752520354c3a24f31d23840",
+            "id": "component-AppComponent-e07dfff11a72b720a9dc6d92a49d850d0bf1bacd56c0d453945d89d0a96226434fab4da478fe12c25d7113183a1619ca006d055e66608e25812821d3710d6bb4",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -58,7 +58,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { Component } from '@angular/core'\nimport { RouterOutlet } from '@angular/router'\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'secura-insurance'\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common'\r\nimport { Component } from '@angular/core'\r\nimport { RouterOutlet } from '@angular/router'\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [CommonModule, RouterOutlet],\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'secura-insurance'\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -68,11 +68,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<router-outlet></router-outlet>\n"
+            "templateData": "<router-outlet></router-outlet>\r\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-01208f7831f2836c8fe603d524e882c6cedb992a09c8d5ef8586a98ed7dc565abe7b12787e8ac7d533497c58b0dfcd0b075b379d6434c832f850f1b8549e4131",
+            "id": "component-ButtonComponent-aa0f689613aba26a434c855b3b992ae85f488de692d791f2899735bca6d0d93bfcace01c1867c49b1c52868e5c69de7115f8d79ad8d349a98aac5d5e241ec1a3",
             "file": "src/app/components/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -118,7 +118,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input() disabled = false\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\r\nimport { MatButtonModule } from '@angular/material/button'\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [MatButtonModule],\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent {\r\n  @Input() disabled = false\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -128,11 +128,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<button mat-flat-button color=\"primary\" [disabled]=\"disabled\">\n  <ng-content></ng-content>\n</button>\n"
+            "templateData": "<button mat-flat-button color=\"primary\" [disabled]=\"disabled\">\r\n  <ng-content></ng-content>\r\n</button>\r\n"
         },
         {
             "name": "ButtonOutlineComponent",
-            "id": "component-ButtonOutlineComponent-5f096928261b4e4e5e0c470d6c9167e68b3f4b61d1e35887ab93e0e6a5485e9361fdb170666479b4cc901cd1bf59efaf626fa0345c0998df157f72f3a23e09ac",
+            "id": "component-ButtonOutlineComponent-12b7f3f055f920aee9b46344aa86888972b70bbd83084599772623a70ea4f6316c52ef67d3393a6097350f1cef540603b40c2252dc5ba206eba0e70adb4c2520",
             "file": "src/app/components/button-outline/button-outline.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -178,7 +178,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button-outline',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button-outline.component.html',\n  styleUrls: ['./button-outline.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonOutlineComponent {\n  @Input() disabled = false\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\r\nimport { MatButtonModule } from '@angular/material/button'\r\n\r\n@Component({\r\n  selector: 'app-button-outline',\r\n  standalone: true,\r\n  imports: [MatButtonModule],\r\n  templateUrl: './button-outline.component.html',\r\n  styleUrls: ['./button-outline.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonOutlineComponent {\r\n  @Input() disabled = false\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -188,12 +188,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<button mat-stroked-button color=\"primary\" [disabled]=\"disabled\">\n  <ng-content></ng-content>\n</button>\n"
+            "templateData": "<button mat-stroked-button color=\"primary\" [disabled]=\"disabled\">\r\n  <ng-content></ng-content>\r\n</button>\r\n"
         },
         {
             "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-0425db3f9265eb0ec5990987c9e6c6fa2287e77cdb9dbc01e1e5fad417ca88856d06503c9199dc9e82f935dbf3ab292eb9669d7ccefd6e9a2a0c7bf4ad201736",
+            "id": "component-CheckboxComponent-d1d678bce538c43649ffa4ff22d22f1662940a22d09e6ca7f79accb55cd5c981098cf2487435e788691f2a4520ccb18d56d56abf1c40120a2676bfcdf9d1eda4",
             "file": "src/app/components/checkbox/checkbox.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [
                 "ViewEncapsulation.None"
             ],
@@ -229,7 +230,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core'\nimport { MatCheckboxModule } from '@angular/material/checkbox'\n\n@Component({\n  selector: 'app-checkbox',\n  standalone: true,\n  imports: [MatCheckboxModule],\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class CheckboxComponent {}\n",
+            "sourceCode": "import {\r\n  ChangeDetectionStrategy,\r\n  Component,\r\n  ViewEncapsulation,\r\n} from '@angular/core'\r\nimport { MatCheckboxModule } from '@angular/material/checkbox'\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  standalone: true,\r\n  imports: [MatCheckboxModule],\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrls: ['./checkbox.component.scss'],\r\n  encapsulation: ViewEncapsulation.None,\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class CheckboxComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -239,12 +240,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-checkbox class=\"example-margin green\" color=\"primary\"\n  >Check me!</mat-checkbox\n>\n"
+            "templateData": "<mat-checkbox class=\"example-margin green\" color=\"primary\"\r\n  >Check me!</mat-checkbox\r\n>\r\n"
         },
         {
             "name": "FooterComponent",
-            "id": "component-FooterComponent-232ea95ae159bc76ea2a5954c0a43c0e719575763af5a9205955a18ec138494903f92f483f890c5d301fc3a4ad50824a32d6078f3770b12eeba5ac201bf9e419",
+            "id": "component-FooterComponent-2152acb446fe9179e2958bb439211bf021e7a057332506ed698056a5066512a4b1df9eb73ed5a07e8ac1d433bf7faa1e8dc2d39b4349979d346b2485381a42dd",
             "file": "src/app/components/footer/footer.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -278,7 +280,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-footer',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss']\n})\nexport class FooterComponent {\n\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common'\r\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\r\n\r\n@Component({\r\n  selector: 'app-footer',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './footer.component.html',\r\n  styleUrls: ['./footer.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class FooterComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -288,12 +290,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>footer works!</p>\n"
+            "templateData": "<p>footer works!</p>\r\n"
         },
         {
             "name": "HomePageComponent",
-            "id": "component-HomePageComponent-d64385e58a32239451b27ed0adb580fe70276ba11902ecaa61884594f5e579f2fd85c10e0bcf50c6dbade21644671ed47c002109b3be079a0ee011f579d9b1e9",
+            "id": "component-HomePageComponent-f51d35e25b725aa3f9ed404008736becf6aa17bb2a80a022ba71082cc747bd312a889f65498bca90f5fdd027fa1b7625c4a7acf25cb45d7461f955cfff51781b",
             "file": "src/app/pages/home-page/home-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -318,16 +321,11 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-home-page',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './home-page.component.html',\n  styleUrls: ['./home-page.component.scss']\n})\nexport class HomePageComponent {\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\r\n\r\n@Component({\r\n  selector: 'app-home-page',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './home-page.component.html',\r\n  styleUrls: ['./home-page.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class HomePageComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -337,11 +335,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>home-page works!</p>\n"
+            "templateData": "<p>home-page works!</p>\r\n"
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-5b8fb511138c0c42ed143a15c30e9f5972bea14f5b57fe3aabea657672afb92b1926c92956e9cd50e749a704e6d98398a358b7cb9c5f23b8818ed951e60be386",
+            "id": "component-InputComponent-5a986a73ad56f70cc32fb9ff05bc94f1bb217c82ecc54e681dab4ed5b29fb0de48f92de428c2bba00a4f5cd5bf9840f8efe9b7cbd0612466854a749be6329367",
             "file": "src/app/components/input/input.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -406,7 +404,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { FormControl, FormsModule, Validators } from '@angular/forms'\nimport { MatFormFieldModule } from '@angular/material/form-field'\nimport { MatInputModule } from '@angular/material/input'\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [FormsModule, MatFormFieldModule, MatInputModule],\n\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent {\n  @Input() type = 'text'\n  emailFormControl = new FormControl('', [Validators.required])\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\r\nimport { FormControl, FormsModule, Validators } from '@angular/forms'\r\nimport { MatFormFieldModule } from '@angular/material/form-field'\r\nimport { MatInputModule } from '@angular/material/input'\r\n\r\n@Component({\r\n  selector: 'app-input',\r\n  standalone: true,\r\n  imports: [FormsModule, MatFormFieldModule, MatInputModule],\r\n\r\n  templateUrl: './input.component.html',\r\n  styleUrls: ['./input.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class InputComponent {\r\n  @Input() type = 'text'\r\n  emailFormControl = new FormControl('', [Validators.required])\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -416,12 +414,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-form-field appearance=\"outline\" color=\"primary\">\n  <input matInput placeholder=\"Hola\" required />\n</mat-form-field>\n"
+            "templateData": "<mat-form-field appearance=\"outline\" color=\"primary\">\r\n  <input matInput placeholder=\"Hola\" required />\r\n</mat-form-field>\r\n"
         },
         {
             "name": "NavbarComponent",
-            "id": "component-NavbarComponent-830ee7d8e1e386cec75de89dccf36d4e815e2cec6d0e7e6575a4b3373c80b690fe11fc927081258183790137cb684bc2136e6bb2d752c1c4cd7150f3131f7b95",
+            "id": "component-NavbarComponent-a7904491d7a1fb325bd658ec0dfc590c544c4cb72c150bfd327ef3bf8b2b194e332a35572d7a42340d516d892bd427632d5443c24df36f8a1f8830f32a5b66ff",
             "file": "src/app/components/navbar/navbar.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -439,7 +438,18 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showFiller",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -448,29 +458,49 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "CommonModule",
+                    "name": "MatToolbarModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatIconModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatSidenavModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
+                },
+                {
+                    "name": "MatButtonModule",
                     "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-navbar',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss']\n})\nexport class NavbarComponent {\n\n}\n",
+            "sourceCode": "import { NgIf } from '@angular/common'\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { MatIconModule } from '@angular/material/icon'\nimport { MatSidenavModule } from '@angular/material/sidenav'\nimport { MatToolbarModule } from '@angular/material/toolbar'\n\n@Component({\n  selector: 'app-navbar',\n  standalone: true,\n  imports: [\n    MatToolbarModule,\n    MatButtonModule,\n    MatIconModule,\n    MatSidenavModule,\n    NgIf,\n    MatButtonModule,\n  ],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class NavbarComponent {\n  showFiller = false\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".example-spacer {\r\n  flex: 1 1 auto;\r\n}\r\n\r\n.example-container {\r\n  width: 400px;\r\n  height: 200px;\r\n  margin: 12px;\r\n  border: 1px solid #555;\r\n}\r\n\r\nmat-drawer-content {\r\n  padding: 12px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: flex-start;\r\n}",
                     "styleUrl": "./navbar.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>navbar works!</p>\n"
+            "templateData": "<mat-toolbar>\n  <button\n    mat-icon-button\n    class=\"example-icon\"\n    aria-label=\"Example icon-button with menu icon\">\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      x=\"0px\"\n      y=\"0px\"\n      width=\"100\"\n      height=\"100\"\n      viewBox=\"0 0 50 50\">\n      <path\n        d=\"M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z\"></path>\n    </svg>\n  </button>\n  <span>My App</span>\n  <span class=\"example-spacer\"></span>\n</mat-toolbar>\n<mat-drawer-container class=\"example-container\" autosize>\n  <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n    <p>Auto-resizing sidenav</p>\n    <p *ngIf=\"showFiller\">Lorem, ipsum dolor sit amet consectetur.</p>\n    <button (click)=\"showFiller = !showFiller\" mat-raised-button>\n      Toggle extra text\n    </button>\n  </mat-drawer>\n\n  <div class=\"example-sidenav-content\">\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n      Toggle sidenav\n    </button>\n  </div>\n</mat-drawer-container>\n"
         },
         {
             "name": "RenovacionesPageComponent",
-            "id": "component-RenovacionesPageComponent-73310397332f027ba95757f2e5b1a9298d26ada3e30f3f1c052ace87c7c89ffacce5fc0d68385ef13bdae6bee948f34649dcd9615798b59c8a959759ea3dd13a",
+            "id": "component-RenovacionesPageComponent-a6edcb4eae475865df5c91b1552226c647c7e0b5fd037bcfbc74eee8c375a614f50c9370a1c913cc3ec48578d6837585f126f02771bf9643fb7d8f96759eed43",
             "file": "src/app/pages/renovaciones-page/renovaciones-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -495,16 +525,11 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-renovaciones-page',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './renovaciones-page.component.html',\n  styleUrls: ['./renovaciones-page.component.scss']\n})\nexport class RenovacionesPageComponent {\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\r\n\r\n@Component({\r\n  selector: 'app-renovaciones-page',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './renovaciones-page.component.html',\r\n  styleUrls: ['./renovaciones-page.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class RenovacionesPageComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -514,12 +539,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>renovaciones-page works!</p>\n"
+            "templateData": "<p>renovaciones-page works!</p>\r\n"
         },
         {
             "name": "RenovacionesPageDetailsComponent",
-            "id": "component-RenovacionesPageDetailsComponent-12523481b6e3d2c33693475478d82175e0699777d30e22c9fa2e3cdeb8ad4820805f41c98ccfac15eb7e1e353f053c4f6c101970b41006a2bb72ddf0106ede95",
+            "id": "component-RenovacionesPageDetailsComponent-a11be3c610241ac5333d24c4d12ded008b987fddccb5d639e3ca68a210d2d6721c514686f1f436ec2a4e53c24093bfb9a5be609cd57a647a5a543302e4f57e8d",
             "file": "src/app/pages/renovaciones-page-details/renovaciones-page-details.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -544,16 +570,11 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-renovaciones-page-details',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './renovaciones-page-details.component.html',\n  styleUrls: ['./renovaciones-page-details.component.scss']\n})\nexport class RenovacionesPageDetailsComponent {\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\r\n\r\n@Component({\r\n  selector: 'app-renovaciones-page-details',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './renovaciones-page-details.component.html',\r\n  styleUrls: ['./renovaciones-page-details.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class RenovacionesPageDetailsComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -563,7 +584,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>renovaciones-page-details works!</p>\n"
+            "templateData": "<p>renovaciones-page-details works!</p>\r\n"
         }
     ],
     "modules": [],
@@ -577,7 +598,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
+                "defaultValue": "{\r\n  providers: [provideRouter(routes)],\r\n}"
             }
         ],
         "functions": [],
@@ -593,7 +614,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
+                    "defaultValue": "{\r\n  providers: [provideRouter(routes)],\r\n}"
                 }
             ]
         },
@@ -676,7 +697,7 @@
                 "linktype": "component",
                 "name": "NavbarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
