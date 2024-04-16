@@ -11,12 +11,9 @@ type Story = StoryObj<ButtonComponent>
 
 export const Primary: Story = {
   args: {
-    type: 'primary',
+    disabled: false,
   },
-}
-
-export const Outline: Story = {
-  args: {
-    type: 'outline',
-  },
+  render: args => ({
+    template: `<app-button disabled=${args.disabled}>Button</app-button>`,
+  }),
 }

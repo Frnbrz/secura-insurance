@@ -1,6 +1,10 @@
-.mat-mdc-unelevated-button:not(:disabled) {
-  border-radius: 8px;
-  color: black;
+.mat-mdc-outlined-button {
+
+  &:not(:disabled) {
+    border: 1px solid #9FC3E2;
+    color: #191C3D;
+    border-radius: 8px;
+  }
 
   &:hover {
     background-color: #6FA6D4;
@@ -9,6 +13,10 @@
   &:active {
     border: 1px solid #4B98D9;
   }
+}
+
+.mdc-button {
+  border-radius: 8px;
 }
 
 section {

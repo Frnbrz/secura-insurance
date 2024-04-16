@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-button-outline',
   standalone: true,
   imports: [MatButtonModule],
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  templateUrl: './button-outline.component.html',
+  styleUrls: ['./button-outline.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
+export class ButtonOutlineComponent {
   @Input() disabled = false
 }
