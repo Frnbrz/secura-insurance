@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-92f65213fce0a85341120ac5280fbdee48b63fe72757504d8f4a14d3afed9631f4210dbd2151bc2cba276ef3df2ffa0b7fd4010f72e2aaedff01fff944f89f16",
+            "id": "component-AppComponent-46e4164c69363a63f8780098a96a031b9892fdb4ce4ae7ecf9837e44f463cd68eeb6d3581126e502c981315c1af3e26233fc4bc9405b3cd582d529174e2e461c",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -58,7 +58,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { RouterOutlet } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [CommonModule, RouterOutlet],\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'secura-insurance';\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'secura-insurance';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -68,11 +68,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<span class=\"icon-trash\"></span>\r\n<router-outlet></router-outlet>\r\n"
+            "templateData": "<span class=\"icon-trash\"></span>\n<router-outlet></router-outlet>\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-afe6780541988c098c8173bd1e58eab55a52e5cd24987a2d5e73e2033201fdeb651defa6a181718e2de91cf7135c69efe3770b9efcc4aab0d2ab1330d8e85074",
+            "id": "component-ButtonComponent-a0c2a79f9d89dedb3299e0fea15e8cfdb0022b72f3789038f7801d80805bce013c87193b277c520f13cf28ad75e30a2b101bedda8d7c241b306404cd1a8fd7f1",
             "file": "src/app/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -91,20 +91,11 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "className",
-                    "defaultValue": "'primary'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 13,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
                     "name": "type",
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 13,
                     "type": "\"primary\" | \"outline\"",
                     "decorators": []
                 }
@@ -129,7 +120,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgIf } from '@angular/common'\nimport { Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [MatButtonModule, NgIf],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent {\n  @Input() className = 'primary'\n  @Input() type: 'primary' | 'outline' = 'primary'\n}\n",
+            "sourceCode": "import { NgIf } from '@angular/common'\nimport { Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [MatButtonModule, NgIf],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent {\n  @Input() type: 'primary' | 'outline' = 'primary'\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -139,7 +130,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<ng-container *ngIf=\"type === 'primary'\">\n  <button mat-flat-button color=\"primary\">\n    <ng-content></ng-content>\n  </button>\n</ng-container>\n\n<ng-container *ngIf=\"type === 'outline'\">\n  <button mat-stroked-button color=\"primary\">\n    <ng-content></ng-content>\n  </button>\n</ng-container>\n"
+            "templateData": "<ng-container *ngIf=\"type === 'primary'\">\n  <button mat-flat-button color=\"primary\">\n    <ng-content></ng-content> hola\n  </button>\n</ng-container>\n\n<ng-container *ngIf=\"type === 'outline'\">\n  <button mat-stroked-button color=\"primary\">\n    <ng-content></ng-content> hola\n  </button>\n</ng-container>\n"
         }
     ],
     "modules": [],
@@ -153,7 +144,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\r\n  providers: [provideRouter(routes)],\r\n}"
+                "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
             }
         ],
         "functions": [],
@@ -169,7 +160,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\r\n  providers: [provideRouter(routes)],\r\n}"
+                    "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
                 }
             ]
         },
@@ -207,7 +198,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/2",
                 "status": "low"
             }
         ]

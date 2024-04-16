@@ -10,6 +10,5 @@ import { MatButtonModule } from '@angular/material/button'
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() className = 'primary'
   @Input() type: 'primary' | 'outline' = 'primary'
 }

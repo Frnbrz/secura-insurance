@@ -11,14 +11,12 @@ type Story = StoryObj<ButtonComponent>
 
 export const Primary: Story = {
   args: {
-    className: 'primary',
     type: 'primary',
   },
 }
 
 export const Outline: Story = {
   args: {
-    className: 'outline',
     type: 'outline',
   },
 }
