@@ -1,19 +1,18 @@
-import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { FormControl, FormsModule, Validators } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule],
+
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-  @Input() id = ''
-  @Input() css: InputType['css'] = 'input-primary'
-  @Input() placeholder?: string | undefined
-  @Input() value?: string | number | undefined
-  @Input() customErrorMessages: Record<string, string> = {}
-  @Input() name!: string
+  @Input() type = 'text'
+  emailFormControl = new FormControl('', [Validators.required])
 }

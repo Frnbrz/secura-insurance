@@ -61,9 +61,11 @@ $secura-insurance-warn: mat.define-palette(mat.$red-palette);
 $secura-insurance-theme: mat.define-light-theme((color: (primary: $secura-insurance-primary,
         accent: $secura-insurance-accent,
         warn: $secura-insurance-warn,
-      ), typography: $my-custom-typography-config));
+        foreground: $color-text,
+      ), typography: $my-custom-typography-config ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($secura-insurance-theme);
+@include mat.form-field-density(-5);
