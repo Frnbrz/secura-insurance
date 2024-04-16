@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-02922c07818bd73fad24a6dc61f2bfea0f26f5230d119a28271caa407c8440cb096aca97f5abcf662f2c9d71d7bae3c01ac1603316f71974ba2a665626370346",
+            "id": "component-AppComponent-a0b304f3442a4c5594543c2bb420a05e143e0a2d1394bb035c1acb605c4046ecf3560b5ce9904b2c6db41810b24701d70e07a8272752520354c3a24f31d23840",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -37,7 +37,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 13
                 }
             ],
             "methodsClass": [],
@@ -53,16 +53,12 @@
                 },
                 {
                     "name": "RouterOutlet"
-                },
-                {
-                    "name": "ButtonComponent",
-                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { Component } from '@angular/core'\nimport { RouterOutlet } from '@angular/router'\nimport { ButtonComponent } from './components'\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, ButtonComponent],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'secura-insurance'\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { Component } from '@angular/core'\nimport { RouterOutlet } from '@angular/router'\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'secura-insurance'\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -72,12 +68,13 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<app-button type=\"primary\">hola</app-button>\n<app-button type=\"outline\">hola</app-button>\n<router-outlet></router-outlet>\n"
+            "templateData": "<router-outlet></router-outlet>\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-f8fbe7fac52e79798d1d0661e269db426e774ac0e9662a5dba830aa12fbf8a0bcbe552cad22af49e0155fbdf49bcac3610e6a55e291018b7e79394ad5874c338",
+            "id": "component-ButtonComponent-01208f7831f2836c8fe603d524e882c6cedb992a09c8d5ef8586a98ed7dc565abe7b12787e8ac7d533497c58b0dfcd0b075b379d6434c832f850f1b8549e4131",
             "file": "src/app/components/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -99,7 +96,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -121,11 +118,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent {\n  @Input() disabled = false\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input() disabled = false\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".mat-mdc-unelevated-button:not(:disabled) {\r\n  border-radius: 8px;\r\n  color: black;\r\n}\r\n\r\n\r\n\r\n\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
+                    "data": ".mat-mdc-unelevated-button:not(:disabled) {\r\n  border-radius: 8px;\r\n  color: black;\r\n\r\n  &:hover {\r\n    background-color: #6FA6D4;\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid #4B98D9;\r\n  }\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -135,8 +132,9 @@
         },
         {
             "name": "ButtonOutlineComponent",
-            "id": "component-ButtonOutlineComponent-9dc79e5d6e3e09ca745ccc09cfc9901088e8e01fb2537857248c70c4dbc25ab7901cc82416fa5ff784aa0622f0334fe1dc077f330f9f31588513d58c2e346ddd",
+            "id": "component-ButtonOutlineComponent-5f096928261b4e4e5e0c470d6c9167e68b3f4b61d1e35887ab93e0e6a5485e9361fdb170666479b4cc901cd1bf59efaf626fa0345c0998df157f72f3a23e09ac",
             "file": "src/app/components/button-outline/button-outline.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -158,7 +156,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -180,11 +178,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button-outline',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button-outline.component.html',\n  styleUrls: ['./button-outline.component.scss'],\n})\nexport class ButtonOutlineComponent {\n  @Input() disabled = false\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\n\n@Component({\n  selector: 'app-button-outline',\n  standalone: true,\n  imports: [MatButtonModule],\n  templateUrl: './button-outline.component.html',\n  styleUrls: ['./button-outline.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonOutlineComponent {\n  @Input() disabled = false\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".mat-mdc-outlined-button {\r\n\r\n  &:not(:disabled) {\r\n    border: 1px solid #9FC3E2;\r\n    color: #191C3D;\r\n    border-radius: 8px;\r\n  }\r\n}\r\n\r\n.mdc-button {\r\n  border-radius: 8px;\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
+                    "data": ".mat-mdc-outlined-button {\r\n\r\n  &:not(:disabled) {\r\n    border: 1px solid #9FC3E2;\r\n    color: #191C3D;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: #6FA6D4;\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid #4B98D9;\r\n  }\r\n}\r\n\r\n.mdc-button {\r\n  border-radius: 8px;\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
                     "styleUrl": "./button-outline.component.scss"
                 }
             ],
@@ -193,21 +191,72 @@
             "templateData": "<button mat-stroked-button color=\"primary\" [disabled]=\"disabled\">\n  <ng-content></ng-content>\n</button>\n"
         },
         {
-            "name": "InputComponent",
-            "id": "component-InputComponent-9f46b28d6d55d4cc56429ac3216c3eb1fc481231dbc713c2815da744601d0fa522d3139e6be9faba37239769f54ee0d5884cf2ee98a5eefb0a71e6db0821a6e9",
-            "file": "src/app/components/input/input.component.ts",
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-0425db3f9265eb0ec5990987c9e6c6fa2287e77cdb9dbc01e1e5fad417ca88856d06503c9199dc9e82f935dbf3ab292eb9669d7ccefd6e9a2a0c7bf4ad201736",
+            "file": "src/app/components/checkbox/checkbox.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-checkbox",
+            "styleUrls": [
+                "./checkbox.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatCheckboxModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core'\nimport { MatCheckboxModule } from '@angular/material/checkbox'\n\n@Component({\n  selector: 'app-checkbox',\n  standalone: true,\n  imports: [MatCheckboxModule],\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class CheckboxComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: #4B98D9;\r\n  --mdc-checkbox-selected-mixedmark-color: #4B98D9;\r\n\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {\r\n  border-color: #0087ff !important;\r\n  border-top-color: rgb(0, 135, 255) !important;\r\n  border-right-color: rgb(0, 135, 255) !important;\r\n  border-bottom-color: rgb(0, 135, 255) !important;\r\n  border-left-color: rgb(0, 135, 255) !important;\r\n  background-color: #cfe1f100 !important;\r\n  border-radius: 6px !important;\r\n  border: 2px solid #0087ff !important;\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {\r\n  border-radius: 6px;\r\n  border: 2px solid !important;\r\n  opacity: 0.5;\r\n}\r\n\r\n\r\n.mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: #4B98D9;\r\n  --mdc-checkbox-selected-mixedmark-color: #4B98D9;\r\n  --mdc-checkbox-unchecked-color: #4B98D9;\r\n}",
+                    "styleUrl": "./checkbox.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-checkbox class=\"example-margin green\" color=\"primary\"\n  >Check me!</mat-checkbox\n>\n"
+        },
+        {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-232ea95ae159bc76ea2a5954c0a43c0e719575763af5a9205955a18ec138494903f92f483f890c5d301fc3a4ad50824a32d6078f3770b12eeba5ac201bf9e419",
+            "file": "src/app/components/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-input",
+            "selector": "app-footer",
             "styleUrls": [
-                "./input.component.scss"
+                "./footer.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./input.component.html"
+                "./footer.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
@@ -229,17 +278,292 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-footer',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss']\n})\nexport class FooterComponent {\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "",
+                    "styleUrl": "./footer.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>footer works!</p>\n"
+        },
+        {
+            "name": "HomePageComponent",
+            "id": "component-HomePageComponent-d64385e58a32239451b27ed0adb580fe70276ba11902ecaa61884594f5e579f2fd85c10e0bcf50c6dbade21644671ed47c002109b3be079a0ee011f579d9b1e9",
+            "file": "src/app/pages/home-page/home-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-home-page",
+            "styleUrls": [
+                "./home-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./home-page.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-home-page',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './home-page.component.html',\n  styleUrls: ['./home-page.component.scss']\n})\nexport class HomePageComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./home-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>home-page works!</p>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-5b8fb511138c0c42ed143a15c30e9f5972bea14f5b57fe3aabea657672afb92b1926c92956e9cd50e749a704e6d98398a358b7cb9c5f23b8818ed951e60be386",
+            "file": "src/app/components/input/input.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "emailFormControl",
+                    "defaultValue": "new FormControl('', [Validators.required])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatFormFieldModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatInputModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { FormControl, FormsModule, Validators } from '@angular/forms'\nimport { MatFormFieldModule } from '@angular/material/form-field'\nimport { MatInputModule } from '@angular/material/input'\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [FormsModule, MatFormFieldModule, MatInputModule],\n\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent {\n  @Input() type = 'text'\n  emailFormControl = new FormControl('', [Validators.required])\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host ::ng-deep .mdc-text-field--outlined {\r\n  --mdc-outlined-text-field-container-shape: 9px;\r\n}\r\n\r\n.mat-mdc-input-element {\r\n  color: #191C3D;\r\n}\r\n\r\n\r\n.mdc-text-field--filled {\r\n  border: 1px solid #ccc;\r\n}\r\n\r\n.example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n\r\ntd {\r\n  padding-right: 8px;\r\n}",
                     "styleUrl": "./input.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>input works!</p>\n"
+            "templateData": "<mat-form-field appearance=\"outline\" color=\"primary\">\n  <input matInput placeholder=\"Hola\" required />\n</mat-form-field>\n"
+        },
+        {
+            "name": "NavbarComponent",
+            "id": "component-NavbarComponent-830ee7d8e1e386cec75de89dccf36d4e815e2cec6d0e7e6575a4b3373c80b690fe11fc927081258183790137cb684bc2136e6bb2d752c1c4cd7150f3131f7b95",
+            "file": "src/app/components/navbar/navbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-navbar",
+            "styleUrls": [
+                "./navbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./navbar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-navbar',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss']\n})\nexport class NavbarComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./navbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>navbar works!</p>\n"
+        },
+        {
+            "name": "RenovacionesPageComponent",
+            "id": "component-RenovacionesPageComponent-73310397332f027ba95757f2e5b1a9298d26ada3e30f3f1c052ace87c7c89ffacce5fc0d68385ef13bdae6bee948f34649dcd9615798b59c8a959759ea3dd13a",
+            "file": "src/app/pages/renovaciones-page/renovaciones-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-renovaciones-page",
+            "styleUrls": [
+                "./renovaciones-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./renovaciones-page.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-renovaciones-page',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './renovaciones-page.component.html',\n  styleUrls: ['./renovaciones-page.component.scss']\n})\nexport class RenovacionesPageComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./renovaciones-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>renovaciones-page works!</p>\n"
+        },
+        {
+            "name": "RenovacionesPageDetailsComponent",
+            "id": "component-RenovacionesPageDetailsComponent-12523481b6e3d2c33693475478d82175e0699777d30e22c9fa2e3cdeb8ad4820805f41c98ccfac15eb7e1e353f053c4f6c101970b41006a2bb72ddf0106ede95",
+            "file": "src/app/pages/renovaciones-page-details/renovaciones-page-details.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-renovaciones-page-details",
+            "styleUrls": [
+                "./renovaciones-page-details.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./renovaciones-page-details.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-renovaciones-page-details',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './renovaciones-page-details.component.html',\n  styleUrls: ['./renovaciones-page-details.component.scss']\n})\nexport class RenovacionesPageDetailsComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./renovaciones-page-details.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>renovaciones-page-details works!</p>\n"
         }
     ],
     "modules": [],
@@ -320,10 +644,64 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/checkbox/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/input/input.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/navbar/navbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/home-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomePageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/renovaciones-page-details/renovaciones-page-details.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RenovacionesPageDetailsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/renovaciones-page/renovaciones-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RenovacionesPageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
