@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import {
   FormControl,
@@ -34,6 +35,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    NgIf,
   ],
 
   templateUrl: './input.component.html',

@@ -5,8 +5,10 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { LanguageMenuComponent } from './components/language-menu/language-menu.component'
-import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component'
+import {
+  LanguageMenuComponent,
+  ProfileMenuComponent,
+} from '@src/app/components/navbar'
 
 @Component({
   selector: 'app-navbar',

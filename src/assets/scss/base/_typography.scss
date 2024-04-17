@@ -38,6 +38,10 @@ strong {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-language:before {
+  content: "\e90a";
+}
+
 .icon-arrow:before {
   content: "\e909";
 }
