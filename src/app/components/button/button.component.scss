@@ -3,11 +3,11 @@
   color: black;
 
   &:hover {
-    background-color: #6FA6D4;
+    background-color: var(--color-primary-75);
   }
 
   &:active {
-    border: 1px solid #4B98D9;
+    border: 1px solid var(--color-primary);
   }
 }
 

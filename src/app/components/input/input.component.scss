@@ -8,9 +8,9 @@
 
 
 .mat-mdc-input-element {
-  color: #191C3D;
+  color: var(--color-text)
 }
 
 .mdc-text-field--filled {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-grey-25);
 }

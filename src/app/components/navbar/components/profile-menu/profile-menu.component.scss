@@ -1,0 +1,47 @@
+.profile-button {
+  background-color: transparent;
+  border: 0px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited,
+  &:link,
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.button-content {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+
+
+  .button-text {
+    color: var(--color-text);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .button-icon {
+    margin-right: 0.5rem;
+  }
+}
+
+.button-icon {
+  color: var(--color-primary);
+}

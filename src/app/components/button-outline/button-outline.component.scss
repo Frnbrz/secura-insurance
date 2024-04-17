@@ -1,17 +1,17 @@
 .mat-mdc-outlined-button {
 
   &:not(:disabled) {
-    border: 1px solid #9FC3E2;
-    color: #191C3D;
+    border: 1px solid var(--color-primary-50);
+    color: var(--color-text);
     border-radius: 8px;
   }
 
   &:hover {
-    background-color: #6FA6D4;
+    background-color: var(--color-primary-75);
   }
 
   &:active {
-    border: 1px solid #4B98D9;
+    border: 1px solid var(--color-primary);
   }
 }
 

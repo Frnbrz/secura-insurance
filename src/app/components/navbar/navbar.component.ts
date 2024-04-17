@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { LanguageMenuComponent } from './components/language-menu/language-menu.component'
+import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component'
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +18,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'
     MatSidenavModule,
     MatTooltipModule,
     NgOptimizedImage,
+    ProfileMenuComponent,
+    LanguageMenuComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],

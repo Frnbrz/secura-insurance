@@ -1,3 +1,13 @@
 <mat-form-field appearance="outline" color="primary" class="test">
-  <input matInput placeholder="Hola" required />
+  <input
+    matInput
+    [type]="type"
+    required
+    [formControl]="inputFormControl"
+    [errorStateMatcher]="matcher"
+    [placeholder]="placeHolder" />
+  <mat-hint></mat-hint>
+  <mat-error *ngIf="inputFormControl.hasError('required')">
+    Email is <strong>required</strong>
+  </mat-error>
 </mat-form-field>

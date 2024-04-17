@@ -29,3 +29,29 @@ $color-text-light: #F7F7FC;
 // FONT
 $default-font-size: 16px;
 $default-font-family: 'Roboto', sans-serif;
+
+:root {
+  --color-primary: #4B98D9;
+  --color-primary-75: #6FA6D4;
+  --color-primary-50: #9FC3E2;
+  --color-primary-25: #CFE1F1;
+
+  --color-grey: #353535;
+  --color-grey-75: #686868;
+  --color-grey-50: #9A9A9A;
+  --color-grey-25: #CDCDCD;
+  --color-light: #FAFCFE;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  --color-success: #3BD378;
+  --color-danger: #E75249;
+  --color-text: #191C3D;
+
+  --color-text-subtitle: #7579A0;
+  --color-text-acent: #D8DBF5;
+  --color-text-light: #F7F7FC;
+
+  --default-font-size: 16px;
+  --default-font-family: 'Roboto', sans-serif;
+}
