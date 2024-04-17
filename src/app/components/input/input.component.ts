@@ -14,5 +14,5 @@ import { MatInputModule } from '@angular/material/input'
 })
 export class InputComponent {
   @Input() type = 'text'
-  emailFormControl = new FormControl('', [Validators.required])
+  inputFormControl = new FormControl('', [Validators.required])
 }
