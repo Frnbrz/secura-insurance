@@ -12,6 +12,7 @@
       </trans-unit>
       <trans-unit id="1926157928707021468" datatype="html">
         <source>Inicio</source>
+        <target>Home</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
           <context context-type="linenumber">15</context>
@@ -19,6 +20,7 @@
       </trans-unit>
       <trans-unit id="6636222495056753380" datatype="html">
         <source>Proximas Renovaciones</source>
+        <target>Upcoming Renewals</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/navbar/navbar.component.html</context>
           <context context-type="linenumber">18</context>
@@ -26,6 +28,7 @@
       </trans-unit>
       <trans-unit id="3024422720051450179" datatype="html">
         <source>Bienvenido a tu área personal</source>
+        <target>Welcome to your personal area</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home-page/components/hero/hero.component.html</context>
           <context context-type="linenumber">3</context>
@@ -33,6 +36,7 @@
       </trans-unit>
       <trans-unit id="3450978663248561302" datatype="html">
         <source> Gracias a ti más personas pueden disfrutar de una vida más segura </source>
+        <target>Thanks to you more people can enjoy a safer life</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home-page/components/hero/hero.component.html</context>
           <context context-type="linenumber">4,6</context>

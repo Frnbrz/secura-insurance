@@ -1,12 +1,14 @@
-<mat-toolbar>
+<mat-toolbar class="header">
   <img
     width="88"
     height="64"
     class="social-media-element__img"
     ngSrc="assets/img/logo.svg"
     alt="Logo of Secure Insurance" />
-  <h3 i18n>Hello World</h3>
-  <a class="navbar-brand" href="#">Secure Insurance</a>
+  <nav>
+    <app-link to="/">Inicio</app-link>
+    <app-link to="/renovaciones">Proximas Renovaciones</app-link>
+  </nav>
   <span class="example-spacer"></span>
   <app-profile-menu />
   <app-language-menu />

@@ -9,6 +9,7 @@ import {
   LanguageMenuComponent,
   ProfileMenuComponent,
 } from '@src/app/components/navbar'
+import { LinkComponent } from '../link/link.component'
 
 @Component({
   selector: 'app-navbar',
@@ -22,6 +23,7 @@ import {
     NgOptimizedImage,
     ProfileMenuComponent,
     LanguageMenuComponent,
+    LinkComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],

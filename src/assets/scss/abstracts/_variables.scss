@@ -25,6 +25,9 @@ $color-text-acent: #D8DBF5;
 $color-text-light: #F7F7FC;
 // END OF COLORS
 
+// BACKGROUND
+$color-background: #EFF3F5;
+
 
 // FONT
 $default-font-size: 16px;
@@ -35,6 +38,7 @@ $default-font-family: 'Roboto', sans-serif;
   --color-primary-75: #6FA6D4;
   --color-primary-50: #9FC3E2;
   --color-primary-25: #CFE1F1;
+
 
   --color-grey: #353535;
   --color-grey-75: #686868;
@@ -51,6 +55,8 @@ $default-font-family: 'Roboto', sans-serif;
   --color-text-subtitle: #7579A0;
   --color-text-acent: #D8DBF5;
   --color-text-light: #F7F7FC;
+
+  --color-background: #EFF3F5;
 
   --default-font-size: 16px;
   --default-font-family: 'Roboto', sans-serif;

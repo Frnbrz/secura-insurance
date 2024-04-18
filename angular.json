@@ -5,9 +5,9 @@
   "projects": {
     "secura-insurance": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "es-PR",
         "locales": {
-          "es-PR": "src/locale/messages.es.xlf"
+          "en-US": "src/locale/messages.en.xlf"
         }
       },
       "projectType": "application",

@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-actions align="end">
+      <div class="icon-trash"></div>
+    </mat-card-actions>
+
+    <mat-card-title>{{ ClienteElement.personalData.name }}</mat-card-title>
+    <mat-card-subtitle
+      >Producto a ofrecer: {{ ClienteElement.offerProduct }}</mat-card-subtitle
+    >
+  </mat-card-header>
+
+  <mat-card-actions align="start">
+    <p>Email: {{ ClienteElement.personalData.email }}</p>
+    <p>Teléfono: {{ ClienteElement.personalData.phone }}</p>
+  </mat-card-actions>
+</mat-card>
