@@ -7,18 +7,12 @@
 .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
 .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
 .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
-  border-color: var(--color-primary) !important;
-  border-top-color: var(--color-primary) !important;
-  border-right-color: var(--color-primary) !important;
-  border-bottom-color: var(--color-primary) !important;
-  border-left-color: var(--color-primary) !important;
-  border-radius: 6px !important;
-  border: 2px solid var(--color-primary) !important;
+  border-radius: 6px;
 }
 
 .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
   border-radius: 6px;
-  border: 2px solid !important;
+  border: 2px solid;
   opacity: 0.5;
 }
 
