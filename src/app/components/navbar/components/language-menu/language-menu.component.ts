@@ -1,5 +1,5 @@
 import { NgClass, NgFor } from '@angular/common'
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
@@ -11,6 +11,7 @@ import { LANGUAGES, LanguageInterface } from '@src/app/components/navbar'
   imports: [MatButtonModule, MatMenuModule, MatIconModule, NgFor, NgClass],
   templateUrl: './language-menu.component.html',
   styleUrls: ['./language-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LanguageMenuComponent {
   languages: LanguageInterface[] = LANGUAGES

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
@@ -9,5 +9,6 @@ import { MatMenuModule } from '@angular/material/menu'
   imports: [MatButtonModule, MatMenuModule, MatIconModule],
   templateUrl: './profile-menu.component.html',
   styleUrls: ['./profile-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileMenuComponent {}

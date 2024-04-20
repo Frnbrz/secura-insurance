@@ -1,4 +1,13 @@
-export const LISTADO_RENOVACIONES = [
+export interface RenovacionesInterface {
+  nPolicy: number
+  riskName: string
+  contractDate: string
+  expirationDate: string
+  amount: number
+  state: string
+}
+
+export const LISTADO_RENOVACIONES: RenovacionesInterface[] = [
   {
     nPolicy: 1001,
     riskName: 'Automóvil',

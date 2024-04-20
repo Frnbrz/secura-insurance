@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { ButtonComponent } from '@src/app/components'
 import { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-table.component'
 
@@ -8,5 +8,6 @@ import { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-t
   imports: [ButtonComponent, RenovacionesTableComponent],
   templateUrl: './proximas-renovaciones.component.html',
   styleUrls: ['./proximas-renovaciones.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProximasRenovacionesComponent {}
