@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'
 import {
   CLIENTES_POTENCIALES,
   ClientePotencialInterface,
@@ -9,7 +10,7 @@ import { CardComponent } from '../card/card.component'
 @Component({
   selector: 'app-clientes-potenciales',
   standalone: true,
-  imports: [CardComponent, NgFor],
+  imports: [CardComponent, NgFor, SectionContainerComponent],
   templateUrl: './clientes-potenciales.component.html',
   styleUrls: ['./clientes-potenciales.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
