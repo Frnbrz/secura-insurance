@@ -1,0 +1,17 @@
+<div [ngSwitch]="status">
+  <div *ngSwitchCase="'pendiente'">
+    <p class="flag flag--pending"><span class="icon-clock"></span>Pendiente</p>
+  </div>
+  <div *ngSwitchCase="'pagada'">
+    <p class="flag flag--pay">
+      <span class="icon-check"></span>
+      Pagada
+    </p>
+  </div>
+  <div *ngSwitchDefault>
+    <p class="flag flag--unpay">
+      <span class="icon-close"></span>
+      Vencido
+    </p>
+  </div>
+</div>

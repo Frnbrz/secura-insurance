@@ -1,0 +1,28 @@
+.flag {
+  width: fit-content;
+  height: 24px;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+
+
+  &--pending {
+    background: var(--Informative-Washed, #FFE74F66);
+
+  }
+
+  &--pay {
+    background: var(--Success-Washed, #57AE6026);
+    // background: var(--color-pay);
+    color: var(--color-pay);
+  }
+
+
+  &--unpay {
+    background: var(--Error-Washed, #DB39001F);
+
+    color: var(--color-unpay);
+  }
+}
