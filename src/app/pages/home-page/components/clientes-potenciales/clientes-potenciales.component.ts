@@ -17,4 +17,10 @@ import { CardComponent } from '../card/card.component'
 })
 export class ClientesPotencialesComponent {
   clientesPotenciales: ClientePotencialInterface[] = CLIENTES_POTENCIALES
+
+  removeClientePotencial(clientePotencial: ClientePotencialInterface) {
+    this.clientesPotenciales = this.clientesPotenciales.filter(
+      c => c !== clientePotencial
+    )
+  }
 }

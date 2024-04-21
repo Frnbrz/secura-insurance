@@ -1,7 +1,12 @@
 <mat-card>
   <mat-card-header>
     <mat-card-actions align="end">
-      <div class="icon-trash"></div>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <div class="icon-trash"></div>
+      </button>
     </mat-card-actions>
 
     <mat-card-title>{{ ClienteElement.personalData.name }}</mat-card-title>
