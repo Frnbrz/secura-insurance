@@ -11,7 +11,7 @@
     ></span>
   </div>
 </button>
-<mat-menu #beforeMenu="matMenu" xPosition="before">
+<mat-menu #beforeMenu="matMenu" xPosition="before" class="menu">
   <div mat-menu-item>
     <strong> Mi Perfil </strong>
     <p>
@@ -22,16 +22,18 @@
 
   <mat-divider />
   <button mat-menu-item>
-    <span class="icon-user"></span>Mis datos personales
+    <span class="icon-user button-icon"></span>Mis datos personales
   </button>
-  <mat-divider />
-  <button mat-menu-item active>
-    <span class="icon-lock"></span>Mi contraseña
-  </button>
-  <mat-divider />
-  <button mat-menu-item><span class="icon-phone"></span>Contacto</button>
   <mat-divider />
   <button mat-menu-item>
-    <span class="icon-power-off"></span>Cerrar sesión
+    <span class="icon-lock button-icon"></span>Mi contraseña
+  </button>
+  <mat-divider />
+  <button mat-menu-item>
+    <span class="icon-phone button-icon"></span>Contacto
+  </button>
+  <mat-divider />
+  <button mat-menu-item>
+    <span class="icon-power-off button-icon"></span>Cerrar sesión
   </button>
 </mat-menu>

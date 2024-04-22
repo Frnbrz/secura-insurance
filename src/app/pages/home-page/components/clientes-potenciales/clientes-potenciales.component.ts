@@ -20,7 +20,7 @@ export class ClientesPotencialesComponent {
 
   removeClientePotencial(clientePotencial: ClientePotencialInterface) {
     this.clientesPotenciales = this.clientesPotenciales.filter(
-      c => c !== clientePotencial
+      cliente => cliente !== clientePotencial
     )
   }
 }

@@ -1,11 +1,14 @@
-import { JsonPipe } from '@angular/common'
+import { JsonPipe, NgClass } from '@angular/common'
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
+  ViewChild,
 } from '@angular/core'
-import { MatTableModule } from '@angular/material/table'
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'
+import { MatTableDataSource, MatTableModule } from '@angular/material/table'
+
 import {
   LISTADO_RENOVACIONES,
   RenovacionesInterface,
@@ -14,14 +17,40 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
 @Component({
   selector: 'app-renovaciones-table',
   standalone: true,
-  imports: [MatTableModule, JsonPipe, StatusFlagComponent],
+  imports: [
+    MatTableModule,
+    JsonPipe,
+    StatusFlagComponent,
+    MatPaginatorModule,
+    NgClass,
+  ],
   templateUrl: './renovaciones-table.component.html',
   styleUrls: ['./renovaciones-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenovacionesTableComponent implements OnInit {
+export class RenovacionesTableComponent implements AfterViewInit {
   @Input() isOnHomePage = false
-  renovaciones: RenovacionesInterface[] | [] = []
+  dataSource:
+    | MatTableDataSource<RenovacionesInterface>
+    | RenovacionesInterface[] = []
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator | null
+
+  ngAfterViewInit() {
+    if (this.isOnHomePage) {
+      this.dataSource = new MatTableDataSource<RenovacionesInterface>(
+        LISTADO_RENOVACIONES.slice(-3)
+      )
+
+      // this.renovaciones = LISTADO_RENOVACIONES.slice(-3)
+    } else {
+      // this.renovaciones = LISTADO_RENOVACIONES
+      this.dataSource = new MatTableDataSource<RenovacionesInterface>(
+        LISTADO_RENOVACIONES
+      )
+      this.dataSource.paginator = this.paginator
+    }
+  }
 
   displayedColumns: string[] = [
     'nPolicy',
@@ -31,13 +60,4 @@ export class RenovacionesTableComponent implements OnInit {
     'amount',
     'state',
   ]
-
-  ngOnInit() {
-    if (this.isOnHomePage) {
-      console.log(LISTADO_RENOVACIONES.slice(-3))
-      this.renovaciones = LISTADO_RENOVACIONES.slice(-3)
-    } else {
-      this.renovaciones = LISTADO_RENOVACIONES
-    }
-  }
 }

@@ -2,7 +2,9 @@
   <h3>Clientes potenciales</h3>
   <article class="clientes-container">
     <div *ngFor="let clientePotencial of clientesPotenciales">
-      <app-card [ClienteElement]="clientePotencial" />
+      <app-card
+        [ClienteElement]="clientePotencial"
+        (click)="removeClientePotencial(clientePotencial)" />
     </div>
   </article>
 </app-section-container>

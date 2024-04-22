@@ -1,15 +1,690 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "ClientePotencialInterface",
+            "id": "interface-ClientePotencialInterface-0d5f55ea7b80b2b7a8d58cea02c6a6fa8591203478f905bb8e19eea725a0aa554ec4e4101ddc822dc255a4dcbf596fa848921778a72384f776ea5e602ce82690",
+            "file": "src/core/data/clientes_potenciales.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface ClientePotencialInterface {\n  offerProduct: string\n  personalData: {\n    name: string\n    surname: string\n    email: string\n    phone: string\n  }\n}\n\nexport const CLIENTES_POTENCIALES: ClientePotencialInterface[] = [\n  {\n    offerProduct: 'Seguro de vida',\n    personalData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    offerProduct: 'Seguro de moto',\n    personalData: {\n      name: 'María',\n      surname: 'González',\n      email: 'maria.gonzalez@example.com',\n      phone: '+1987654321',\n    },\n  },\n  {\n    offerProduct: 'Seguro de casa',\n    personalData: {\n      name: 'Carlos',\n      surname: 'Sánchez',\n      email: 'carlos.sanchez@example.com',\n      phone: '+1122334455',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "offerProduct",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "personalData",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "ContactDataInterface",
+            "id": "interface-ContactDataInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 58
+                },
+                {
+                    "name": "email2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 59
+                },
+                {
+                    "name": "phone",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 60
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "CorrespondenceAddressInterface",
+            "id": "interface-CorrespondenceAddressInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "address",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 49
+                },
+                {
+                    "name": "addressCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 53
+                },
+                {
+                    "name": "cif",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 48
+                },
+                {
+                    "name": "city",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 51
+                },
+                {
+                    "name": "country",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 52
+                },
+                {
+                    "name": "detail",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 54
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 47
+                },
+                {
+                    "name": "postalCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 50
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "DetalleInterface",
+            "id": "interface-DetalleInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "contactData",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ContactDataInterface",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "correspondenceAddress",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CorrespondenceAddressInterface",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "instalments",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "InstalmentInterface[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "invoicingDepartment",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "InvoicingDepartmentInterface",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "nPolicy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "ownerData",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "OwnerDataInterface",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "paymentMethod",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PaymentMethodInterface",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "riskName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "InstalmentInterface",
+            "id": "interface-InstalmentInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "amount",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "endDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "issueDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "startDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "state",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "InvoicingDepartmentInterface",
+            "id": "interface-InvoicingDepartmentInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "address",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "addressCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "city",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "country",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "postalCode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "LanguageInterface",
+            "id": "interface-LanguageInterface-3442d64a62d548469b62af49f71ae3a2520ee90059a5b775031ad6328781efd9ae5a814527242a1103b275a16c12f9e9a0cf62ad3322b7ea0b2df96c2defedb5",
+            "file": "src/app/components/navbar/models/language.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface LanguageInterface {\n  id: string\n  name: string\n}\n",
+            "properties": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "OwnerDataInterface",
+            "id": "interface-OwnerDataInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "cif",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "fiscalAddress",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "phone",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "state",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "surname",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "PaymentMethodInterface",
+            "id": "interface-PaymentMethodInterface-120e32bdab0c820895a61fefd70276650cce3b32ede4996439857f3f03d7cd4571f099734da393b5773c5a69187fbf302b912188c80114e9518170d84aa109bf",
+            "file": "src/core/data/detalle.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DetalleInterface {\n  nPolicy: number\n  riskName: string\n  ownerData: OwnerDataInterface\n  invoicingDepartment: InvoicingDepartmentInterface\n  instalments: InstalmentInterface[]\n  paymentMethod: PaymentMethodInterface\n  correspondenceAddress: CorrespondenceAddressInterface\n  contactData: ContactDataInterface\n}\n\nexport interface OwnerDataInterface {\n  name: string\n  surname: string\n  cif: string\n  email: string\n  phone: string\n  fiscalAddress: string\n  state: string\n}\n\nexport interface InvoicingDepartmentInterface {\n  address: string\n  addressCode: string\n  postalCode: string\n  city: string\n  country: string\n}\n\nexport interface InstalmentInterface {\n  issueDate: string\n  startDate: string\n  endDate: string\n  amount: number\n  state: string\n}\n\nexport interface PaymentMethodInterface {\n  name: string\n  cif: string\n  type: string\n  iban: string\n  bank: string\n}\n\nexport interface CorrespondenceAddressInterface {\n  name: string\n  cif: string\n  address: string\n  postalCode: string\n  city: string\n  country: string\n  addressCode: string\n  detail: string\n}\n\nexport interface ContactDataInterface {\n  email: string\n  email2: string\n  phone: string\n}\n\nexport const DETALLE: DetalleInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "bank",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 43
+                },
+                {
+                    "name": "cif",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                },
+                {
+                    "name": "iban",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 39
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "RenovacionesInterface",
+            "id": "interface-RenovacionesInterface-974f83e6e8818d40e25c4068b906bfe82ee908d54c058f5ea435ffbf902ec95bd787b2435d80c8912caabf07d392ff2bc86ed37c3124b9b9e26b1ecee5394ba2",
+            "file": "src/core/data/listado_renovaciones.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface RenovacionesInterface {\n  nPolicy: number\n  riskName: string\n  contractDate: string\n  expirationDate: string\n  amount: number\n  state: string\n}\n\nexport const LISTADO_RENOVACIONES: RenovacionesInterface[] = [\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    contractDate: '2023-05-20T00:00:00Z',\n    expirationDate: '2024-05-20T00:00:00Z',\n    amount: 1200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    contractDate: '2023-07-10T00:00:00Z',\n    expirationDate: '2024-07-10T00:00:00Z',\n    amount: 800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1003,\n    riskName: 'Vida',\n    contractDate: '2023-09-15T00:00:00Z',\n    expirationDate: '2024-09-15T00:00:00Z',\n    amount: 1500,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1004,\n    riskName: 'Salud',\n    contractDate: '2023-10-30T00:00:00Z',\n    expirationDate: '2024-10-30T00:00:00Z',\n    amount: 2000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1005,\n    riskName: 'Responsabilidad Civil',\n    contractDate: '2023-12-05T00:00:00Z',\n    expirationDate: '2024-12-05T00:00:00Z',\n    amount: 1800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1006,\n    riskName: 'Accidentes Personales',\n    contractDate: '2024-01-20T00:00:00Z',\n    expirationDate: '2025-01-20T00:00:00Z',\n    amount: 1000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1007,\n    riskName: 'Robo',\n    contractDate: '2024-03-08T00:00:00Z',\n    expirationDate: '2025-03-08T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1008,\n    riskName: 'Viajes',\n    contractDate: '2024-04-15T00:00:00Z',\n    expirationDate: '2025-04-15T00:00:00Z',\n    amount: 2200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1009,\n    riskName: 'Incendio',\n    contractDate: '2024-06-20T00:00:00Z',\n    expirationDate: '2025-06-20T00:00:00Z',\n    amount: 1750,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1010,\n    riskName: 'Inundación',\n    contractDate: '2024-08-10T00:00:00Z',\n    expirationDate: '2025-08-10T00:00:00Z',\n    amount: 1900,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1011,\n    riskName: 'Terremoto',\n    contractDate: '2024-09-25T00:00:00Z',\n    expirationDate: '2025-09-25T00:00:00Z',\n    amount: 2050,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1012,\n    riskName: 'Responsabilidad Civil Profesional',\n    contractDate: '2024-11-12T00:00:00Z',\n    expirationDate: '2025-11-12T00:00:00Z',\n    amount: 2400,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1013,\n    riskName: 'Ciberseguridad',\n    contractDate: '2024-12-30T00:00:00Z',\n    expirationDate: '2025-12-30T00:00:00Z',\n    amount: 1850,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1014,\n    riskName: 'Mascotas',\n    contractDate: '2025-02-05T00:00:00Z',\n    expirationDate: '2026-02-05T00:00:00Z',\n    amount: 1300,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1015,\n    riskName: 'Responsabilidad Civil del Patrono',\n    contractDate: '2025-04-20T00:00:00Z',\n    expirationDate: '2026-04-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1016,\n    riskName: 'Asistencia en Carretera',\n    contractDate: '2025-06-10T00:00:00Z',\n    expirationDate: '2026-06-10T00:00:00Z',\n    amount: 1100,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1017,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-07-25T00:00:00Z',\n    expirationDate: '2026-07-25T00:00:00Z',\n    amount: 1450,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1018,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-09-08T00:00:00Z',\n    expirationDate: '2026-09-08T00:00:00Z',\n    amount: 2300,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1019,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-10-15T00:00:00Z',\n    expirationDate: '2026-10-15T00:00:00Z',\n    amount: 1750,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1020,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-12-05T00:00:00Z',\n    expirationDate: '2026-12-05T00:00:00Z',\n    amount: 2100,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1021,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-01-20T00:00:00Z',\n    expirationDate: '2027-01-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1022,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-03-08T00:00:00Z',\n    expirationDate: '2027-03-08T00:00:00Z',\n    amount: 1300,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1023,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-04-15T00:00:00Z',\n    expirationDate: '2027-04-15T00:00:00Z',\n    amount: 1650,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1024,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-06-20T00:00:00Z',\n    expirationDate: '2027-06-20T00:00:00Z',\n    amount: 2000,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1025,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-08-10T00:00:00Z',\n    expirationDate: '2027-08-10T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1026,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-09-25T00:00:00Z',\n    expirationDate: '2027-09-25T00:00:00Z',\n    amount: 1700,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1027,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-11-12T00:00:00Z',\n    expirationDate: '2027-11-12T00:00:00Z',\n    amount: 2050,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1028,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-12-30T00:00:00Z',\n    expirationDate: '2027-12-30T00:00:00Z',\n    amount: 1400,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1029,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-02-05T00:00:00Z',\n    expirationDate: '2028-02-05T00:00:00Z',\n    amount: 1750,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1030,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-04-20T00:00:00Z',\n    expirationDate: '2028-04-20T00:00:00Z',\n    amount: 2100,\n    state: 'pagada',\n  },\n]\n",
+            "properties": [
+                {
+                    "name": "amount",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "contractDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "expirationDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "nPolicy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "riskName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "state",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "MyErrorStateMatcher",
+            "id": "class-MyErrorStateMatcher-204afc2c833f7a44353b6cf263013b414ac103d6a87cd49d29889eac568d4d2ef6c416836109e7695ff4de51d1c2cb86df7caf824d038382c95387c304bde7f8",
+            "file": "src/app/components/input/input.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { NgIf } from '@angular/common'\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport {\n  FormControl,\n  FormGroupDirective,\n  FormsModule,\n  NgForm,\n  ReactiveFormsModule,\n  Validators,\n} from '@angular/forms'\nimport { ErrorStateMatcher } from '@angular/material/core'\nimport { MatFormFieldModule } from '@angular/material/form-field'\nimport { MatInputModule } from '@angular/material/input'\n\nexport class MyErrorStateMatcher implements ErrorStateMatcher {\n  isErrorState(\n    control: FormControl | null,\n    form: FormGroupDirective | NgForm | null\n  ): boolean {\n    const isSubmitted = form && form.submitted\n    return !!(\n      control &&\n      control.invalid &&\n      (control.dirty || control.touched || isSubmitted)\n    )\n  }\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [\n    FormsModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    ReactiveFormsModule,\n    NgIf,\n  ],\n\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent {\n  @Input() placeHolder = 'placeholder'\n  @Input() type = 'text'\n  inputFormControl = new FormControl('', [Validators.required])\n\n  matcher = new MyErrorStateMatcher()\n}\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "isErrorState",
+                    "args": [
+                        {
+                            "name": "control",
+                            "type": "FormControl | null",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "form",
+                            "type": "FormGroupDirective | NgForm | null",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "control",
+                            "type": "FormControl | null",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "form",
+                            "type": "FormGroupDirective | NgForm | null",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "ErrorStateMatcher"
+            ]
+        }
+    ],
     "directives": [],
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-7e36e45a3cb2330201bdad8b98f96b9f43070d64bc4d7659f6120d4a53d5abce039c9ed25a2bd51d47f2669e63a4c0847a6dceee41d255e209c57b5fb95fb749",
+            "id": "component-AppComponent-2050aa5a8bd18e81243be9ef8a109dc96f6a3668cecabf876164a5f436999650fa195ae7b094f1ed92b007bc8acadfcad4a9ce04cd8143414ddd2af54428c836",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -28,18 +703,7 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "title",
-                    "defaultValue": "'secura-insurance'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 14
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -48,21 +712,24 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "CommonModule",
-                    "type": "module"
-                },
-                {
                     "name": "RouterOutlet"
                 },
                 {
                     "name": "NavbarComponent",
                     "type": "component"
+                },
+                {
+                    "name": "FooterComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "NgFor"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { Component } from '@angular/core'\nimport { RouterOutlet } from '@angular/router'\nimport { NavbarComponent } from './components'\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, NavbarComponent],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'secura-insurance'\n}\n",
+            "sourceCode": "import { NgFor } from '@angular/common'\nimport { HttpClient } from '@angular/common/http'\nimport { Component } from '@angular/core'\nimport { RouterOutlet } from '@angular/router'\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader'\nimport 'zone.js'\nimport { FooterComponent, NavbarComponent } from './components'\n\nexport function HttpLoaderFactory(httpClient: HttpClient) {\n  return new TranslateHttpLoader(httpClient)\n}\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [RouterOutlet, NavbarComponent, FooterComponent, NgFor],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -72,7 +739,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<app-navbar />\n<router-outlet></router-outlet>\n"
+            "templateData": "<app-navbar />\n\n<router-outlet />\n<app-footer />\n"
         },
         {
             "name": "ButtonComponent",
@@ -126,7 +793,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".mat-mdc-unelevated-button:not(:disabled) {\r\n  border-radius: 8px;\r\n  color: black;\r\n\r\n  &:hover {\r\n    background-color: #6FA6D4;\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid #4B98D9;\r\n  }\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
+                    "data": ".mat-mdc-unelevated-button:not(:disabled) {\r\n  border-radius: 8px;\r\n  color: black;\r\n\r\n  &:hover {\r\n    background-color: var(--color-primary-75);\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid var(--color-primary);\r\n  }\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}\r\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -186,13 +853,97 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".mat-mdc-outlined-button {\r\n\r\n  &:not(:disabled) {\r\n    border: 1px solid #9FC3E2;\r\n    color: #191C3D;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: #6FA6D4;\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid #4B98D9;\r\n  }\r\n}\r\n\r\n.mdc-button {\r\n  border-radius: 8px;\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}",
+                    "data": ".mat-mdc-outlined-button {\r\n\r\n  &:not(:disabled) {\r\n    border: 1px solid var(--color-primary-50);\r\n    color: var(--color-text);\r\n    border-radius: 8px;\r\n  }\r\n\r\n  &:hover {\r\n    background-color: var(--color-primary-75);\r\n  }\r\n\r\n  &:active {\r\n    border: 1px solid var(--color-primary);\r\n  }\r\n}\r\n\r\n.mdc-button {\r\n  border-radius: 8px;\r\n}\r\n\r\nsection {\r\n  display: table;\r\n}\r\n\r\n.example-label {\r\n  display: table-cell;\r\n  font-size: 14px;\r\n  margin-left: 8px;\r\n  min-width: 120px;\r\n}\r\n\r\n.example-button-row {\r\n  display: table-cell;\r\n  max-width: 600px;\r\n}\r\n\r\n.example-button-row .mat-mdc-button-base {\r\n  margin: 8px 8px 8px 0;\r\n}\r\n\r\n.example-flex-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.example-button-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  width: 120px;\r\n}\r\n",
                     "styleUrl": "./button-outline.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "templateData": "<button mat-stroked-button color=\"primary\" [disabled]=\"disabled\">\n  <ng-content></ng-content>\n</button>\n"
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-db127be157b72fe8178b7c0c13615dab5fd7d7aba4e9b818dcda650f67f10a8dcb09a68a51512a7f8c71ee9340ff8b4e30f36c8e946d0f7a27c16d0feb1c8c97",
+            "file": "src/app/pages/home-page/components/card/card.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-card",
+            "styleUrls": [
+                "./card.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "ClienteElement",
+                    "defaultValue": "{\n    offerProduct: 'Seguro de vida',\n    personalData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      email: 'email&#64;example.com',\n      phone: '+1234567890',\n    },\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "ClientePotencialInterface",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "handleClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleRemoveClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatCardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n} from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { MatCardModule } from '@angular/material/card'\nimport { ClientePotencialInterface } from '@src/core/data/clientes_potenciales'\n\n@Component({\n  selector: 'app-card',\n  standalone: true,\n  imports: [MatCardModule, MatButtonModule],\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CardComponent {\n  @Output() handleClick = new EventEmitter()\n  @Input() ClienteElement: ClientePotencialInterface = {\n    offerProduct: 'Seguro de vida',\n    personalData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      email: 'email&#64;example.com',\n      phone: '+1234567890',\n    },\n  }\n\n  handleRemoveClick() {\n    this.handleClick.emit(this.ClienteElement)\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".mat-mdc-card-header {\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.example-icon {\r\n  width: 14px;\r\n  height: 14px;\r\n}",
+                    "styleUrl": "./card.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-card>\n  <mat-card-header>\n    <mat-card-actions align=\"end\">\n      <button\n        mat-icon-button\n        class=\"example-icon\"\n        aria-label=\"Example icon-button with menu icon\"\n        (click)=\"handleRemoveClick()\">\n        <div class=\"icon-trash\"></div>\n      </button>\n    </mat-card-actions>\n\n    <mat-card-title>{{ ClienteElement.personalData.name }}</mat-card-title>\n    <mat-card-subtitle\n      >Producto a ofrecer: {{ ClienteElement.offerProduct }}</mat-card-subtitle\n    >\n  </mat-card-header>\n\n  <mat-card-actions align=\"start\">\n    <p>Email: {{ ClienteElement.personalData.email }}</p>\n    <p>Teléfono: {{ ClienteElement.personalData.phone }}</p>\n  </mat-card-actions>\n</mat-card>\n"
         },
         {
             "name": "CheckboxComponent",
@@ -238,7 +989,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: #4B98D9;\r\n  --mdc-checkbox-selected-mixedmark-color: #4B98D9;\r\n\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {\r\n  border-color: #0087ff !important;\r\n  border-top-color: rgb(0, 135, 255) !important;\r\n  border-right-color: rgb(0, 135, 255) !important;\r\n  border-bottom-color: rgb(0, 135, 255) !important;\r\n  border-left-color: rgb(0, 135, 255) !important;\r\n  background-color: #cfe1f100 !important;\r\n  border-radius: 6px !important;\r\n  border: 2px solid #0087ff !important;\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {\r\n  border-radius: 6px;\r\n  border: 2px solid !important;\r\n  opacity: 0.5;\r\n}\r\n\r\n\r\n.mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: #4B98D9;\r\n  --mdc-checkbox-selected-mixedmark-color: #4B98D9;\r\n  --mdc-checkbox-unchecked-color: #4B98D9;\r\n}",
+                    "data": ".mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: var(--color-primary);\r\n  --mdc-checkbox-selected-mixedmark-color: var(--color-primary);\r\n\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,\r\n.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {\r\n  border-radius: 6px;\r\n}\r\n\r\n.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {\r\n  border-radius: 6px;\r\n  border: 2px solid;\r\n  opacity: 0.5;\r\n}\r\n\r\n\r\n.mat-mdc-checkbox.mat-primary {\r\n  --mdc-checkbox-selected-checkmark-color: var(--color-primary);\r\n  --mdc-checkbox-selected-mixedmark-color: var(--color-primary);\r\n  --mdc-checkbox-unchecked-color: var(--color-primary);\r\n}",
                     "styleUrl": "./checkbox.component.scss"
                 }
             ],
@@ -247,8 +998,105 @@
             "templateData": "<mat-checkbox class=\"example-margin green\" color=\"primary\"\n  >Check me!</mat-checkbox\n>\n"
         },
         {
+            "name": "ClientesPotencialesComponent",
+            "id": "component-ClientesPotencialesComponent-bf10aa333e972bf05eadc8e9f4cf00b3d0a0a3106a4d6386e20816d3c6444d4a05ab8b315317dca7f917ee129e74c2601ea3d37e0318e58ec7db50c5d36ab4c5",
+            "file": "src/app/pages/home-page/components/clientes-potenciales/clientes-potenciales.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-clientes-potenciales",
+            "styleUrls": [
+                "./clientes-potenciales.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./clientes-potenciales.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "clientesPotenciales",
+                    "defaultValue": "CLIENTES_POTENCIALES",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ClientePotencialInterface[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "removeClientePotencial",
+                    "args": [
+                        {
+                            "name": "clientePotencial",
+                            "type": "ClientePotencialInterface",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "clientePotencial",
+                            "type": "ClientePotencialInterface",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "NgFor"
+                },
+                {
+                    "name": "SectionContainerComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgFor } from '@angular/common'\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'\nimport {\n  CLIENTES_POTENCIALES,\n  ClientePotencialInterface,\n} from '@src/core/data/clientes_potenciales'\nimport { CardComponent } from '../card/card.component'\n\n@Component({\n  selector: 'app-clientes-potenciales',\n  standalone: true,\n  imports: [CardComponent, NgFor, SectionContainerComponent],\n  templateUrl: './clientes-potenciales.component.html',\n  styleUrls: ['./clientes-potenciales.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ClientesPotencialesComponent {\n  clientesPotenciales: ClientePotencialInterface[] = CLIENTES_POTENCIALES\n\n  removeClientePotencial(clientePotencial: ClientePotencialInterface) {\n    this.clientesPotenciales = this.clientesPotenciales.filter(\n      cliente => cliente !== clientePotencial\n    )\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".clientes-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));\r\n  gap: 1rem;\r\n}\r\n",
+                    "styleUrl": "./clientes-potenciales.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-section-container>\n  <h3>Clientes potenciales</h3>\n  <article class=\"clientes-container\">\n    <div *ngFor=\"let clientePotencial of clientesPotenciales\">\n      <app-card\n        [ClienteElement]=\"clientePotencial\"\n        (click)=\"removeClientePotencial(clientePotencial)\" />\n    </div>\n  </article>\n</app-section-container>\n"
+        },
+        {
             "name": "FooterComponent",
-            "id": "component-FooterComponent-9bd368f21364f92c4305b0237565025ad6bccbb63e9d0a6dea53668ea7bcff22e4e8066e2aef05ed3886829a1784e52593212b30e05a1b5d638513365adaebab",
+            "id": "component-FooterComponent-f571e08bfd6e457994da9f8ea948992af6010b7236734afc63a3a9916b736fa0e4d9552152c95947163e87f89145fae890ae28e16f38c95882de3b5a748e383a",
             "file": "src/app/components/footer/footer.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -277,28 +1125,82 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "CommonModule",
+                    "name": "MatDividerModule",
+                    "type": "module"
+                },
+                {
+                    "name": "LinkComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MatDividerModule } from '@angular/material/divider'\nimport { LinkComponent } from '../link/link.component'\n\n@Component({\n  selector: 'app-footer',\n  standalone: true,\n  imports: [MatDividerModule, LinkComponent],\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class FooterComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 2rem 5rem;\r\n}\r\n\r\n.help {\r\n  display: grid;\r\n  gap: 0.5rem;\r\n\r\n  >p {\r\n    font-weight: 700;\r\n    color: var(--color-primary)\r\n  }\r\n}\r\n\r\n.info {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n\r\n}\r\n\r\n.info-copy {\r\n  font-size: 10px;\r\n  font-weight: 500;\r\n}\r\n\r\n.icon {\r\n  color: var(--color-primary);\r\n}\r\n\r\n.help-element {\r\n  display: flex;\r\n  gap: 0.6rem;\r\n\r\n}\r\n\r\n.footer-nav {\r\n  display: flex;\r\n  gap: 20px;\r\n\r\n  a {\r\n    color: var(--color-black);\r\n    text-decoration: none;\r\n\r\n    &:hover {\r\n      color: var(--color-primary);\r\n\r\n    }\r\n  }\r\n}\r\n\r\n.mat-divider {\r\n  --mat-divider-width: 2px;\r\n}\r\n\r\n.mat-divider.mat-divider-vertical {\r\n  border-right-color: rgb(0 0 0 / 30%);\r\n}\r\n",
+                    "styleUrl": "./footer.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<footer class=\"container\">\n  <div class=\"help\">\n    <p>¿Necesitas ayuda?</p>\n    <div class=\"help-element\">\n      <span class=\"icon icon-mail\"></span>\n      <p>atencionalcliente&#64;securainsurance.com</p>\n    </div>\n    <div class=\"help-element\">\n      <span class=\"icon icon-phone\"></span>\n      <p>998832732</p>\n    </div>\n    <nav class=\"footer-nav\">\n      <app-link>Politicas de cookies </app-link>\n      <mat-divider vertical />\n      <app-link to=\"#\">Aviso legal</app-link>\n      <mat-divider vertical />\n      <app-link to=\"#\">Politica de privacidad </app-link>\n    </nav>\n  </div>\n  <div class=\"info\">\n    <div class=\"info-location\">\n      <p>SECURA INSURANCE ESPAÑA, S.A.U</p>\n      <p>Calle Ribera del Loira 46, Madrid, 28042</p>\n    </div>\n    <div class=\"info-copy\">\n      <p>©️ 2022 SecuraInsurance</p>\n    </div>\n  </div>\n</footer>\n\n<!-- flexbox -->\n"
+        },
+        {
+            "name": "HeroComponent",
+            "id": "component-HeroComponent-d2ec56da2d81b89ec9e08dfd0029f3ee2997f88616907b1ab4f16b6aab2df6605bb2b1d2120807f56e536d1ceb0b5a1172331af8aed16df8f777d0c622ce93a9",
+            "file": "src/app/pages/home-page/components/hero/hero.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-hero",
+            "styleUrls": [
+                "./hero.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./hero.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "TranslateModule",
                     "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\n\n@Component({\n  selector: 'app-footer',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class FooterComponent {}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { TranslateModule } from '@ngx-translate/core'\n\n@Component({\n  selector: 'app-hero',\n  standalone: true,\n  imports: [TranslateModule],\n  templateUrl: './hero.component.html',\n  styleUrls: ['./hero.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class HeroComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./footer.component.scss"
+                    "data": ".hero-image {\r\n  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\"../../../../../assets/img/hero.jpg\");\r\n  height: 500px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  position: relative;\r\n}\r\n\r\n.hero-text {\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  color: white;\r\n}\r\n\r\n.hero-text button {\r\n  border: none;\r\n  outline: 0;\r\n  display: inline-block;\r\n  padding: 10px 25px;\r\n  color: black;\r\n  background-color: #ddd;\r\n  text-align: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.hero-text button:hover {\r\n  background-color: #555;\r\n  color: white;\r\n}",
+                    "styleUrl": "./hero.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>footer works!</p>\n"
+            "templateData": "<div class=\"hero-image\">\n  <div class=\"hero-text\">\n    <h1 style=\"font-size: 50px\">{{ 'HOME.TITLE' | translate }}</h1>\n    <h2>\n      {{ 'HOME.SUBTITLE' | translate }}\n    </h2>\n  </div>\n</div>\n"
         },
         {
             "name": "HomePageComponent",
-            "id": "component-HomePageComponent-46bce3a76b511360298f0529b2dd0620686ef30f422ca7f0f7f845373b47d12fffd1d3bc00c146fc7efe6e06994c7cc1ba6c88819f1a93f99c1182f1faa46c41",
+            "id": "component-HomePageComponent-e343fa5f0068097a9d59f026ba55aceded7409f2007772bd7fb0ab8aaecee65ae33ebd84724945a8cc03f6fa84f714991cb74cc163d2844dc27eb3f00cbc0b62",
             "file": "src/app/pages/home-page/home-page.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -329,12 +1231,24 @@
                 {
                     "name": "MainContainerComponent",
                     "type": "component"
+                },
+                {
+                    "name": "HeroComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ProximasRenovacionesComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ClientesPotencialesComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MainContainerComponent } from '@src/app/layout'\n\n@Component({\n  selector: 'app-home-page',\n  standalone: true,\n  imports: [MainContainerComponent],\n  templateUrl: './home-page.component.html',\n  styleUrls: ['./home-page.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class HomePageComponent {}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MainContainerComponent } from '@src/app/layout'\nimport { ProximasRenovacionesComponent } from './components'\nimport { ClientesPotencialesComponent } from './components/clientes-potenciales/clientes-potenciales.component'\nimport { HeroComponent } from './components/hero/hero.component'\n\n@Component({\n  selector: 'app-home-page',\n  standalone: true,\n  imports: [\n    MainContainerComponent,\n    HeroComponent,\n    ProximasRenovacionesComponent,\n    ClientesPotencialesComponent,\n  ],\n  templateUrl: './home-page.component.html',\n  styleUrls: ['./home-page.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class HomePageComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -344,11 +1258,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<app-main-container>\n  <h1>Home page</h1>\n</app-main-container>\n"
+            "templateData": "<app-hero />\n<app-main-container>\n  <app-proximas-renovaciones />\n  <app-clientes-potenciales />\n</app-main-container>\n"
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-5b8fb511138c0c42ed143a15c30e9f5972bea14f5b57fe3aabea657672afb92b1926c92956e9cd50e749a704e6d98398a358b7cb9c5f23b8818ed951e60be386",
+            "id": "component-InputComponent-204afc2c833f7a44353b6cf263013b414ac103d6a87cd49d29889eac568d4d2ef6c416836109e7695ff4de51d1c2cb86df7caf824d038382c95387c304bde7f8",
             "file": "src/app/components/input/input.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -368,11 +1282,20 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "placeHolder",
+                    "defaultValue": "'placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
                     "name": "type",
                     "defaultValue": "'text'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 47,
                     "type": "string",
                     "decorators": []
                 }
@@ -380,14 +1303,24 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "emailFormControl",
+                    "name": "inputFormControl",
                     "defaultValue": "new FormControl('', [Validators.required])",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 48
+                },
+                {
+                    "name": "matcher",
+                    "defaultValue": "new MyErrorStateMatcher()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 50
                 }
             ],
             "methodsClass": [],
@@ -408,27 +1341,266 @@
                 {
                     "name": "MatInputModule",
                     "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { FormControl, FormsModule, Validators } from '@angular/forms'\nimport { MatFormFieldModule } from '@angular/material/form-field'\nimport { MatInputModule } from '@angular/material/input'\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [FormsModule, MatFormFieldModule, MatInputModule],\n\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent {\n  @Input() type = 'text'\n  emailFormControl = new FormControl('', [Validators.required])\n}\n",
+            "sourceCode": "import { NgIf } from '@angular/common'\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport {\n  FormControl,\n  FormGroupDirective,\n  FormsModule,\n  NgForm,\n  ReactiveFormsModule,\n  Validators,\n} from '@angular/forms'\nimport { ErrorStateMatcher } from '@angular/material/core'\nimport { MatFormFieldModule } from '@angular/material/form-field'\nimport { MatInputModule } from '@angular/material/input'\n\nexport class MyErrorStateMatcher implements ErrorStateMatcher {\n  isErrorState(\n    control: FormControl | null,\n    form: FormGroupDirective | NgForm | null\n  ): boolean {\n    const isSubmitted = form && form.submitted\n    return !!(\n      control &&\n      control.invalid &&\n      (control.dirty || control.touched || isSubmitted)\n    )\n  }\n}\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [\n    FormsModule,\n    MatFormFieldModule,\n    MatInputModule,\n    FormsModule,\n    ReactiveFormsModule,\n    NgIf,\n  ],\n\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class InputComponent {\n  @Input() placeHolder = 'placeholder'\n  @Input() type = 'text'\n  inputFormControl = new FormControl('', [Validators.required])\n\n  matcher = new MyErrorStateMatcher()\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host ::ng-deep .mdc-text-field--outlined {\r\n  --mdc-outlined-text-field-container-shape: 9px;\r\n}\r\n\r\n.mat-mdc-input-element {\r\n  color: #191C3D;\r\n}\r\n\r\n\r\n.mdc-text-field--filled {\r\n  border: 1px solid #ccc;\r\n}\r\n\r\n.example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n\r\ntd {\r\n  padding-right: 8px;\r\n}",
+                    "data": ":host ::ng-deep .mdc-text-field--outlined {\r\n  --mdc-outlined-text-field-container-shape: 9px;\r\n}\r\n\r\n.mat-mdc-form-field-input-control {\r\n  height: 1.3rem;\r\n}\r\n\r\n\r\n.mat-mdc-input-element {\r\n  color: var(--color-text)\r\n}\r\n\r\n.mdc-text-field--filled {\r\n  border: 1px solid var(--color-grey-25);\r\n}",
                     "styleUrl": "./input.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-form-field appearance=\"outline\" color=\"primary\">\n  <input matInput placeholder=\"Hola\" required />\n</mat-form-field>\n"
+            "templateData": "<mat-form-field appearance=\"outline\" color=\"primary\" class=\"test\">\n  <input\n    matInput\n    [type]=\"type\"\n    required\n    [formControl]=\"inputFormControl\"\n    [errorStateMatcher]=\"matcher\"\n    [placeholder]=\"placeHolder\" />\n  <mat-hint></mat-hint>\n  <mat-error *ngIf=\"inputFormControl.hasError('required')\">\n    Email is <strong>required</strong>\n  </mat-error>\n</mat-form-field>\n"
+        },
+        {
+            "name": "LanguageMenuComponent",
+            "id": "component-LanguageMenuComponent-746608c41de241af574964e8de758fe465e3a1c44b8672d8c9267babbd5f62e93964808f1317b049246d48a6da9d90ca5cf1390ee81d54be5ca5d3f1c327c04c",
+            "file": "src/app/components/navbar/components/language-menu/language-menu.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-language-menu",
+            "styleUrls": [
+                "./language-menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./language-menu.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "languages",
+                    "defaultValue": "LANGUAGES",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LanguageInterface[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                },
+                {
+                    "name": "selectedLanguage",
+                    "defaultValue": "this.languages.find(\n      lang => lang.id === window.localStorage.getItem('lang')\n    ) || this.languages[0]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "translate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TranslateService",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "changeLanguage",
+                    "args": [
+                        {
+                            "name": "lang",
+                            "type": "LanguageInterface",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "lang",
+                            "type": "LanguageInterface",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatMenuModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatIconModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgFor"
+                },
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "NgIf"
+                },
+                {
+                    "name": "TranslateModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatDividerModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgClass, NgFor, NgIf } from '@angular/common'\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { MatDividerModule } from '@angular/material/divider'\nimport { MatIconModule } from '@angular/material/icon'\nimport { MatMenuModule } from '@angular/material/menu'\nimport { TranslateModule, TranslateService } from '@ngx-translate/core'\nimport { LANGUAGES, LanguageInterface } from '@src/app/components/navbar'\n\n@Component({\n  selector: 'app-language-menu',\n  standalone: true,\n  imports: [\n    MatButtonModule,\n    MatMenuModule,\n    MatIconModule,\n    NgFor,\n    NgClass,\n    NgIf,\n    TranslateModule,\n    MatDividerModule,\n  ],\n  templateUrl: './language-menu.component.html',\n  styleUrls: ['./language-menu.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LanguageMenuComponent {\n  languages: LanguageInterface[] = LANGUAGES\n  selectedLanguage =\n    this.languages.find(\n      lang => lang.id === window.localStorage.getItem('lang')\n    ) || this.languages[0]\n\n  constructor(public translate: TranslateService) {\n    translate.addLangs(['en', 'es'])\n    translate.setDefaultLang('es')\n\n    const browserLang = translate.getBrowserLang() || 'es'\n    translate.use(browserLang.match(/en|es/) ? browserLang : 'es')\n  }\n\n  changeLanguage(lang: LanguageInterface) {\n    this.selectedLanguage = lang\n    this.translate.use(lang.id)\n    window.localStorage.setItem('lang', lang.id)\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".profile-button {\r\n  background-color: transparent;\r\n  border: 0px;\r\n  box-shadow: none;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n\r\n  &:hover,\r\n  &:focus,\r\n  &:active,\r\n  &:visited,\r\n  &:link,\r\n  &:active,\r\n  &:focus,\r\n  &:hover,\r\n  &:visited {\r\n    background-color: transparent;\r\n    box-shadow: none;\r\n  }\r\n}\r\n\r\n.mat-menu {\r\n  margin: 0;\r\n  padding: 0;\r\n  border-radius: 8px;\r\n}\r\n\r\n\r\n.button-content {\r\n\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  gap: 0.2rem;\r\n\r\n\r\n  .button-text {\r\n    color: var(--color-text);\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    gap: 0.2rem;\r\n  }\r\n\r\n  .button-icon {\r\n    margin-right: 0.5rem;\r\n    width: 1.5rem;\r\n    height: 1.5rem;\r\n  }\r\n}\r\n\r\n.button-icon {\r\n  color: var(--color-primary);\r\n}\r\n\r\n\r\n.strong {\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n\r\n\r\n.matMenu {\r\n  margin: 0;\r\n  padding: 0;\r\n  border-radius: 8px;\r\n}",
+                    "styleUrl": "./language-menu.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "translate",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 32,
+                "jsdoctags": [
+                    {
+                        "name": "translate",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<button\n  mat-fab\n  extended\n  color=\"primary\"\n  class=\"profile-button\"\n  [matMenuTriggerFor]=\"beforeMenu\">\n  <div class=\"button-content\">\n    <mat-icon class=\"icon-language button-icon\"></mat-icon>\n    <span class=\"button-text\"\n      >{{ selectedLanguage.name }}\n      <mat-icon class=\"icon-arrow button-icon\"></mat-icon\n    ></span>\n  </div>\n</button>\n<mat-menu #beforeMenu=\"matMenu\" xPosition=\"before\" class=\"menu\">\n  <div *ngFor=\"let language of languages\">\n    <button mat-menu-item (click)=\"changeLanguage(language)\">\n      <span [ngClass]=\"selectedLanguage === language ? 'strong' : ''\">\n        {{ language.name }}\n      </span>\n    </button>\n    <mat-divider *ngIf=\"language !== languages[languages.length - 1]\" />\n  </div>\n</mat-menu>\n"
+        },
+        {
+            "name": "LinkComponent",
+            "id": "component-LinkComponent-6f4b571180dd35edd087de2c4b5741dda9a0f984b6453ff8650a0c340feb9d173811deb5e78a7090a4afa3c84b9934a56704ebdce97ed8f1abadf706d7e5fafa",
+            "file": "src/app/components/link/link.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-link",
+            "styleUrls": [
+                "./link.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./link.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "to",
+                    "defaultValue": "'#'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "RouterModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { RouterModule } from '@angular/router'\n\n@Component({\n  selector: 'app-link',\n  standalone: true,\n  imports: [MatButtonModule, RouterModule],\n  templateUrl: './link.component.html',\n  styleUrls: ['./link.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LinkComponent {\n  @Input() to = '#'\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./link.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<a mat-button [routerLink]=\"to\">\n  <ng-content></ng-content>\n</a>\n"
         },
         {
             "name": "MainContainerComponent",
-            "id": "component-MainContainerComponent-e67515a2ffc55b6540e074e128cf12b8b8722249efcb2217f960b0515902288ae1135e6a85eee7e6122bed487ae547d44f63131eab75c87049d7ba603fe6b8e5",
+            "id": "component-MainContainerComponent-9c0726bf9a9914cbeb633f7af012225abf5e8db2df6ff9e6ba41a62ca940558276b7e9f56c8e55979ed670d375a18284557bd2cb521bbd0d7fc1d987c445cb9b",
             "file": "src/app/layout/main-container/main-container.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -453,30 +1625,25 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-main-container',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './main-container.component.html',\n  styleUrls: ['./main-container.component.scss']\n})\nexport class MainContainerComponent {\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\n\n@Component({\n  selector: 'app-main-container',\n  standalone: true,\n  imports: [],\n  templateUrl: './main-container.component.html',\n  styleUrls: ['./main-container.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class MainContainerComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".main-container {\r\n  display: flex;\r\n  gap: 2rem;\r\n  flex-flow: column nowrap;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 0 auto;\r\n  padding: 1rem;\r\n  height: 20vh;\r\n  min-width: 300px;\r\n}",
+                    "data": ".main-container {\r\n  background-color: var(--color-background);\r\n  padding: 40px 24px 80px 24px;\r\n  display: grid;\r\n  gap: 2rem;\r\n}\r\n",
                     "styleUrl": "./main-container.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"main-container\">\n  <ng-content />\n</div>\n"
+            "templateData": "<main class=\"main-container\">\n  <ng-content />\n</main>\n"
         },
         {
             "name": "NavbarComponent",
-            "id": "component-NavbarComponent-534792a2f0d28d74697611613f9dd489e956ad372d020bf8f218fd8a17a6777c75fac4de5f1527f2f8f6ee7a47801f1f432f05e2d5b230655c5b3887325dbd88",
+            "id": "component-NavbarComponent-19c60a7fad18516c39c2297e093957c307fa78cf7f0bc0b54172548a4a85587f55f28cdaab51f9dca2bea9898639c7de98006d65338910992934bc03c9fcb7fa",
             "file": "src/app/components/navbar/navbar.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -505,7 +1672,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 30
                 },
                 {
                     "name": "sidenav",
@@ -514,7 +1681,7 @@
                     "type": "MatSidenav | undefined",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 28,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -540,7 +1707,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -567,7 +1734,130 @@
                     "type": "module"
                 },
                 {
+                    "name": "MatIconModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgOptimizedImage"
+                },
+                {
+                    "name": "ProfileMenuComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LanguageMenuComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LinkComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgOptimizedImage } from '@angular/common'\nimport { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core'\nimport { MatIconModule } from '@angular/material/icon'\nimport { MatSidenav } from '@angular/material/sidenav'\nimport { MatToolbarModule } from '@angular/material/toolbar'\nimport {\n  LanguageMenuComponent,\n  ProfileMenuComponent,\n} from '@src/app/components/navbar'\nimport { LinkComponent } from '../link/link.component'\n\n@Component({\n  selector: 'app-navbar',\n  standalone: true,\n  imports: [\n    MatToolbarModule,\n    MatIconModule,\n    NgOptimizedImage,\n    ProfileMenuComponent,\n    LanguageMenuComponent,\n    LinkComponent,\n  ],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class NavbarComponent {\n  @ViewChild('sidenav') sidenav: MatSidenav | undefined\n\n  reason = ''\n\n  close(reason: string) {\n    this.reason = reason\n    this.sidenav?.close()\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-spacer {\r\n  flex: 1 1 auto;\r\n}\r\n\r\n.header {\r\n  background: white;\r\n}\r\n\r\n.mat-toolbar-row,\r\n.mat-toolbar-single-row {\r\n  display: flex;\r\n  box-sizing: border-box;\r\n  padding: 0 5rem;\r\n  width: 100%;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  white-space: nowrap;\r\n  height: var(--mat-toolbar-standard-height);\r\n}\r\n\r\nmat-drawer-content {\r\n  padding: 1rem;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: flex-start;\r\n}",
+                    "styleUrl": "./navbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-toolbar class=\"header\">\n  <img\n    width=\"88\"\n    height=\"64\"\n    class=\"social-media-element__img\"\n    ngSrc=\"assets/img/logo.svg\"\n    alt=\"Logo of Secure Insurance\" />\n  <nav>\n    <app-link to=\"/\">Inicio</app-link>\n    <app-link to=\"/renovaciones\">Proximas Renovaciones</app-link>\n  </nav>\n  <span class=\"example-spacer\"></span>\n  <app-profile-menu />\n  <app-language-menu />\n  <button\n    mat-icon-button\n    class=\"example-icon\"\n    aria-label=\"Example icon-button with menu icon\">\n    <span class=\"icon-menu\"></span>\n  </button>\n</mat-toolbar>\n\n<!-- TODO - Add sidenav -->\n<!-- <mat-sidenav-container\n  class=\"example-container\"\n  (backdropClick)=\"close('backdrop')\">\n  <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose>\n    <p><button mat-button (click)=\"close('toggle button')\">Toggle</button></p>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <p><button mat-button (click)=\"sidenav.open()\">Open</button></p>\n    <p>Closed due to: {{ reason }}</p>\n  </mat-sidenav-content>\n</mat-sidenav-container> -->\n"
+        },
+        {
+            "name": "NotFoundPageComponent",
+            "id": "component-NotFoundPageComponent-b4d4f024fcdda2ccb3be41a7584ff4287afa3e099a3edc47820ad7fb55c5fd7837cd5f87bfa5c01dbaa51fe4541aba289750930307925eb05c6f136f622da42e",
+            "file": "src/app/pages/not-found-page/not-found-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-not-found-page",
+            "styleUrls": [
+                "./not-found-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./not-found-page.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MainContainerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LinkComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { LinkComponent } from '@src/app/components/link/link.component'\nimport { MainContainerComponent } from '@src/app/layout'\n\n@Component({\n  selector: 'app-not-found-page',\n  standalone: true,\n  imports: [MainContainerComponent, LinkComponent],\n  templateUrl: './not-found-page.component.html',\n  styleUrls: ['./not-found-page.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class NotFoundPageComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 2rem;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: calc(100vh - 122px);\r\n  width: 100%;\r\n}",
+                    "styleUrl": "./not-found-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-main-container>\n  <div class=\"container\">\n    <h1>404</h1>\n    <p>La página que buscas no existe</p>\n    <app-link to=\"/\">Volver al inicio</app-link>\n  </div>\n</app-main-container>\n"
+        },
+        {
+            "name": "ProfileMenuComponent",
+            "id": "component-ProfileMenuComponent-1521440667d617829d91a92a4fab75f23334dfefd63b0aa6e24a6a13ab0d25fa1f62f78787b547b841340ce7c228252821be93c2bee6860e478b351197c2d495",
+            "file": "src/app/components/navbar/components/profile-menu/profile-menu.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-profile-menu",
+            "styleUrls": [
+                "./profile-menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./profile-menu.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
                     "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatMenuModule",
                     "type": "module"
                 },
                 {
@@ -575,35 +1865,86 @@
                     "type": "module"
                 },
                 {
-                    "name": "MatSidenavModule",
+                    "name": "MatDividerModule",
                     "type": "module"
-                },
-                {
-                    "name": "MatTooltipModule",
-                    "type": "module"
-                },
-                {
-                    "name": "NgOptimizedImage"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgOptimizedImage } from '@angular/common'\nimport { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { MatIconModule } from '@angular/material/icon'\nimport { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'\nimport { MatToolbarModule } from '@angular/material/toolbar'\nimport { MatTooltipModule } from '@angular/material/tooltip'\n\n@Component({\n  selector: 'app-navbar',\n  standalone: true,\n  imports: [\n    MatToolbarModule,\n    MatButtonModule,\n    MatIconModule,\n    MatSidenavModule,\n    MatTooltipModule,\n    NgOptimizedImage,\n  ],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class NavbarComponent {\n  @ViewChild('sidenav') sidenav: MatSidenav | undefined\n\n  reason = ''\n\n  close(reason: string) {\n    this.reason = reason\n    this.sidenav?.close()\n  }\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MatButtonModule } from '@angular/material/button'\nimport { MatDividerModule } from '@angular/material/divider'\nimport { MatIconModule } from '@angular/material/icon'\nimport { MatMenuModule } from '@angular/material/menu'\n\n@Component({\n  selector: 'app-profile-menu',\n  standalone: true,\n  imports: [MatButtonModule, MatMenuModule, MatIconModule, MatDividerModule],\n  templateUrl: './profile-menu.component.html',\n  styleUrls: ['./profile-menu.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProfileMenuComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".example-spacer {\r\n  flex: 1 1 auto;\r\n}",
-                    "styleUrl": "./navbar.component.scss"
+                    "data": ".profile-button {\r\n  background-color: transparent;\r\n  border: 0px;\r\n  box-shadow: none;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n\r\n  &:hover,\r\n  &:focus,\r\n  &:active,\r\n  &:visited,\r\n  &:link,\r\n  &:active,\r\n  &:focus,\r\n  &:hover,\r\n  &:visited {\r\n    background-color: transparent;\r\n    box-shadow: none;\r\n  }\r\n}\r\n\r\n.button-content {\r\n\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  gap: 0.2rem;\r\n\r\n\r\n  .button-text {\r\n    color: var(--color-text);\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    gap: 0.2rem;\r\n  }\r\n\r\n  .button-icon {\r\n    margin-right: 0.5rem;\r\n  }\r\n}\r\n\r\n.button-icon {\r\n  color: var(--color-primary);\r\n}\r\n\r\n.menu {\r\n\r\n  .mat-mdc-menu-content,\r\n  .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {\r\n    display: flex;\r\n    gap: 0.5rem;\r\n    align-content: center;\r\n    align-items: center;\r\n    justify-content: center;\r\n  }\r\n}",
+                    "styleUrl": "./profile-menu.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-toolbar>\n  <img\n    width=\"88\"\n    height=\"64\"\n    class=\"social-media-element__img\"\n    ngSrc=\"assets/img/logo.svg\"\n    alt=\"Logo of Secure Insurance\" />\n  <span class=\"example-spacer\"></span>\n  <button\n    mat-icon-button\n    class=\"example-icon\"\n    aria-label=\"Example icon-button with menu icon\">\n    <mat-icon class=\"\">menu</mat-icon>\n  </button>\n</mat-toolbar>\n\n<!-- TODO - Add sidenav -->\n<!-- <mat-sidenav-container\n  class=\"example-container\"\n  (backdropClick)=\"close('backdrop')\">\n  <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose>\n    <p><button mat-button (click)=\"close('toggle button')\">Toggle</button></p>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <p><button mat-button (click)=\"sidenav.open()\">Open</button></p>\n    <p>Closed due to: {{ reason }}</p>\n  </mat-sidenav-content>\n</mat-sidenav-container> -->\n"
+            "templateData": "<button\n  mat-fab\n  extended\n  color=\"primary\"\n  class=\"profile-button\"\n  [matMenuTriggerFor]=\"beforeMenu\">\n  <div class=\"button-content\">\n    <mat-icon class=\"icon-user button-icon\"></mat-icon>\n    <span class=\"button-text\" i18n\n      >Mi Perfil <mat-icon class=\"icon-arrow button-icon\"></mat-icon\n    ></span>\n  </div>\n</button>\n<mat-menu #beforeMenu=\"matMenu\" xPosition=\"before\" class=\"menu\">\n  <div mat-menu-item>\n    <strong> Mi Perfil </strong>\n    <p>\n      En este espacio puedes acceder, modificar, gestionar y consultar todo lo\n      relacionado con tus servicios de energía. Fácil y rápido.\n    </p>\n  </div>\n\n  <mat-divider />\n  <button mat-menu-item>\n    <span class=\"icon-user button-icon\"></span>Mis datos personales\n  </button>\n  <mat-divider />\n  <button mat-menu-item>\n    <span class=\"icon-lock button-icon\"></span>Mi contraseña\n  </button>\n  <mat-divider />\n  <button mat-menu-item>\n    <span class=\"icon-phone button-icon\"></span>Contacto\n  </button>\n  <mat-divider />\n  <button mat-menu-item>\n    <span class=\"icon-power-off button-icon\"></span>Cerrar sesión\n  </button>\n</mat-menu>\n"
+        },
+        {
+            "name": "ProximasRenovacionesComponent",
+            "id": "component-ProximasRenovacionesComponent-8fa1e8c6bb6333e13c2ea6782d430613aa4674b3a1768cf238ec5c5be5a5aaa3813b096aa5acd172d3e6aff84ba6e57dc0ab30f61c7f9ac5d4890a3dfb8109e8",
+            "file": "src/app/pages/home-page/components/proximas-renovaciones/proximas-renovaciones.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-proximas-renovaciones",
+            "styleUrls": [
+                "./proximas-renovaciones.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./proximas-renovaciones.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "LinkComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "RenovacionesTableComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "SectionContainerComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { LinkComponent } from '@src/app/components/link/link.component'\nimport { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'\nimport { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-table.component'\n\n@Component({\n  selector: 'app-proximas-renovaciones',\n  standalone: true,\n  imports: [\n    LinkComponent,\n    RenovacionesTableComponent,\n    SectionContainerComponent,\n  ],\n  templateUrl: './proximas-renovaciones.component.html',\n  styleUrls: ['./proximas-renovaciones.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProximasRenovacionesComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "section {\r\n  display: grid;\r\n  gap: 1.5rem;\r\n}\r\n",
+                    "styleUrl": "./proximas-renovaciones.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-section-container>\n  <h3>Próximas renovaciones</h3>\n  <app-renovaciones-table [isOnHomePage]=\"true\" />\n  <app-link to=\"/renovaciones\">Ver todas</app-link>\n</app-section-container>\n"
         },
         {
             "name": "RenovacionesPageComponent",
-            "id": "component-RenovacionesPageComponent-0ecf36dc12c4124746ddd5232d9228f238eb910ad5778ea258cefc6318d3bea5dd9fa8180bb92a7be580b9672458d1fb9149a2270bddd46bc7baa5836f546d3f",
+            "id": "component-RenovacionesPageComponent-ab1f4634ed3b353f3026fb009973f364a0e819e2df74bbeb9c6a24331111baf14da446cb332a70e835aab1bd382a559cdbcef3e80f0f98d996e6a7a9d327c4b5",
             "file": "src/app/pages/renovaciones-page/renovaciones-page.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -630,11 +1971,20 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "MainContainerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "RenovacionesTableComponent",
+                    "type": "component"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\n\n@Component({\n  selector: 'app-renovaciones-page',\n  standalone: true,\n  imports: [],\n  templateUrl: './renovaciones-page.component.html',\n  styleUrls: ['./renovaciones-page.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class RenovacionesPageComponent {}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core'\nimport { MainContainerComponent } from '@src/app/layout'\nimport { RenovacionesTableComponent } from '../home-page/components/renovaciones-table/renovaciones-table.component'\n\n@Component({\n  selector: 'app-renovaciones-page',\n  standalone: true,\n  imports: [MainContainerComponent, RenovacionesTableComponent],\n  templateUrl: './renovaciones-page.component.html',\n  styleUrls: ['./renovaciones-page.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class RenovacionesPageComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -644,7 +1994,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>renovaciones-page works!</p>\n"
+            "templateData": "<app-main-container>\n  <app-renovaciones-table />\n</app-main-container>\n"
         },
         {
             "name": "RenovacionesPageDetailsComponent",
@@ -690,6 +2040,244 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<p>renovaciones-page-details works!</p>\n"
+        },
+        {
+            "name": "RenovacionesTableComponent",
+            "id": "component-RenovacionesTableComponent-1cf64ab66b30cfe34d9ae3ed25e70f1382fc861ecf1b4ab06ac8f61d46d32a77304c99d8abcd0f53653d6e840bb9bf60d0e0d04731791ae6d61da89174f3c279",
+            "file": "src/app/pages/home-page/components/renovaciones-table/renovaciones-table.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-renovaciones-table",
+            "styleUrls": [
+                "./renovaciones-table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./renovaciones-table.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "isOnHomePage",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "dataSource",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatTableDataSource<RenovacionesInterface> | RenovacionesInterface[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "displayedColumns",
+                    "defaultValue": "[\n    'nPolicy',\n    'riskName',\n    'contractDate',\n    'expirationDate',\n    'amount',\n    'state',\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 55
+                },
+                {
+                    "name": "paginator",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatPaginator | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 37,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatPaginator"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatTableModule",
+                    "type": "module"
+                },
+                {
+                    "name": "JsonPipe",
+                    "type": "pipe"
+                },
+                {
+                    "name": "StatusFlagComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "MatPaginatorModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { JsonPipe, NgClass } from '@angular/common'\nimport {\n  AfterViewInit,\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  ViewChild,\n} from '@angular/core'\nimport { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'\nimport { MatTableDataSource, MatTableModule } from '@angular/material/table'\n\nimport {\n  LISTADO_RENOVACIONES,\n  RenovacionesInterface,\n} from '@src/core/data/listado_renovaciones'\nimport { StatusFlagComponent } from '../status-flag/status-flag.component'\n@Component({\n  selector: 'app-renovaciones-table',\n  standalone: true,\n  imports: [\n    MatTableModule,\n    JsonPipe,\n    StatusFlagComponent,\n    MatPaginatorModule,\n    NgClass,\n  ],\n  templateUrl: './renovaciones-table.component.html',\n  styleUrls: ['./renovaciones-table.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class RenovacionesTableComponent implements AfterViewInit {\n  @Input() isOnHomePage = false\n  dataSource:\n    | MatTableDataSource<RenovacionesInterface>\n    | RenovacionesInterface[] = []\n\n  @ViewChild(MatPaginator) paginator!: MatPaginator | null\n\n  ngAfterViewInit() {\n    if (this.isOnHomePage) {\n      this.dataSource = new MatTableDataSource<RenovacionesInterface>(\n        LISTADO_RENOVACIONES.slice(-3)\n      )\n\n      // this.renovaciones = LISTADO_RENOVACIONES.slice(-3)\n    } else {\n      // this.renovaciones = LISTADO_RENOVACIONES\n      this.dataSource = new MatTableDataSource<RenovacionesInterface>(\n        LISTADO_RENOVACIONES\n      )\n      this.dataSource.paginator = this.paginator\n    }\n  }\n\n  displayedColumns: string[] = [\n    'nPolicy',\n    'riskName',\n    'contractDate',\n    'expirationDate',\n    'amount',\n    'state',\n  ]\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "table {\r\n  width: 80%;\r\n  border-spacing: 0 8px;\r\n  background: transparent;\r\n  box-shadow: none;\r\n}\r\n\r\nth[mat-header-cell] {\r\n  border-radius: 6px;\r\n  background: var(--color-background);\r\n  padding: 10px;\r\n  text-align: left;\r\n  border-bottom: 1px solid #e0e0e0;\r\n\r\n}\r\n\r\n\r\n\r\ntd[mat-cell] {\r\n  border-radius: 6px;\r\n\r\n  >span {\r\n    display: none;\r\n  }\r\n}\r\n\r\ntr[mat-row] {\r\n  background: #ffffff;\r\n\r\n\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n\r\n  th[mat-header-cell] {\r\n    display: none;\r\n  }\r\n\r\n  tr[mat-row] {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 20px 10px;\r\n    height: auto;\r\n    width: Fixed (343px)px;\r\n    height: Hug (369px)px;\r\n    padding: 16px 0px 0px 0px;\r\n    gap: 16px;\r\n    border-radius: 8px 0px 0px 0px;\r\n    opacity: 0px;\r\n\r\n  }\r\n\r\n\r\n\r\n  td[mat-cell] {\r\n    padding: 0.5rem;\r\n    border-bottom: 0px;\r\n\r\n    >span {\r\n      display: block;\r\n    }\r\n  }\r\n\r\n}\r\n\r\n.paginator-home {\r\n  display: none;\r\n}",
+                    "styleUrl": "./renovaciones-table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "AfterViewInit"
+            ],
+            "templateData": "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n  <ng-container matColumnDef=\"nPolicy\">\n    <th mat-header-cell *matHeaderCellDef>No. de póliza</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>No. de póliza</span>{{ renovacion.nPolicy }}\n    </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"riskName\">\n    <th mat-header-cell *matHeaderCellDef>Nombre del riesgo</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>Nombre del riesgo</span>{{ renovacion.riskName }}\n    </td>\n  </ng-container>\n\n  <!-- Count Column -->\n  <ng-container matColumnDef=\"contractDate\">\n    <th mat-header-cell *matHeaderCellDef>Fecha contrato</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>Fecha contrato</span> {{ renovacion.contractDate }}\n    </td>\n  </ng-container>\n\n  <!-- First Column -->\n  <ng-container matColumnDef=\"expirationDate\">\n    <th mat-header-cell *matHeaderCellDef>Fecha de vencimiento</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>Fecha de vencimiento</span>\n      {{ renovacion.expirationDate }}\n    </td>\n  </ng-container>\n\n  <!-- Last Column -->\n  <ng-container matColumnDef=\"amount\">\n    <th mat-header-cell *matHeaderCellDef>Importe</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>Importe</span>{{ renovacion.amount }}\n    </td>\n  </ng-container>\n\n  <!-- Even Column -->\n  <ng-container matColumnDef=\"state\">\n    <th mat-header-cell *matHeaderCellDef>Estado de la póliza</th>\n    <td mat-cell *matCellDef=\"let renovacion\">\n      <span>Estado de la póliza</span>\n      <app-status-flag [status]=\"renovacion.state\" />\n    </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\n</table>\n<mat-paginator\n  [pageSizeOptions]=\"[5, 10, 20]\"\n  showFirstLastButtons\n  [ngClass]=\"isOnHomePage ? 'paginator-home' : ''\"\n  aria-label=\"Select page of periodic elements\">\n</mat-paginator>\n"
+        },
+        {
+            "name": "SectionContainerComponent",
+            "id": "component-SectionContainerComponent-426bff28ae612f4251c90747cc1c9bed14dbfb70629b8dcafdc09577b3f866cd63b2765711abaafec05ac12980ef30740b7222d93b84dbfd593ea754c47daeb9",
+            "file": "src/app/layout/section-container/section-container.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-section-container",
+            "styleUrls": [
+                "./section-container.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./section-container.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common'\r\nimport { ChangeDetectionStrategy, Component } from '@angular/core'\r\n\r\n@Component({\r\n  selector: 'app-section-container',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './section-container.component.html',\r\n  styleUrls: ['./section-container.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class SectionContainerComponent {}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "section {\r\n  display: grid;\r\n  gap: 1.5rem;\r\n}\r\n",
+                    "styleUrl": "./section-container.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<section>\r\n  <ng-content />\r\n</section>\r\n"
+        },
+        {
+            "name": "StatusFlagComponent",
+            "id": "component-StatusFlagComponent-64d81cb157a26913a50b6487b1cd3a12963adde54050685e35f49562228b6d0988bf7d835d9cf8dde8aef8e5eefae6280403799621cc15bf34907fe574728518",
+            "file": "src/app/pages/home-page/components/status-flag/status-flag.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-status-flag",
+            "styleUrls": [
+                "./status-flag.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./status-flag.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "status",
+                    "defaultValue": "'vencido'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common'\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core'\n\n@Component({\n  selector: 'app-status-flag',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './status-flag.component.html',\n  styleUrls: ['./status-flag.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class StatusFlagComponent {\n  @Input() status = 'vencido'\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".flag {\r\n  width: fit-content;\r\n  height: 24px;\r\n  padding: 2px 8px;\r\n  display: flex;\r\n  align-items: center;\r\n  gap: 8px;\r\n  border-radius: 4px;\r\n\r\n\r\n  &--pending {\r\n    background: var(--Informative-Washed, #FFE74F66);\r\n\r\n  }\r\n\r\n  &--pay {\r\n    background: var(--Success-Washed, #57AE6026);\r\n    // background: var(--color-pay);\r\n    color: var(--color-pay);\r\n  }\r\n\r\n\r\n  &--unpay {\r\n    background: var(--Error-Washed, #DB39001F);\r\n\r\n    color: var(--color-unpay);\r\n  }\r\n}",
+                    "styleUrl": "./status-flag.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div [ngSwitch]=\"status\">\n  <div *ngSwitchCase=\"'pendiente'\">\n    <p class=\"flag flag--pending\"><span class=\"icon-clock\"></span>Pendiente</p>\n  </div>\n  <div *ngSwitchCase=\"'pagada'\">\n    <p class=\"flag flag--pay\">\n      <span class=\"icon-check\"></span>\n      Pagada\n    </p>\n  </div>\n  <div *ngSwitchDefault>\n    <p class=\"flag flag--unpay\">\n      <span class=\"icon-close\"></span>\n      Vencido\n    </p>\n  </div>\n</div>\n"
         }
     ],
     "modules": [],
@@ -703,10 +2291,79 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
+                "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    provideAnimations(),\n    provideHttpClient(),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      })\n    ),\n  ],\n}"
+            },
+            {
+                "name": "CLIENTES_POTENCIALES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/core/data/clientes_potenciales.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ClientePotencialInterface[]",
+                "defaultValue": "[\n  {\n    offerProduct: 'Seguro de vida',\n    personalData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    offerProduct: 'Seguro de moto',\n    personalData: {\n      name: 'María',\n      surname: 'González',\n      email: 'maria.gonzalez@example.com',\n      phone: '+1987654321',\n    },\n  },\n  {\n    offerProduct: 'Seguro de casa',\n    personalData: {\n      name: 'Carlos',\n      surname: 'Sánchez',\n      email: 'carlos.sanchez@example.com',\n      phone: '+1122334455',\n    },\n  },\n]"
+            },
+            {
+                "name": "DETALLE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/core/data/detalle.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "DetalleInterface[]",
+                "defaultValue": "[\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]"
+            },
+            {
+                "name": "LANGUAGES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/navbar/data/languages.data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "LanguageInterface[]",
+                "defaultValue": "[\n  {\n    id: 'en',\n    name: 'English',\n  },\n  {\n    id: 'es',\n    name: 'Español',\n  },\n  {\n    id: 'cat',\n    name: 'Catalan',\n  },\n  {\n    id: 'ga',\n    name: 'Gallego',\n  },\n  {\n    id: 'eu',\n    name: 'Euskera',\n  },\n]"
+            },
+            {
+                "name": "LISTADO_RENOVACIONES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/core/data/listado_renovaciones.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "RenovacionesInterface[]",
+                "defaultValue": "[\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    contractDate: '2023-05-20T00:00:00Z',\n    expirationDate: '2024-05-20T00:00:00Z',\n    amount: 1200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    contractDate: '2023-07-10T00:00:00Z',\n    expirationDate: '2024-07-10T00:00:00Z',\n    amount: 800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1003,\n    riskName: 'Vida',\n    contractDate: '2023-09-15T00:00:00Z',\n    expirationDate: '2024-09-15T00:00:00Z',\n    amount: 1500,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1004,\n    riskName: 'Salud',\n    contractDate: '2023-10-30T00:00:00Z',\n    expirationDate: '2024-10-30T00:00:00Z',\n    amount: 2000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1005,\n    riskName: 'Responsabilidad Civil',\n    contractDate: '2023-12-05T00:00:00Z',\n    expirationDate: '2024-12-05T00:00:00Z',\n    amount: 1800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1006,\n    riskName: 'Accidentes Personales',\n    contractDate: '2024-01-20T00:00:00Z',\n    expirationDate: '2025-01-20T00:00:00Z',\n    amount: 1000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1007,\n    riskName: 'Robo',\n    contractDate: '2024-03-08T00:00:00Z',\n    expirationDate: '2025-03-08T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1008,\n    riskName: 'Viajes',\n    contractDate: '2024-04-15T00:00:00Z',\n    expirationDate: '2025-04-15T00:00:00Z',\n    amount: 2200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1009,\n    riskName: 'Incendio',\n    contractDate: '2024-06-20T00:00:00Z',\n    expirationDate: '2025-06-20T00:00:00Z',\n    amount: 1750,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1010,\n    riskName: 'Inundación',\n    contractDate: '2024-08-10T00:00:00Z',\n    expirationDate: '2025-08-10T00:00:00Z',\n    amount: 1900,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1011,\n    riskName: 'Terremoto',\n    contractDate: '2024-09-25T00:00:00Z',\n    expirationDate: '2025-09-25T00:00:00Z',\n    amount: 2050,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1012,\n    riskName: 'Responsabilidad Civil Profesional',\n    contractDate: '2024-11-12T00:00:00Z',\n    expirationDate: '2025-11-12T00:00:00Z',\n    amount: 2400,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1013,\n    riskName: 'Ciberseguridad',\n    contractDate: '2024-12-30T00:00:00Z',\n    expirationDate: '2025-12-30T00:00:00Z',\n    amount: 1850,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1014,\n    riskName: 'Mascotas',\n    contractDate: '2025-02-05T00:00:00Z',\n    expirationDate: '2026-02-05T00:00:00Z',\n    amount: 1300,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1015,\n    riskName: 'Responsabilidad Civil del Patrono',\n    contractDate: '2025-04-20T00:00:00Z',\n    expirationDate: '2026-04-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1016,\n    riskName: 'Asistencia en Carretera',\n    contractDate: '2025-06-10T00:00:00Z',\n    expirationDate: '2026-06-10T00:00:00Z',\n    amount: 1100,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1017,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-07-25T00:00:00Z',\n    expirationDate: '2026-07-25T00:00:00Z',\n    amount: 1450,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1018,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-09-08T00:00:00Z',\n    expirationDate: '2026-09-08T00:00:00Z',\n    amount: 2300,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1019,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-10-15T00:00:00Z',\n    expirationDate: '2026-10-15T00:00:00Z',\n    amount: 1750,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1020,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-12-05T00:00:00Z',\n    expirationDate: '2026-12-05T00:00:00Z',\n    amount: 2100,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1021,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-01-20T00:00:00Z',\n    expirationDate: '2027-01-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1022,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-03-08T00:00:00Z',\n    expirationDate: '2027-03-08T00:00:00Z',\n    amount: 1300,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1023,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-04-15T00:00:00Z',\n    expirationDate: '2027-04-15T00:00:00Z',\n    amount: 1650,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1024,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-06-20T00:00:00Z',\n    expirationDate: '2027-06-20T00:00:00Z',\n    amount: 2000,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1025,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-08-10T00:00:00Z',\n    expirationDate: '2027-08-10T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1026,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-09-25T00:00:00Z',\n    expirationDate: '2027-09-25T00:00:00Z',\n    amount: 1700,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1027,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-11-12T00:00:00Z',\n    expirationDate: '2027-11-12T00:00:00Z',\n    amount: 2050,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1028,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-12-30T00:00:00Z',\n    expirationDate: '2027-12-30T00:00:00Z',\n    amount: 1400,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1029,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-02-05T00:00:00Z',\n    expirationDate: '2028-02-05T00:00:00Z',\n    amount: 1750,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1030,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-04-20T00:00:00Z',\n    expirationDate: '2028-04-20T00:00:00Z',\n    amount: 2100,\n    state: 'pagada',\n  },\n]"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/app/app.component.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "httpClient",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "httpClient",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
@@ -719,11 +2376,90 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideRouter(routes)],\n}"
+                    "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    provideAnimations(),\n    provideHttpClient(),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      })\n    ),\n  ],\n}"
+                }
+            ],
+            "src/core/data/clientes_potenciales.ts": [
+                {
+                    "name": "CLIENTES_POTENCIALES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/core/data/clientes_potenciales.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ClientePotencialInterface[]",
+                    "defaultValue": "[\n  {\n    offerProduct: 'Seguro de vida',\n    personalData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    offerProduct: 'Seguro de moto',\n    personalData: {\n      name: 'María',\n      surname: 'González',\n      email: 'maria.gonzalez@example.com',\n      phone: '+1987654321',\n    },\n  },\n  {\n    offerProduct: 'Seguro de casa',\n    personalData: {\n      name: 'Carlos',\n      surname: 'Sánchez',\n      email: 'carlos.sanchez@example.com',\n      phone: '+1122334455',\n    },\n  },\n]"
+                }
+            ],
+            "src/core/data/detalle.ts": [
+                {
+                    "name": "DETALLE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/core/data/detalle.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DetalleInterface[]",
+                    "defaultValue": "[\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    ownerData: {\n      name: 'Juan',\n      surname: 'Pérez',\n      cif: '123456789',\n      email: 'juan.perez@example.com',\n      phone: '+1234567890',\n      fiscalAddress: 'Calle Bravo Murillo 377',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 3424',\n      addressCode: '71',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-05-20T00:00:00Z',\n        startDate: '2023-05-20T00:00:00Z',\n        endDate: '2024-05-20T00:00:00Z',\n        amount: 1200,\n        state: 'pagada',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      type: 'Domiciliado estándar',\n      iban: 'ES9123456789012345678901',\n      bank: 'Banco de Sabadell, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo Sisquella serveis',\n      cif: '123456789',\n      address: 'Calle Bravo Murillo 377',\n      postalCode: '28001',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '19',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'juan.perez@example.com',\n      email2: 'juan.perez2@example.com',\n      phone: '+1234567890',\n    },\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    ownerData: {\n      name: 'María',\n      surname: 'González',\n      cif: '987654321',\n      email: 'maria.gonzalez@example.com',\n      phone: '+987654321',\n      fiscalAddress: 'Calle Gran Vía 123',\n      state: 'vigente',\n    },\n    invoicingDepartment: {\n      address: 'Calle 2323',\n      addressCode: '51',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n    },\n    instalments: [\n      {\n        issueDate: '2023-07-10T00:00:00Z',\n        startDate: '2023-07-10T00:00:00Z',\n        endDate: '2024-07-10T00:00:00Z',\n        amount: 800,\n        state: 'pagada',\n      },\n      {\n        issueDate: '2023-08-10T00:00:00Z',\n        startDate: '2023-08-10T00:00:00Z',\n        endDate: '2024-08-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n      {\n        issueDate: '2023-09-10T00:00:00Z',\n        startDate: '2023-09-10T00:00:00Z',\n        endDate: '2024-09-10T00:00:00Z',\n        amount: 800,\n        state: 'pendiente',\n      },\n    ],\n    paymentMethod: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      type: 'Domiciliado estándar',\n      iban: 'ES9876543210987654321098',\n      bank: 'Banco de Madrid, S.A.',\n    },\n    correspondenceAddress: {\n      name: 'Grupo González Servicios Financieros',\n      cif: '987654321',\n      address: 'Calle Gran Vía 123',\n      postalCode: '28010',\n      city: 'Madrid',\n      country: 'España',\n      addressCode: '51',\n      detail: 'Bajo',\n    },\n    contactData: {\n      email: 'maria.gonzalez@example.com',\n      email2: 'maria.gonzalez2@example.com',\n      phone: '+987654321',\n    },\n  },\n]"
+                }
+            ],
+            "src/app/components/navbar/data/languages.data.ts": [
+                {
+                    "name": "LANGUAGES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/navbar/data/languages.data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "LanguageInterface[]",
+                    "defaultValue": "[\n  {\n    id: 'en',\n    name: 'English',\n  },\n  {\n    id: 'es',\n    name: 'Español',\n  },\n  {\n    id: 'cat',\n    name: 'Catalan',\n  },\n  {\n    id: 'ga',\n    name: 'Gallego',\n  },\n  {\n    id: 'eu',\n    name: 'Euskera',\n  },\n]"
+                }
+            ],
+            "src/core/data/listado_renovaciones.ts": [
+                {
+                    "name": "LISTADO_RENOVACIONES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/core/data/listado_renovaciones.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "RenovacionesInterface[]",
+                    "defaultValue": "[\n  {\n    nPolicy: 1001,\n    riskName: 'Automóvil',\n    contractDate: '2023-05-20T00:00:00Z',\n    expirationDate: '2024-05-20T00:00:00Z',\n    amount: 1200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1002,\n    riskName: 'Hogar',\n    contractDate: '2023-07-10T00:00:00Z',\n    expirationDate: '2024-07-10T00:00:00Z',\n    amount: 800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1003,\n    riskName: 'Vida',\n    contractDate: '2023-09-15T00:00:00Z',\n    expirationDate: '2024-09-15T00:00:00Z',\n    amount: 1500,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1004,\n    riskName: 'Salud',\n    contractDate: '2023-10-30T00:00:00Z',\n    expirationDate: '2024-10-30T00:00:00Z',\n    amount: 2000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1005,\n    riskName: 'Responsabilidad Civil',\n    contractDate: '2023-12-05T00:00:00Z',\n    expirationDate: '2024-12-05T00:00:00Z',\n    amount: 1800,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1006,\n    riskName: 'Accidentes Personales',\n    contractDate: '2024-01-20T00:00:00Z',\n    expirationDate: '2025-01-20T00:00:00Z',\n    amount: 1000,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1007,\n    riskName: 'Robo',\n    contractDate: '2024-03-08T00:00:00Z',\n    expirationDate: '2025-03-08T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1008,\n    riskName: 'Viajes',\n    contractDate: '2024-04-15T00:00:00Z',\n    expirationDate: '2025-04-15T00:00:00Z',\n    amount: 2200,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1009,\n    riskName: 'Incendio',\n    contractDate: '2024-06-20T00:00:00Z',\n    expirationDate: '2025-06-20T00:00:00Z',\n    amount: 1750,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1010,\n    riskName: 'Inundación',\n    contractDate: '2024-08-10T00:00:00Z',\n    expirationDate: '2025-08-10T00:00:00Z',\n    amount: 1900,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1011,\n    riskName: 'Terremoto',\n    contractDate: '2024-09-25T00:00:00Z',\n    expirationDate: '2025-09-25T00:00:00Z',\n    amount: 2050,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1012,\n    riskName: 'Responsabilidad Civil Profesional',\n    contractDate: '2024-11-12T00:00:00Z',\n    expirationDate: '2025-11-12T00:00:00Z',\n    amount: 2400,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1013,\n    riskName: 'Ciberseguridad',\n    contractDate: '2024-12-30T00:00:00Z',\n    expirationDate: '2025-12-30T00:00:00Z',\n    amount: 1850,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1014,\n    riskName: 'Mascotas',\n    contractDate: '2025-02-05T00:00:00Z',\n    expirationDate: '2026-02-05T00:00:00Z',\n    amount: 1300,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1015,\n    riskName: 'Responsabilidad Civil del Patrono',\n    contractDate: '2025-04-20T00:00:00Z',\n    expirationDate: '2026-04-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1016,\n    riskName: 'Asistencia en Carretera',\n    contractDate: '2025-06-10T00:00:00Z',\n    expirationDate: '2026-06-10T00:00:00Z',\n    amount: 1100,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1017,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-07-25T00:00:00Z',\n    expirationDate: '2026-07-25T00:00:00Z',\n    amount: 1450,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1018,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-09-08T00:00:00Z',\n    expirationDate: '2026-09-08T00:00:00Z',\n    amount: 2300,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1019,\n    riskName: 'Asistencia en el Hogar',\n    contractDate: '2025-10-15T00:00:00Z',\n    expirationDate: '2026-10-15T00:00:00Z',\n    amount: 1750,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1020,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2025-12-05T00:00:00Z',\n    expirationDate: '2026-12-05T00:00:00Z',\n    amount: 2100,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1021,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-01-20T00:00:00Z',\n    expirationDate: '2027-01-20T00:00:00Z',\n    amount: 1950,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1022,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-03-08T00:00:00Z',\n    expirationDate: '2027-03-08T00:00:00Z',\n    amount: 1300,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1023,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-04-15T00:00:00Z',\n    expirationDate: '2027-04-15T00:00:00Z',\n    amount: 1650,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1024,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-06-20T00:00:00Z',\n    expirationDate: '2027-06-20T00:00:00Z',\n    amount: 2000,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1025,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-08-10T00:00:00Z',\n    expirationDate: '2027-08-10T00:00:00Z',\n    amount: 1350,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1026,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-09-25T00:00:00Z',\n    expirationDate: '2027-09-25T00:00:00Z',\n    amount: 1700,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1027,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-11-12T00:00:00Z',\n    expirationDate: '2027-11-12T00:00:00Z',\n    amount: 2050,\n    state: 'pagada',\n  },\n  {\n    nPolicy: 1028,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2026-12-30T00:00:00Z',\n    expirationDate: '2027-12-30T00:00:00Z',\n    amount: 1400,\n    state: 'vencida',\n  },\n  {\n    nPolicy: 1029,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-02-05T00:00:00Z',\n    expirationDate: '2028-02-05T00:00:00Z',\n    amount: 1750,\n    state: 'pendiente',\n  },\n  {\n    nPolicy: 1030,\n    riskName: 'Asistencia en Viajes',\n    contractDate: '2027-04-20T00:00:00Z',\n    expirationDate: '2028-04-20T00:00:00Z',\n    amount: 2100,\n    state: 'pagada',\n  },\n]"
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/app/app.component.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/app/app.component.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "httpClient",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "httpClient",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {}
     },
@@ -738,7 +2474,17 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -793,6 +2539,61 @@
                 "linktype": "component",
                 "name": "InputComponent",
                 "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/input/input.component.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MyErrorStateMatcher",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/link/link.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LinkComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/navbar/components/language-menu/language-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LanguageMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/navbar/components/profile-menu/profile-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProfileMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/navbar/data/languages.data.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LANGUAGES",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/navbar/models/language.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LanguageInterface",
+                "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
             },
@@ -815,10 +2616,82 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/layout/section-container/section-container.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SectionContainerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/clientes-potenciales/clientes-potenciales.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ClientesPotencialesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/hero/hero.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeroComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/proximas-renovaciones/proximas-renovaciones.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProximasRenovacionesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/renovaciones-table/renovaciones-table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RenovacionesTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home-page/components/status-flag/status-flag.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StatusFlagComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/pages/home-page/home-page.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "HomePageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/not-found-page/not-found-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NotFoundPageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -837,6 +2710,117 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "RenovacionesPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/clientes_potenciales.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ClientePotencialInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/clientes_potenciales.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CLIENTES_POTENCIALES",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ContactDataInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "CorrespondenceAddressInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DetalleInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "InstalmentInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "InvoicingDepartmentInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "OwnerDataInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "PaymentMethodInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/detalle.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DETALLE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/listado_renovaciones.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "RenovacionesInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/data/listado_renovaciones.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LISTADO_RENOVACIONES",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
