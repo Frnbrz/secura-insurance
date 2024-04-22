@@ -12,13 +12,13 @@
     ></span>
   </div>
 </button>
-<mat-menu #beforeMenu="matMenu" xPosition="before">
+<mat-menu #beforeMenu="matMenu" xPosition="before" class="menu">
   <div *ngFor="let language of languages">
     <button mat-menu-item (click)="changeLanguage(language)">
       <span [ngClass]="selectedLanguage === language ? 'strong' : ''">
         {{ language.name }}
-        aa
       </span>
     </button>
+    <mat-divider *ngIf="language !== languages[languages.length - 1]" />
   </div>
 </mat-menu>
