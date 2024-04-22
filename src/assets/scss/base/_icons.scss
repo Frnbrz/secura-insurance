@@ -26,6 +26,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-power-off:before {
+  content: "\e90c";
+}
+
+.icon-lock:before {
+  content: "\e90d";
+}
+
 .icon-check:before {
   content: "\e90b";
 }
