@@ -12,6 +12,26 @@
   </div>
 </button>
 <mat-menu #beforeMenu="matMenu" xPosition="before">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
+  <div mat-menu-item>
+    <strong> Mi Perfil </strong>
+    <p>
+      En este espacio puedes acceder, modificar, gestionar y consultar todo lo
+      relacionado con tus servicios de energía. Fácil y rápido.
+    </p>
+  </div>
+
+  <mat-divider />
+  <button mat-menu-item>
+    <span class="icon-user"></span>Mis datos personales
+  </button>
+  <mat-divider />
+  <button mat-menu-item active>
+    <span class="icon-lock"></span>Mi contraseña
+  </button>
+  <mat-divider />
+  <button mat-menu-item><span class="icon-phone"></span>Contacto</button>
+  <mat-divider />
+  <button mat-menu-item>
+    <span class="icon-power-off"></span>Cerrar sesión
+  </button>
 </mat-menu>
