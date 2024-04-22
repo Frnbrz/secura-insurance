@@ -18,8 +18,47 @@ th[mat-header-cell] {
 
 td[mat-cell] {
   border-radius: 6px;
+
+  >span {
+    display: none;
+  }
 }
 
 tr[mat-row] {
   background: #ffffff;
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+  th[mat-header-cell] {
+    display: none;
+  }
+
+  tr[mat-row] {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+    height: auto;
+    width: Fixed (343px)px;
+    height: Hug (369px)px;
+    padding: 16px 0px 0px 0px;
+    gap: 16px;
+    border-radius: 8px 0px 0px 0px;
+    opacity: 0px;
+
+  }
+
+
+
+  td[mat-cell] {
+    padding: 0.5rem;
+    border-bottom: 0px;
+
+    >span {
+      display: block;
+    }
+  }
+
 }

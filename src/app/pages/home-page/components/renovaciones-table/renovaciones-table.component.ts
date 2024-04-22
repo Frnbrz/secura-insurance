@@ -1,5 +1,10 @@
 import { JsonPipe } from '@angular/common'
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core'
 import { MatTableModule } from '@angular/material/table'
 import {
   LISTADO_RENOVACIONES,
@@ -14,8 +19,9 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
   styleUrls: ['./renovaciones-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenovacionesTableComponent {
-  renovaciones: RenovacionesInterface[] = LISTADO_RENOVACIONES
+export class RenovacionesTableComponent implements OnInit {
+  @Input() isOnHomePage = false
+  renovaciones: RenovacionesInterface[] | [] = []
 
   displayedColumns: string[] = [
     'nPolicy',
@@ -27,6 +33,11 @@ export class RenovacionesTableComponent {
   ]
 
   ngOnInit() {
-    console.log(this.renovaciones)
+    if (this.isOnHomePage) {
+      console.log(LISTADO_RENOVACIONES.slice(-3))
+      this.renovaciones = LISTADO_RENOVACIONES.slice(-3)
+    } else {
+      this.renovaciones = LISTADO_RENOVACIONES
+    }
   }
 }
