@@ -61,10 +61,17 @@
 }
 
 
-
-
 .matMenu {
   margin: 0;
   padding: 0;
   border-radius: 8px;
+}
+
+.mat-mdc-menu-panel {
+  border-radius: 12px;
+}
+
+.mat-mdc-menu-content {
+  margin: 0;
+  padding: 0;
 }

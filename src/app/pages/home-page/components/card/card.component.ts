@@ -29,7 +29,8 @@ export class CardComponent {
     },
   }
 
-  handleRemoveClick() {
+  handleRemoveClick($event: any) {
+    $event.stopPropagation()
     this.handleClick.emit(this.ClienteElement)
   }
 }
