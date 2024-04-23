@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { LinkComponent } from '@src/app/components/link/link.component'
+import { ButtonComponent } from '@src/app/components'
 import { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'
 import { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-table.component'
 
@@ -7,7 +7,7 @@ import { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-t
   selector: 'app-proximas-renovaciones',
   standalone: true,
   imports: [
-    LinkComponent,
+    ButtonComponent,
     RenovacionesTableComponent,
     SectionContainerComponent,
   ],

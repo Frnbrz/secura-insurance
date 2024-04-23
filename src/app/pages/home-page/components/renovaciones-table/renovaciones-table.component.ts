@@ -1,4 +1,4 @@
-import { JsonPipe, NgClass } from '@angular/common'
+import { JsonPipe, NgIf } from '@angular/common'
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -22,7 +22,7 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
     JsonPipe,
     StatusFlagComponent,
     MatPaginatorModule,
-    NgClass,
+    NgIf,
   ],
   templateUrl: './renovaciones-table.component.html',
   styleUrls: ['./renovaciones-table.component.scss'],
@@ -38,10 +38,8 @@ export class RenovacionesTableComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.isOnHomePage) {
-      this.dataSource = new MatTableDataSource<RenovacionesInterface>(
-        LISTADO_RENOVACIONES.slice(-3)
-      )
-
+      this.dataSource = LISTADO_RENOVACIONES.slice(-3)
+      console.log(this.dataSource)
       // this.renovaciones = LISTADO_RENOVACIONES.slice(-3)
     } else {
       // this.renovaciones = LISTADO_RENOVACIONES

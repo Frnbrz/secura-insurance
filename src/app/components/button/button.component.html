@@ -1,3 +1,11 @@
-<button mat-flat-button color="primary" [disabled]="disabled">
-  <ng-content></ng-content>
-</button>
+<ng-container *ngIf="to === ''">
+  <button mat-flat-button color="primary" [disabled]="disabled">
+    <ng-content></ng-content>
+  </button>
+</ng-container>
+
+<ng-container *ngIf="to !== ''">
+  <a mat-button [routerLink]="to" class="button">
+    <ng-content></ng-content>
+  </a>
+</ng-container>

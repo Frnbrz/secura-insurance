@@ -3,3 +3,67 @@
   grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 1rem;
 }
+
+.mat-mdc-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.icon {
+  height: 14px;
+  width: 14px;
+  color: var(--color-primary);
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.mat-mdc-icon-button {
+  --mdc-icon-button-icon-size: 17px;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+}
+
+
+
+
+
+.card {
+  padding: 16px 24px 16px 24px;
+  border-radius: 12px;
+  display: grid;
+  gap: 24px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-subtitle {
+  color: rgba(159, 195, 226, 1);
+  font-weight: 400;
+  text-align: left;
+
+}
+
+.card-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-footer {
+  display: flex;
+  gap: 24px;
+
+  p {
+    font-weight: 700;
+    color: rgba(75, 152, 217, 1);
+
+  }
+}
