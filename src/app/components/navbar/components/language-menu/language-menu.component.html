@@ -12,7 +12,7 @@
     ></span>
   </div>
 </button>
-<mat-menu #beforeMenu="matMenu" xPosition="before" class="menu">
+<mat-menu #beforeMenu="matMenu" xPosition="before" panelClass="custom-select">
   <div *ngFor="let language of languages">
     <button mat-menu-item (click)="changeLanguage(language)">
       <span [ngClass]="selectedLanguage === language ? 'strong' : ''">

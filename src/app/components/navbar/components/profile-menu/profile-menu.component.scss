@@ -57,3 +57,12 @@
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .button-content {
+    .button-text {
+      display: none;
+    }
+  }
+
+}

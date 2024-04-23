@@ -1,27 +1,36 @@
 <footer class="container">
-  <div class="help">
-    <p>¿Necesitas ayuda?</p>
-    <div class="help-element">
-      <span class="icon icon-mail"></span>
-      <p>atencionalcliente&#64;securainsurance.com</p>
+  <header class="help">
+    <div>
+      <p class="bold title">¿Necesitas ayuda?</p>
+      <div class="help-element">
+        <span class="icon icon-mail"></span>
+        <p>atencionalcliente&#64;securainsurance.com</p>
+      </div>
+      <div class="help-element">
+        <span class="icon icon-phone"></span>
+        <p>998832732</p>
+      </div>
     </div>
-    <div class="help-element">
-      <span class="icon icon-phone"></span>
-      <p>998832732</p>
-    </div>
-    <nav class="footer-nav">
-      <app-link>Politicas de cookies </app-link>
-      <mat-divider vertical />
-      <app-link to="#">Aviso legal</app-link>
-      <mat-divider vertical />
-      <app-link to="#">Politica de privacidad </app-link>
-    </nav>
-  </div>
-  <div class="info">
-    <div class="info-location">
+    <div class="help-location">
       <p>SECURA INSURANCE ESPAÑA, S.A.U</p>
       <p>Calle Ribera del Loira 46, Madrid, 28042</p>
     </div>
+  </header>
+  <div class="info">
+    <nav class="info-nav">
+      <app-link to="#"
+        ><span class="info-nav-text">Politicas de cookies </span></app-link
+      >
+      <mat-divider vertical />
+      <app-link to="#">
+        <span class="info-nav-text">Aviso legal </span>
+      </app-link>
+      <mat-divider vertical />
+      <app-link to="#"
+        ><span class="info-nav-text">Politica de privacidad </span></app-link
+      >
+    </nav>
+
     <div class="info-copy">
       <p>©️ 2022 SecuraInsurance</p>
     </div>

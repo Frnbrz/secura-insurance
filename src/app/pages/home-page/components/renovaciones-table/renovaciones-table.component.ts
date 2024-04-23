@@ -1,4 +1,4 @@
-import { JsonPipe, NgIf } from '@angular/common'
+import { JsonPipe, NgIf, NgStyle } from '@angular/common'
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -23,6 +23,7 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
     StatusFlagComponent,
     MatPaginatorModule,
     NgIf,
+    NgStyle,
   ],
   templateUrl: './renovaciones-table.component.html',
   styleUrls: ['./renovaciones-table.component.scss'],

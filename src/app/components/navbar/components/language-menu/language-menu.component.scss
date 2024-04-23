@@ -20,12 +20,9 @@
   }
 }
 
-.mat-menu {
-  margin: 0;
-  padding: 0;
-  border-radius: 8px;
+::ng-deep .mat-list-item-content {
+  padding: 0 !important;
 }
-
 
 .button-content {
 

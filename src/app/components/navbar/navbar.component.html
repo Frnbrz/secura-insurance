@@ -1,35 +1,29 @@
-<mat-toolbar class="header">
+<mat-toolbar class="example-toolbar header">
   <img
     width="88"
     height="64"
     class="social-media-element__img"
     ngSrc="assets/img/logo.svg"
     alt="Logo of Secure Insurance" />
-  <nav>
-    <app-link to="/">Inicio</app-link>
-    <app-link to="/renovaciones">Proximas Renovaciones</app-link>
-  </nav>
-  <span class="example-spacer"></span>
-  <app-profile-menu />
-  <app-language-menu />
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon">
-    <span class="icon-menu"></span>
-  </button>
+  <ng-container *ngIf="toolbarState()">
+    <nav>
+      <app-link to="/">Inicio</app-link>
+      <app-link to="/renovaciones">Proximas Renovaciones</app-link>
+    </nav>
+    <span class="example-spacer"></span>
+  </ng-container>
+  <div>
+    <app-profile-menu />
+    <ng-container *ngIf="toolbarState()">
+      <app-language-menu />
+    </ng-container>
+    <ng-container *ngIf="!toolbarState()">
+      <button
+        mat-icon-button
+        class="button"
+        aria-label="Example icon-button with menu icon">
+        <span class="icon-menu icon"></span>
+      </button>
+    </ng-container>
+  </div>
 </mat-toolbar>
-
-<!-- TODO - Add sidenav -->
-<!-- <mat-sidenav-container
-  class="example-container"
-  (backdropClick)="close('backdrop')">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">Open</button></p>
-    <p>Closed due to: {{ reason }}</p>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->

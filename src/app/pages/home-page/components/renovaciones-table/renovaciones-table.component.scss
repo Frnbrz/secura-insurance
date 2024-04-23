@@ -24,9 +24,6 @@ td:last-child {
 
 
 td[mat-cell] {
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
   padding: 24px 16px 24px 16px;
 
 
@@ -52,11 +49,9 @@ tr[mat-row] {
     flex-direction: column;
     margin: 20px 10px;
     height: auto;
-    width: Fixed (343px)px;
-    height: Hug (369px)px;
-    padding: 16px 0px 0px 0px;
+    padding: 16px;
     gap: 16px;
-    border-radius: 8px 0px 0px 0px;
+    border-radius: 8px;
     opacity: 0px;
 
   }
@@ -69,6 +64,8 @@ tr[mat-row] {
 
     >span {
       display: block;
+      color: rgba(64, 82, 88, 1);
+
     }
   }
 
