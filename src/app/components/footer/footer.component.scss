@@ -77,3 +77,25 @@
 .mat-divider.mat-divider-vertical {
   border-right-color: rgb(0 0 0 / 30%);
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1rem 1rem;
+  }
+
+  .help {
+    flex-direction: column;
+  }
+
+  .info-nav {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+}

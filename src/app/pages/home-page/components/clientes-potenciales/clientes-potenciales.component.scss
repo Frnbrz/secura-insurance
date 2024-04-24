@@ -67,3 +67,20 @@
 
   }
 }
+
+@media screen and (max-width: 600px) {
+  .clientes-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+
+  .card-footer {
+    flex-direction: column;
+
+
+  }
+
+}

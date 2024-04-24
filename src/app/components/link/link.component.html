@@ -2,6 +2,8 @@
   mat-button
   [routerLink]="to"
   class="link"
+  routerLinkActive="active"
+  (click)="setRoute()"
   [ngClass]="active ? 'link--active' : ''">
   <ng-content></ng-content>
 </a>

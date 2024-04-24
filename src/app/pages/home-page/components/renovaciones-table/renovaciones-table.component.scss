@@ -42,6 +42,20 @@ tr[mat-row] {
 
   th[mat-header-cell] {
     display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  thead[mat-header-cell] {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  tbody {
+    display: none;
+    margin: 0;
+    padding: 0;
   }
 
   tr[mat-row] {

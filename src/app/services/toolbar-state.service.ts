@@ -8,10 +8,19 @@ export const EmptyToolbarState = false
 })
 export class ToolbarStateService {
   private toolbarState = signal(EmptyToolbarState)
+  private route = signal('')
   public sideNavToggleSubject: BehaviorSubject<any> = new BehaviorSubject(null)
 
   public toggle() {
     return this.sideNavToggleSubject.next(null)
+  }
+
+  getRoute() {
+    return this.route
+  }
+
+  setRoute(route: string) {
+    this.route.set(route)
   }
 
   getToolbarState() {
