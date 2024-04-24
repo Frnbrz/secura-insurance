@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
+import { LinkComponent } from '@src/app/components/link/link.component'
 
 @Component({
   selector: 'app-profile-menu',
@@ -13,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu'
     MatMenuModule,
     MatIconModule,
     MatDividerModule,
+    LinkComponent,
     NgIf,
   ],
   templateUrl: './profile-menu.component.html',

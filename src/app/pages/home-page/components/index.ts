@@ -1,3 +1,5 @@
 export * from './clientes-potenciales'
 export * from './hero'
 export * from './proximas-renovaciones'
+export * from './renovaciones-table'
+export * from './status-flag'

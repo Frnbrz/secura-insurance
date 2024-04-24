@@ -1,0 +1,86 @@
+$sizes: (
+  0: 0em,
+  1: 0.25em,
+  2: 0.5em,
+  3: 0.75em,
+  4: 1em,
+  5: 1.25em,
+  6: 1.5em,
+  7: 1.75em,
+  8: 2em,
+  9: 2.25em,
+  10: 2.5em,
+  11: 2.75em,
+  12: 3em,
+  13: 3.25em,
+  14: 3.5em,
+  15: 3.75em,
+  16: 4em,
+);
+
+
+@mixin generate-padding-classes($sizes) {
+  @each $size, $value in $sizes {
+    .p-#{$size} {
+      padding: $value;
+    }
+
+    .pt-#{$size} {
+      padding-top: $value;
+    }
+
+    .pr-#{$size} {
+      padding-right: $value;
+    }
+
+    .pb-#{$size} {
+      padding-bottom: $value;
+    }
+
+    .pl-#{$size} {
+      padding-left: $value;
+    }
+  }
+}
+
+@include generate-padding-classes($sizes);
+
+@mixin generate-margin-classes($sizes) {
+  @each $size, $value in $sizes {
+    .m-#{$size} {
+      margin: $value;
+    }
+
+    .mt-#{$size} {
+      margin-top: $value;
+    }
+
+    .mr-#{$size} {
+      margin-right: $value;
+    }
+
+    .mb-#{$size} {
+      margin-bottom: $value;
+    }
+
+    .ml-#{$size} {
+      margin-left: $value;
+    }
+  }
+}
+
+
+
+@include generate-margin-classes($sizes);
+
+
+@mixin generate-grid-classes($sizes) {
+  @each $size, $value in $sizes {
+    .grid-#{$size} {
+      display: grid;
+      grid-gap: $value;
+    }
+  }
+}
+
+@include generate-grid-classes($sizes);

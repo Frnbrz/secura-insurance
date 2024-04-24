@@ -7,8 +7,11 @@
     alt="Logo of Secure Insurance" />
   <ng-container *ngIf="toolbarState()">
     <nav>
-      <app-link to="/">Inicio</app-link>
-      <app-link to="/renovaciones">Proximas Renovaciones</app-link>
+      <app-link to="/home"><span class="p-2">Inicio</span></app-link>
+
+      <app-link to="/renovaciones"
+        ><span class="p-2 m-2">Proximas Renovaciones</span></app-link
+      >
     </nav>
     <span class="example-spacer"></span>
   </ng-container>

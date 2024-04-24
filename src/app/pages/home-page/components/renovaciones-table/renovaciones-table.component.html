@@ -18,7 +18,7 @@
   <ng-container matColumnDef="contractDate">
     <th mat-header-cell *matHeaderCellDef>Fecha contrato</th>
     <td mat-cell *matCellDef="let renovacion">
-      <span>Fecha contrato</span> {{ renovacion.contractDate }}
+      <span>Fecha contrato</span> {{ renovacion.contractDate | dateEuro }}
     </td>
   </ng-container>
 
@@ -27,7 +27,7 @@
     <th mat-header-cell *matHeaderCellDef>Fecha de vencimiento</th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Fecha de vencimiento</span>
-      {{ renovacion.expirationDate }}
+      {{ renovacion.expirationDate | dateEuro }}
     </td>
   </ng-container>
 
@@ -35,7 +35,10 @@
   <ng-container matColumnDef="amount">
     <th mat-header-cell *matHeaderCellDef>Importe</th>
     <td mat-cell *matCellDef="let renovacion">
-      <span>Importe</span>{{ renovacion.amount }}
+      <span>Importe</span>
+      <strong>
+        {{ renovacion.amount | currencyEuro }}
+      </strong>
     </td>
   </ng-container>
 

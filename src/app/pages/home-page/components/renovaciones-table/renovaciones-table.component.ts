@@ -9,11 +9,14 @@ import {
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 
+import { CurrencyEuroPipe } from '@src/app/pipes'
+import { DateEuroPipe } from '@src/app/pipes/date-euro.pipe'
 import {
   LISTADO_RENOVACIONES,
   RenovacionesInterface,
 } from '@src/core/data/listado_renovaciones'
 import { StatusFlagComponent } from '../status-flag/status-flag.component'
+
 @Component({
   selector: 'app-renovaciones-table',
   standalone: true,
@@ -24,6 +27,8 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
     MatPaginatorModule,
     NgIf,
     NgStyle,
+    CurrencyEuroPipe,
+    DateEuroPipe,
   ],
   templateUrl: './renovaciones-table.component.html',
   styleUrls: ['./renovaciones-table.component.scss'],

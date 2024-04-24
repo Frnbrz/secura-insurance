@@ -58,11 +58,47 @@
   }
 }
 
+.menu-header {
+
+  padding: 24px;
+
+  .menu-header-text {
+    display: grid;
+    gap: 22px;
+  }
+}
+
+.menu-item-text {
+  display: flex;
+  gap: 14px;
+
+  span {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+
+
 @media screen and (max-width: 600px) {
   .button-content {
     .button-text {
       display: none;
     }
   }
+
+}
+
+.link {
+  padding: 0;
+}
+
+.link--active::before {
+  content: '';
+  width: 1px;
+  height: 100%;
+
+  background-color: var(--color-primary);
+
 
 }

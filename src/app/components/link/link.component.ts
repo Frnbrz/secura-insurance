@@ -21,6 +21,7 @@ export class LinkComponent {
   toolbarStateService = inject(ToolbarStateService)
   @Input() to = '#'
   @Input() active = false
+  @Input() disabled = false
 
   setRoute() {
     this.toolbarStateService.setRoute(this.to)

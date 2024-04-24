@@ -1,3 +1,4 @@
+export * from './bread-crumb'
 export * from './button'
 export * from './button-outline'
 export * from './checkbox'
