@@ -1,4 +1,42 @@
-<app-navbar />
-
-<router-outlet />
-<app-footer />
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="side">
+    <main>
+      <header>
+        <div class="upbar">
+          <img
+            width="88"
+            height="64"
+            class="social-media-element__img"
+            ngSrc="assets/img/logo.svg"
+            alt="Logo of Secure Insurance" />
+          <button
+            mat-icon-button
+            class="button"
+            (click)="clickMenu()"
+            aria-label="Example icon-button with menu icon">
+            <span class="icon-close icon"></span>
+          </button>
+        </div>
+        <mat-list role="list">
+          <mat-divider />
+          <app-link to="/" [active]="true">
+            <mat-list-item role="listitem"> Inicio </mat-list-item>
+          </app-link>
+          <mat-divider />
+          <app-link to="/renovaciones">
+            <mat-list-item role="listitem">
+              Proximas Renovaciones
+            </mat-list-item>
+          </app-link>
+          <mat-divider />
+        </mat-list>
+      </header>
+      <app-language-menu />
+    </main>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-navbar />
+    <router-outlet />
+    <app-footer />
+  </mat-sidenav-content>
+</mat-sidenav-container>

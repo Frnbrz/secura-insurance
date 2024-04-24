@@ -1,0 +1,18 @@
+.icon {
+  color: var(--color-primary);
+  height: 24px;
+}
+
+.upbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

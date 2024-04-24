@@ -51,6 +51,10 @@ export class NavbarComponent implements OnInit {
     this.sidenav?.close()
   }
 
+  clickMenu() {
+    this.toolbarStateService.toggle()
+  }
+
   ngOnInit() {
     this.breakpointObserver
       .observe('(max-width: 600px)')

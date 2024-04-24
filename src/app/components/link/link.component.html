@@ -1,3 +1,7 @@
-<a mat-button [routerLink]="to">
+<a
+  mat-button
+  [routerLink]="to"
+  class="link"
+  [ngClass]="active ? 'link--active' : ''">
   <ng-content></ng-content>
 </a>
