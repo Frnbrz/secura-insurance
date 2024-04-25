@@ -6,10 +6,8 @@ import { inject, Injectable } from '@angular/core'
 })
 export class RenovacionesService {
   http = inject(HttpClient)
-  getDetalleUno() {
-    return this.http.get('http://localhost:3000/api/v1/detalle/1')
-  }
-  getDetalleDos() {
-    return this.http.get('http://localhost:3000/api/v1/detalle/2')
+
+  getRenovaciones() {
+    return this.http.get('http://localhost:3000/api/v1/renovaciones')
   }
 }
