@@ -77,8 +77,8 @@ $sizes: (
 @mixin generate-grid-classes($sizes) {
   @each $size, $value in $sizes {
     .grid-#{$size} {
-      display: grid;
-      grid-gap: $value;
+      display: flex;
+      gap: $value;
     }
   }
 }

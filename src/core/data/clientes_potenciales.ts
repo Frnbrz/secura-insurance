@@ -8,6 +8,11 @@ export interface ClientePotencialInterface {
   }
 }
 
+export interface ResponseInterface {
+  status: string
+  data: ClientePotencialInterface[]
+}
+
 export const CLIENTES_POTENCIALES: ClientePotencialInterface[] = [
   {
     offerProduct: 'Seguro de vida',

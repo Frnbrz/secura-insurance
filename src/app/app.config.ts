@@ -11,7 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideHttpClient(withFetch()),
-    provideHttpClient(),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {

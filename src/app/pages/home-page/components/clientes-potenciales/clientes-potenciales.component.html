@@ -31,5 +31,8 @@
         </footer>
       </mat-card>
     </div>
+    <div *ngIf="clientesPotenciales.length === 0">
+      <p>No hay clientes potenciales</p>
+    </div>
   </article>
 </app-section-container>

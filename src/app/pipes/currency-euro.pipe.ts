@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core'
   standalone: true,
 })
 export class CurrencyEuroPipe implements PipeTransform {
-  transform(value: number, ...args: unknown[]): string {
+  transform(value: number, _args?: unknown): string {
     // Format the value as currency for Euro
     const formattedValue = new Intl.NumberFormat('de-DE', {
       style: 'currency',

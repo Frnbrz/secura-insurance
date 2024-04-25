@@ -5,6 +5,7 @@ import {
   OnInit,
 } from '@angular/core'
 import { ActivatedRoute, RouterModule } from '@angular/router' // Import ActivatedRoute
+import { RenovacionesService } from '@src/app/services/renovaciones.service'
 
 @Component({
   selector: 'app-bread-crumb',
@@ -15,6 +16,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router' // Import Activat
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadCrumbComponent implements OnInit {
+  renovacionesService = inject(RenovacionesService)
+  polizas = this.renovacionesService.getPolizas()
   route = inject(ActivatedRoute)
   currentRoute: string | null = null
 
