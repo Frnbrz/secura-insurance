@@ -15,8 +15,10 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CurrencyEuroPipe } from '@src/app/pipes'
 import { DateEuroPipe } from '@src/app/pipes/date-euro.pipe'
+import { TableFiltersService } from '@src/app/services'
 import { RenovacionesService } from '@src/app/services/renovaciones.service'
 import { RenovacionesInterface } from '@src/core/data/listado_renovaciones'
+import { Subscription } from 'rxjs'
 import { StatusFlagComponent } from '../status-flag/status-flag.component'
 
 @Component({
@@ -42,16 +44,26 @@ export class RenovacionesTableComponent implements OnInit {
     | MatTableDataSource<RenovacionesInterface>
     | RenovacionesInterface[]
   renovacionesService: RenovacionesService
+  tableFilterService: TableFiltersService
+  filterSubscription: Subscription
+  filter = ''
+
   destroyRef: DestroyRef
   cdr: ChangeDetectorRef
 
   @ViewChild(MatPaginator) paginator!: MatPaginator | null
 
   constructor() {
-    this.dataSource = []
+    this.tableFilterService = inject(TableFiltersService)
+    this.dataSource = new MatTableDataSource<RenovacionesInterface>([])
     this.renovacionesService = inject(RenovacionesService)
     this.destroyRef = inject(DestroyRef)
     this.cdr = inject(ChangeDetectorRef)
+    this.filterSubscription = this.tableFilterService.filter$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(filter => {
+        this.filter = filter
+      })
   }
 
   ngOnInit(): void {
@@ -75,6 +87,7 @@ export class RenovacionesTableComponent implements OnInit {
           this.dataSource = new MatTableDataSource<RenovacionesInterface>(
             renovaciones
           )
+
           this.dataSource.paginator = this.paginator
           this.cdr.detectChanges()
         })

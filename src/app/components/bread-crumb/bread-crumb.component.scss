@@ -40,7 +40,9 @@ a {
   color: var(--color-primary);
 }
 
+
 .disabled {
+  text-transform: capitalize;
   color: var(--color-text-disabled);
   color: currentColor;
   cursor: not-allowed;

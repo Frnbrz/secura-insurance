@@ -1,0 +1,27 @@
+<div class="grid-10">
+  <app-button-outline>
+    <span class="icon-filter icon mr-3"></span>
+    <span class="text">Filtrar</span>
+  </app-button-outline>
+  <div class="header-botton">
+    <span>770 pólizas</span>
+    <div>
+      <span class="mr-3"> Ordenar por:</span>
+
+      <button
+        mat-stroked-button
+        color="primary"
+        [matMenuTriggerFor]="beforeMenu">
+        {{ selectedFilter }}
+        <span class="icon-arrow icon"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<mat-menu #beforeMenu="matMenu" xPosition="before" panelClass="custom-select">
+  <ng-container *ngFor="let filter of filters">
+    <button mat-menu-item (click)="changeFilter(filter)">
+      <span> {{ filter }} </span>
+    </button>
+  </ng-container>
+</mat-menu>
