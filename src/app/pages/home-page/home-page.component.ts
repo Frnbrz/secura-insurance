@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { MainContainerComponent } from '@src/app/layout'
+import { MainContainerComponent } from '@src/app/shared/layout'
 import { ProximasRenovacionesComponent } from './components'
 import { ClientesPotencialesComponent } from './components/clientes-potenciales/clientes-potenciales.component'
 import { HeroComponent } from './components/hero/hero.component'

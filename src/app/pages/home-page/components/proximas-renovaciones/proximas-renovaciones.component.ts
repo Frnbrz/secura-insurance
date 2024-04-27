@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { ButtonComponent } from '@src/app/components'
-import { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'
-import { RenovacionesTableComponent } from '../renovaciones-table/renovaciones-table.component'
+import { ButtonComponent } from '@src/app/shared/components'
+import { SectionContainerComponent } from '@src/app/shared/layout'
+import { RenovacionesTableComponent } from '../renovaciones-table'
 
 @Component({
   selector: 'app-proximas-renovaciones',

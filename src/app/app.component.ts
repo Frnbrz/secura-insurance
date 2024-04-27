@@ -8,13 +8,13 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import { RouterOutlet } from '@angular/router'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import 'zone.js'
+import { ToolbarStateService } from './core/services'
 import {
   FooterComponent,
   LanguageMenuComponent,
   NavbarComponent,
-} from './components'
-import { LinkComponent } from './components/link/link.component'
-import { ToolbarStateService } from './services/toolbar-state.service'
+} from './shared/components'
+import { LinkComponent } from './shared/components/link/link.component'
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient)

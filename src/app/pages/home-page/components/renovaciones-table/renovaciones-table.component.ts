@@ -13,11 +13,13 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
-import { CurrencyEuroPipe } from '@src/app/pipes'
-import { DateEuroPipe } from '@src/app/pipes/date-euro.pipe'
-import { TableFiltersService } from '@src/app/services'
-import { RenovacionesService } from '@src/app/services/renovaciones.service'
-import { RenovacionesInterface } from '@src/core/data/listado_renovaciones'
+import { RenovacionesInterface } from '@src/app/core/data/'
+import {
+  RenovacionesService,
+  TableFiltersService,
+} from '@src/app/core/services'
+import { SpinnerComponent } from '@src/app/shared/components'
+import { CurrencyEuroPipe, DateEuroPipe } from '@src/app/shared/pipes'
 import { Subscription } from 'rxjs'
 import { StatusFlagComponent } from '../status-flag/status-flag.component'
 
@@ -33,6 +35,7 @@ import { StatusFlagComponent } from '../status-flag/status-flag.component'
     NgStyle,
     CurrencyEuroPipe,
     DateEuroPipe,
+    SpinnerComponent,
   ],
   templateUrl: './renovaciones-table.component.html',
   styleUrls: ['./renovaciones-table.component.scss'],

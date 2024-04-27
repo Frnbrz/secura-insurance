@@ -1,6 +1,8 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" class="table">
   <ng-container matColumnDef="nPolicy">
-    <th mat-header-cell *matHeaderCellDef>No. de póliza</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      No. de póliza
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>No. de póliza</span>{{ renovacion.nPolicy }}
     </td>
@@ -8,7 +10,9 @@
 
   <!-- Index Column -->
   <ng-container matColumnDef="riskName">
-    <th mat-header-cell *matHeaderCellDef>Nombre del riesgo</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      Nombre del riesgo
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Nombre del riesgo</span>{{ renovacion.riskName }}
     </td>
@@ -16,7 +20,9 @@
 
   <!-- Count Column -->
   <ng-container matColumnDef="contractDate">
-    <th mat-header-cell *matHeaderCellDef>Fecha contrato</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      Fecha contrato
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Fecha contrato</span> {{ renovacion.contractDate | dateEuro }}
     </td>
@@ -24,7 +30,9 @@
 
   <!-- First Column -->
   <ng-container matColumnDef="expirationDate">
-    <th mat-header-cell *matHeaderCellDef>Fecha de vencimiento</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      Fecha de vencimiento
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Fecha de vencimiento</span>
       {{ renovacion.expirationDate | dateEuro }}
@@ -33,7 +41,9 @@
 
   <!-- Last Column -->
   <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef>Importe</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      Importe
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Importe</span>
       <strong>
@@ -44,7 +54,9 @@
 
   <!-- Even Column -->
   <ng-container matColumnDef="state">
-    <th mat-header-cell *matHeaderCellDef>Estado de la póliza</th>
+    <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
+      Estado de la póliza
+    </th>
     <td mat-cell *matCellDef="let renovacion">
       <span>Estado de la póliza</span>
       <app-status-flag [status]="renovacion.state" />

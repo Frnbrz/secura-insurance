@@ -56,3 +56,25 @@ section {
   justify-content: center;
   width: 120px;
 }
+
+.btn-filter {
+  border-radius: 4px !important;
+  background: var(--Icon-icon-white, rgba(255, 255, 255, 1)) !important;
+  border: 1px solid var(--Border-border-300, rgba(167, 184, 191, 1)) !important;
+}
+
+@media screen and (max-width: 600px) {
+
+  .header-botton {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .header-filter {
+    display: none;
+  }
+
+
+}

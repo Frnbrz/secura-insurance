@@ -83,6 +83,16 @@ tr[mat-row] {
     }
   }
 
+  .mat-mdc-table tfoot,
+  .mat-mdc-table thead,
+  .mat-mdc-footer-cell,
+  .mat-mdc-header-row,
+  .mat-mdc-footer-row,
+  .mat-mdc-header-cell {
+    background: inherit;
+    display: none;
+  }
+
 }
 
 .paginator-home {

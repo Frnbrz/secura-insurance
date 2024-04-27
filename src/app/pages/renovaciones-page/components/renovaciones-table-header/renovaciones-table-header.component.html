@@ -1,16 +1,16 @@
 <div class="grid-10">
-  <app-button-outline>
+  <app-button-outline class="header-filter">
     <span class="icon-filter icon mr-3"></span>
     <span class="text">Filtrar</span>
   </app-button-outline>
   <div class="header-botton">
-    <span>770 pólizas</span>
+    <span class="mr-3">{{ polizas() }} pólizas</span>
     <div>
       <span class="mr-3"> Ordenar por:</span>
-
       <button
         mat-stroked-button
         color="primary"
+        class="btn-filter"
         [matMenuTriggerFor]="beforeMenu">
         {{ selectedFilter }}
         <span class="icon-arrow icon"></span>

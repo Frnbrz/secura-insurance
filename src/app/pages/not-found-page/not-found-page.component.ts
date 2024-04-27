@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { LinkComponent } from '@src/app/components/link/link.component'
-import { MainContainerComponent } from '@src/app/layout'
+import { LinkComponent } from '@src/app/shared/components/'
+import { MainContainerComponent } from '@src/app/shared/layout'
 
 @Component({
   selector: 'app-not-found-page',

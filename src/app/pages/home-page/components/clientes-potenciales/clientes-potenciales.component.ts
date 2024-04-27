@@ -10,9 +10,9 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
-import { SectionContainerComponent } from '@src/app/layout/section-container/section-container.component'
-import { ClientesService } from '@src/app/services/clientes.service'
-import { ClientePotencialInterface } from '@src/core/data/clientes_potenciales'
+import { ClientePotencialInterface } from '@src/app/core/data'
+import { ClientesService } from '@src/app/core/services'
+import { SectionContainerComponent } from '@src/app/shared/layout'
 
 @Component({
   selector: 'app-clientes-potenciales',
@@ -51,7 +51,6 @@ export class ClientesPotencialesComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(clientes => {
         this.clientesPotenciales = clientes
-        console.log('clientes', this.clientesPotenciales.length)
         this.cdr.detectChanges() // Detect changes manually
       })
   }
