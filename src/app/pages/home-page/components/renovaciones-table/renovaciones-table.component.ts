@@ -13,6 +13,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { MatSort } from '@angular/material/sort'
 import { RenovacionesInterface } from '@src/app/core/data/'
 import {
   RenovacionesService,
@@ -55,6 +56,7 @@ export class RenovacionesTableComponent implements OnInit {
   cdr: ChangeDetectorRef
 
   @ViewChild(MatPaginator) paginator!: MatPaginator | null
+  @ViewChild(MatSort) matSort!: MatSort | null
 
   constructor() {
     this.tableFilterService = inject(TableFiltersService)
@@ -90,11 +92,15 @@ export class RenovacionesTableComponent implements OnInit {
           this.dataSource = new MatTableDataSource<RenovacionesInterface>(
             renovaciones
           )
-
           this.dataSource.paginator = this.paginator
+          this.dataSource.sort = this.matSort
           this.cdr.detectChanges()
         })
     }
+  }
+
+  applyFiler(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase()
   }
 
   displayedColumns: string[] = [

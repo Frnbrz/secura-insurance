@@ -72,9 +72,14 @@ section {
     gap: 24px;
   }
 
-  .header-filter {
-    display: none;
-  }
 
+
+  .header-filter {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    width: 100%;
+
+  }
 
 }
