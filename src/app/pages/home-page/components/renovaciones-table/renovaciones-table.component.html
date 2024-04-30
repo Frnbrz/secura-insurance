@@ -71,7 +71,11 @@
 </table>
 
 <mat-paginator
-  [pageSizeOptions]="[10, 50, 100]"
+  [pageSize]="
+    tableFilters().pageSize !== undefined ? tableFilters().pageSize : 10
+  "
+  [pageSizeOptions]="[10, 25, 50, 100]"
+  [showFirstLastButtons]="true"
   aria-label="Select page"
   class="table__pagination"
   [ngClass]="isOnHomePage ? 'home' : ''">
