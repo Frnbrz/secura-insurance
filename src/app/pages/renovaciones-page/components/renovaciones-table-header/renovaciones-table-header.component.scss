@@ -83,3 +83,46 @@ section {
   }
 
 }
+
+.filter {
+  position: fixed;
+  left: 0;
+  width: 496px;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  visibility: visible;
+  background-color: #fff;
+}
+
+.upbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.mat-drawer-container {
+  position: relative;
+  z-index: 2;
+  color: var(--mat-sidenav-content-text-color);
+  background-color: transparent;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  overflow: hidden;
+}
+
+.mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: min-content;
+  width: -webkit-fill-available;
+  overflow: hidden;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  visibility: visible;
+  background-color: transparent !important;
+}

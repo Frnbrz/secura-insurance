@@ -1,3 +1,6 @@
+<ng-container *ngIf="tableFilters().amountSort !== ''">{{
+  tableFilters().amountSort
+}}</ng-container>
 <table mat-table [dataSource]="dataSource" class="table">
   <ng-container matColumnDef="nPolicy">
     <th mat-header-cell *matHeaderCellDef class="display-none-mobile">
@@ -68,8 +71,8 @@
 </table>
 
 <mat-paginator
-  [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons
-  [ngStyle]="{ display: !isOnHomePage ? 'block' : 'none' }"
-  aria-label="Select page of periodic elements">
+  [pageSizeOptions]="[10, 50, 100]"
+  aria-label="Select page"
+  class="table__pagination"
+  [ngClass]="isOnHomePage ? 'home' : ''">
 </mat-paginator>

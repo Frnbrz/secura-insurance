@@ -1,15 +1,32 @@
-import { Injectable } from '@angular/core'
-import { BehaviorSubject } from 'rxjs'
+import { Injectable, signal } from '@angular/core'
+
+interface FilterType {
+  amountSort?: string
+  nPolicy?: string
+  riskName?: string
+  dateValid?: string
+  amoutCantity?: number
+  state?: string
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class TableFiltersService {
-  private filter = new BehaviorSubject<any>(null)
+  private filters = signal<FilterType>({
+    amountSort: '',
+    nPolicy: '',
+    riskName: '',
+    dateValid: '',
+    amoutCantity: 0,
+    state: '',
+  })
 
-  filter$ = this.filter.asObservable()
+  setFilter(filter: FilterType) {
+    this.filters.set(filter)
+  }
 
-  setFilter(value: any) {
-    this.filter.next(value)
+  getFilter() {
+    return this.filters
   }
 }

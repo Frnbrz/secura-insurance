@@ -1,3 +1,5 @@
+@import 'src/assets/scss/base/_screen.scss';
+
 table {
   width: 80%;
   background: transparent;
@@ -10,6 +12,28 @@ th[mat-header-cell] {
   color: #405258;
   font-size: 16px;
   font-weight: 400;
+
+  @include mobile() {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+thead[mat-header-cell] {
+  @include mobile() {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+tbody {
+  @include mobile() {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 td:first-child {
@@ -24,41 +48,38 @@ td:last-child {
 
 
 td[mat-cell] {
-  padding: 24px 16px 24px 16px;
+  @include mobile() {
+    padding: 0.5rem;
+    border-bottom: 0px;
+  }
+
+  @include desktop() {
+    padding: 24px 16px 24px 16px;
+  }
 
 
   >span {
-    display: none;
+    @include mobile() {
+      display: block;
+      color: rgba(64, 82, 88, 1);
+    }
+
+    @include desktop() {
+
+      display: none;
+    }
   }
 }
+
+
+
 
 tr[mat-row] {
+  background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
-  background: #ffffff;
-}
 
-@media screen and (max-width: 600px) {
-
-  th[mat-header-cell] {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  thead[mat-header-cell] {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  tbody {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  tr[mat-row] {
+  @include mobile() {
     display: flex;
     flex-direction: column;
     margin: 20px 10px;
@@ -71,30 +92,43 @@ tr[mat-row] {
   }
 
 
+}
 
-  td[mat-cell] {
-    padding: 0.5rem;
-    border-bottom: 0px;
+.mat-mdc-select-value {
+  //styleName: Body;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
 
-    >span {
-      display: block;
-      color: rgba(64, 82, 88, 1);
+}
 
-    }
-  }
+.table__pagination {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18.75px;
+  color: var(--Text-text-subtitle, rgba(64, 82, 88, 1));
 
-  .mat-mdc-table tfoot,
-  .mat-mdc-table thead,
-  .mat-mdc-footer-cell,
-  .mat-mdc-header-row,
-  .mat-mdc-footer-row,
-  .mat-mdc-header-cell {
-    background: inherit;
+
+  @include mobile() {
     display: none;
   }
 
 }
 
-.paginator-home {
+.home {
   display: none;
+}
+
+.mat-mdc-table tfoot,
+.mat-mdc-table thead,
+.mat-mdc-footer-cell,
+.mat-mdc-header-row,
+.mat-mdc-footer-row,
+.mat-mdc-header-cell {
+  @include mobile() {
+    background: inherit;
+    display: none;
+  }
 }

@@ -1,7 +1,10 @@
 import { NgFor } from '@angular/common'
-import { Component, inject } from '@angular/core'
+import { Component, inject, ViewChild } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
+import { MatDividerModule } from '@angular/material/divider'
+import { MatListModule } from '@angular/material/list'
 import { MatMenuModule } from '@angular/material/menu'
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import {
   RenovacionesService,
   TableFiltersService,
@@ -20,11 +23,15 @@ import {
     MatMenuModule,
     MatButtonModule,
     NgFor,
+    MatListModule,
+    MatDividerModule,
+    MatSidenavModule,
   ],
   templateUrl: './renovaciones-table-header.component.html',
   styleUrls: ['./renovaciones-table-header.component.scss'],
 })
 export class RenovacionesTableHeaderComponent {
+  @ViewChild('filter') public filter: MatSidenav | undefined
   tableFilterService = inject(TableFiltersService)
   filters = ['Mayor importe', 'Menor importe']
   selectedFilter: any = this.filters[0]
@@ -33,6 +40,15 @@ export class RenovacionesTableHeaderComponent {
 
   changeFilter(filter: any) {
     this.selectedFilter = filter
-    this.tableFilterService.setFilter(filter)
+    if (filter === 'Mayor importe') {
+      this.tableFilterService.setFilter({ amountSort: 'desc' })
+    }
+    if (filter === 'Menor importe') {
+      this.tableFilterService.setFilter({ amountSort: 'asc' })
+    }
+  }
+
+  toggleSidenav() {
+    this.filter?.toggle()
   }
 }
