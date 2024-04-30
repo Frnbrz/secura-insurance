@@ -1,14 +1,14 @@
 import { JsonPipe, NgClass, NgIf } from '@angular/common'
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   DestroyRef,
+  effect,
   inject,
   Injectable,
   Input,
-  OnChanges,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core'
 
@@ -67,12 +67,10 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   styleUrls: ['./renovaciones-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenovacionesTableComponent implements OnChanges {
+export class RenovacionesTableComponent implements AfterViewInit {
   var = false
   @Input() isOnHomePage = false
-  dataSource:
-    | MatTableDataSource<RenovacionesInterface>
-    | RenovacionesInterface[]
+  dataSource: MatTableDataSource<RenovacionesInterface>
   renovacionesService: RenovacionesService
   tableFilterService: TableFiltersService
   tableFilters: any
@@ -80,8 +78,8 @@ export class RenovacionesTableComponent implements OnChanges {
   destroyRef: DestroyRef
   cdr: ChangeDetectorRef
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator | null
-  @ViewChild(MatSort) matSort!: MatSort
+  @ViewChild(MatPaginator) paginator!: MatPaginator
+  @ViewChild(MatSort) sort!: MatSort
 
   constructor() {
     this.tableFilterService = inject(TableFiltersService)
@@ -92,43 +90,45 @@ export class RenovacionesTableComponent implements OnChanges {
     this.tableFilters = this.tableFilterService.getFilter()
 
     this.loadCLientes()
+
+    effect(() => {
+      console.log('ngOnChanges called')
+      console.log('amountSort', this.tableFilters().amountSort)
+
+      if (this.tableFilters().amountSort !== '') {
+        console.log('sorting effect')
+        this.sort.sort({
+          id: 'amount',
+          start: this.tableFilters().amountSort,
+          disableClear: false,
+        })
+      }
+    })
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes)
-
-    if (this.tableFilters().amountSort !== '') {
-      this.matSort.sort({
-        id: 'amount',
-        start: this.tableFilters().amountSort,
-        disableClear: false,
-      })
-    }
-    this.cdr.detectChanges()
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator
+    this.dataSource.sort = this.sort
   }
 
   loadCLientes() {
-    if (this.isOnHomePage) {
-      this.renovacionesService
-        .getRenovaciones()
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe(renovaciones => {
-          this.dataSource = (renovaciones as RenovacionesInterface[]).slice(-3)
-          this.cdr.detectChanges()
-        })
-    } else {
-      this.renovacionesService
-        .getRenovaciones()
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe(renovaciones => {
+    this.renovacionesService
+      .getRenovaciones()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(renovaciones => {
+        if (this.isOnHomePage) {
+          this.dataSource = new MatTableDataSource<RenovacionesInterface>(
+            renovaciones.slice(-3)
+          )
+        } else {
           this.dataSource = new MatTableDataSource<RenovacionesInterface>(
             renovaciones
           )
-          this.dataSource.paginator = this.paginator
-          this.dataSource.sort = this.matSort
-          this.cdr.detectChanges()
-        })
-    }
+        }
+        this.dataSource.paginator = this.paginator
+        this.dataSource.sort = this.sort
+        this.cdr.detectChanges()
+      })
   }
 
   applyFiler(filterValue: string) {

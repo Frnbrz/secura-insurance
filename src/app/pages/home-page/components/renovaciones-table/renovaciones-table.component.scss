@@ -59,14 +59,11 @@ td[mat-cell] {
 
 
   >span {
+    display: none;
+
     @include mobile() {
       display: block;
       color: rgba(64, 82, 88, 1);
-    }
-
-    @include desktop() {
-
-      display: none;
     }
   }
 }
@@ -94,6 +91,8 @@ tr[mat-row] {
 
 }
 
+
+
 .mat-mdc-select-value {
   //styleName: Body;
   font-family: Roboto;
@@ -104,12 +103,73 @@ tr[mat-row] {
 
 }
 
+::ng-deep .table__pagination .mat-paginator-navigation-next,
+::ng-deep .table__pagination .mat-paginator-navigation-previous,
+::ng-deep .table__pagination .mat-paginator-navigation-first,
+::ng-deep .table__pagination .mat-paginator-navigation-last {
+  background-color: white !important;
+}
+
+.mat-mdc-icon-button[disabled][disabled] {
+  background-color: white !important;
+  fill: white !important;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  background-color: white !important;
+  fill: white !important;
+
+}
+
+
+
+
+::ng-deep .table__pagination .mat-mdc-icon-button.mat-mdc-button-base {
+  background-color: white;
+  border-radius: 8px;
+  margin-left: 12px;
+
+  ::ng-deep .mat-mdc-paginator-icon {
+    fill: var(--color-primary);
+  }
+
+}
+
+
+
+::ng-deep .table__pagination .mat-mdc-icon-button[disabled][disabled] {
+  background-color: white;
+  background: rgba(255, 255, 255, 0.5);
+
+  ::ng-deep .mat-mdc-paginator-icon {
+    fill: var(--color-grey-50);
+  }
+}
+
+
+::ng-deep .mat-mdc-form-field {
+  background-color: white !important;
+}
+
+
+
 .table__pagination {
   font-size: 14px;
   font-weight: 700;
   line-height: 18.75px;
   color: var(--Text-text-subtitle, rgba(64, 82, 88, 1));
+  background-color: transparent;
+  opacity: 0.8;
 
+  >button {
+    background-color: transparent;
+    color: var(--Text-text-subtitle, rgba(64, 82, 88, 1));
+  }
+
+  .mat-mdc-icon-button svg {
+    vertical-align: baseline;
+    fill: red;
+  }
 
   @include mobile() {
     display: none;

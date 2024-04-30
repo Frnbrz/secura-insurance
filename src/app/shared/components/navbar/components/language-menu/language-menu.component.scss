@@ -20,6 +20,10 @@
   }
 }
 
+.mat-menu-panel {
+  box-shadow: none !important;
+}
+
 ::ng-deep .mat-list-item-content {
   padding: 0 !important;
 }
