@@ -119,7 +119,22 @@ export class RenovacionesTableComponent implements AfterViewInit {
 
     toBeSorted.sort((a, b) => {
       const isAsc = sort.direction === 'asc'
-      return this.compare(a.amount, b.amount, isAsc)
+      switch (sort.active) {
+        case 'nPolicy':
+          return this.compare(a.nPolicy, b.nPolicy, isAsc)
+        case 'riskName':
+          return this.compare(a.riskName, b.riskName, isAsc)
+        case 'contractDate':
+          return this.compare(a.contractDate, b.contractDate, isAsc)
+        case 'expirationDate':
+          return this.compare(a.expirationDate, b.expirationDate, isAsc)
+        case 'amount':
+          return this.compare(a.amount, b.amount, isAsc)
+        case 'state':
+          return this.compare(a.state, b.state, isAsc)
+        default:
+          return 0
+      }
     })
 
     this.dataSource.data = [...toBeSorted, ...unsorted]
