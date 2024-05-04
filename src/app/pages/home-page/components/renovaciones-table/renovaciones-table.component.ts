@@ -9,6 +9,7 @@ import {
   inject,
   Injectable,
   Input,
+  Signal,
   ViewChild,
 } from '@angular/core'
 
@@ -20,9 +21,10 @@ import {
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
-import { MatSort } from '@angular/material/sort'
+import { MatSort, MatSortModule, Sort } from '@angular/material/sort'
 import { RenovacionesInterface } from '@src/app/core/data/'
 import {
+  FilterType,
   RenovacionesService,
   TableFiltersService,
 } from '@src/app/core/services'
@@ -61,6 +63,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
     CurrencyEuroPipe,
     DateEuroPipe,
     SpinnerComponent,
+    MatSortModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: MyCustomPaginatorIntl }],
   templateUrl: './renovaciones-table.component.html',
@@ -73,8 +76,7 @@ export class RenovacionesTableComponent implements AfterViewInit {
   dataSource: MatTableDataSource<RenovacionesInterface>
   renovacionesService: RenovacionesService
   tableFilterService: TableFiltersService
-  tableFilters: any
-
+  tableFilters: Signal<FilterType>
   destroyRef: DestroyRef
   cdr: ChangeDetectorRef
 
@@ -92,23 +94,39 @@ export class RenovacionesTableComponent implements AfterViewInit {
     this.loadCLientes()
 
     effect(() => {
-      console.log('ngOnChanges called')
-      console.log('amountSort', this.tableFilters().amountSort)
-
-      if (this.tableFilters().amountSort !== '') {
-        console.log('sorting effect')
-        this.sort.sort({
-          id: 'amount',
-          start: this.tableFilters().amountSort,
-          disableClear: false,
-        })
-      }
+      const amountSort = this.tableFilters()?.amountSort || 'asc'
+      this.sortData({
+        active: 'amount',
+        direction: amountSort,
+      })
     })
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator
     this.dataSource.sort = this.sort
+  }
+
+  sortData(sort: Sort) {
+    const data = this.dataSource.data
+
+    const toBeSorted = [...data]
+    let unsorted: RenovacionesInterface[] = []
+
+    if (toBeSorted.length >= 4) {
+      unsorted = toBeSorted.splice(-4)
+    }
+
+    toBeSorted.sort((a, b) => {
+      const isAsc = sort.direction === 'asc'
+      return this.compare(a.amount, b.amount, isAsc)
+    })
+
+    this.dataSource.data = [...toBeSorted, ...unsorted]
+  }
+
+  compare(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1)
   }
 
   loadCLientes() {
@@ -129,10 +147,6 @@ export class RenovacionesTableComponent implements AfterViewInit {
         this.dataSource.sort = this.sort
         this.cdr.detectChanges()
       })
-  }
-
-  applyFiler(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase()
   }
 
   displayedColumns: string[] = [

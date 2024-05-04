@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core'
 
-interface FilterType {
-  amountSort?: string
+export interface FilterType {
+  amountSort?: 'asc' | 'desc'
   nPolicy?: string
   riskName?: string
   dateValid?: string
@@ -14,7 +14,7 @@ interface FilterType {
 })
 export class TableFiltersService {
   private filters = signal<FilterType>({
-    amountSort: '',
+    amountSort: 'asc',
     nPolicy: '',
     riskName: '',
     dateValid: '',
