@@ -8,6 +8,7 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import {
   RenovacionesService,
   TableFiltersService,
+  ToolbarStateService,
 } from '@src/app/core/services'
 import {
   ButtonComponent,
@@ -37,6 +38,7 @@ export class RenovacionesTableHeaderComponent {
   selectedFilter: any = this.filters[0]
   renovacionesService = inject(RenovacionesService)
   polizas = this.renovacionesService.getPolizas()
+  toolbarStateService = inject(ToolbarStateService)
 
   changeFilter(filter: any) {
     this.selectedFilter = filter
@@ -48,7 +50,7 @@ export class RenovacionesTableHeaderComponent {
     }
   }
 
-  toggleSidenav() {
-    this.filter?.toggle()
+  clickMenu() {
+    this.toolbarStateService.toggle(true)
   }
 }

@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
   destroyRef = inject(DestroyRef)
 
   clickMenu() {
-    this.toolbarStateService.toggle()
+    this.toolbarStateService.toggle(false)
   }
 
   ngOnInit() {

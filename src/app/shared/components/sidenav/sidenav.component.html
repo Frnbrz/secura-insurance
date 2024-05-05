@@ -1,38 +1,90 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav>
-    <main>
-      <header>
-        <div class="upbar">
-          <img
-            width="88"
-            height="64"
-            class="social-media-element__img"
-            ngSrc="assets/img/logo.svg"
-            alt="Logo of Secure Insurance" />
-          <button
-            mat-icon-button
-            class="button"
-            (click)="clickMenu()"
-            aria-label="Example icon-button with menu icon">
-            <span class="icon-close icon"></span>
-          </button>
-        </div>
-        <mat-list role="list">
-          <mat-divider />
-          <app-link to="/home" [active]="true">
-            <mat-list-item role="listitem"> Inicio </mat-list-item>
-          </app-link>
-          <mat-divider />
-          <app-link to="/renovaciones">
-            <mat-list-item role="listitem">
-              Proximas Renovaciones
-            </mat-list-item>
-          </app-link>
-          <mat-divider />
-        </mat-list>
-      </header>
-      <app-language-menu />
-    </main>
+    <ng-container *ngIf="sidenavState()">
+      <main>
+        <header>
+          <div class="upbar">
+            <img
+              width="88"
+              height="64"
+              class="social-media-element__img"
+              ngSrc="assets/img/logo.svg"
+              alt="Logo of Secure Insurance" />
+            <button
+              mat-icon-button
+              class="button"
+              (click)="clickMenu()"
+              aria-label="Example icon-button with menu icon">
+              <span class="icon-close icon"></span>
+            </button>
+          </div>
+          <mat-list role="list">
+            <mat-divider />
+            <app-link to="/home" [active]="true">
+              <mat-list-item role="listitem"> Inicio </mat-list-item>
+            </app-link>
+            <mat-divider />
+            <app-link to="/renovaciones">
+              <mat-list-item role="listitem">
+                Proximas Renovaciones
+              </mat-list-item>
+            </app-link>
+            <mat-divider />
+          </mat-list>
+        </header>
+        <app-language-menu />
+      </main>
+    </ng-container>
+
+    <ng-container *ngIf="!sidenavState()">
+      <main class="sidenav__filters">
+        <header>
+          <div class="upbar body__bold">
+            <span>Filtros</span>
+            <button
+              mat-icon-button
+              class="button"
+              (click)="clickMenu()"
+              aria-label="Example icon-button with menu icon">
+              <span class="icon-close icon"></span>
+            </button>
+          </div>
+        </header>
+        <mat-divider />
+        <section>
+          <form action="">
+            <label for="favorite-food">Favorite food</label>
+            <mat-form-field appearance="outline" color="primary" class="test">
+              <input
+                matInput
+                id="favorite-food"
+                placeholder="pat@example.com"
+                [formControl]="email"
+                (blur)="updateErrorMessage()"
+                required />
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="email.invalid">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <label for="favorite-food">Favorite food</label>
+            <mat-form-field appearance="outline" color="primary" class="test">
+              <input
+                matInput
+                id="favorite-food"
+                placeholder="pat@example.com"
+                [formControl]="email"
+                (blur)="updateErrorMessage()"
+                required />
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="email.invalid">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </section>
+      </main>
+    </ng-container>
   </mat-sidenav>
   <mat-sidenav-content>
     <ng-content />

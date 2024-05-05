@@ -12,9 +12,23 @@ export class ToolbarStateService {
   private toolbarState = signal(EmptyToolbarState)
   private filterState = signal(EmptyFilterState)
   private route = signal('')
-  public sideNavToggleSubject: BehaviorSubject<any> = new BehaviorSubject(null)
+  private isNavSidenav = signal(true)
+  public sideNavToggleSubject: BehaviorSubject<null> = new BehaviorSubject(null)
 
-  public toggle() {
+  public getIsNavSidenav() {
+    return this.isNavSidenav
+  }
+
+  public setIsNavSidenav(isNavSidenav: boolean) {
+    this.isNavSidenav.set(isNavSidenav)
+  }
+
+  public toggle(sidenavFilter?: boolean) {
+    if (sidenavFilter) {
+      this.isNavSidenav.set(false)
+    } else {
+      this.isNavSidenav.set(true)
+    }
     this.isOpen = !this.isOpen
     return this.sideNavToggleSubject.next(null)
   }

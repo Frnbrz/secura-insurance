@@ -1,50 +1,27 @@
-<mat-sidenav-container>
-  <mat-sidenav #filter class="filter">
-    <main>
-      <header>
-        <div class="upbar body__bold">
-          <span>Filtros</span>
-          <button
-            mat-icon-button
-            class="button"
-            (click)="toggleSidenav()"
-            aria-label="Example icon-button with menu icon">
-            <span class="icon-close icon"></span>
-          </button>
-        </div>
-      </header>
-    </main>
-  </mat-sidenav>
-  <mat-sidenav-content class="container">
-    <div class="grid-10">
-      <app-button-outline class="header-filter" (click)="filter.toggle()">
-        <span class="icon-filter icon mr-3"></span>
-        <span class="text">Filtros</span>
-      </app-button-outline>
-      <div class="header-botton">
-        <span class="mr-3">{{ polizas() }} pólizas</span>
-        <div>
-          <span class="mr-3"> Ordenar por:</span>
-          <button
-            mat-stroked-button
-            color="primary"
-            class="btn-filter"
-            [matMenuTriggerFor]="beforeMenu">
-            {{ selectedFilter }}
-            <span class="icon-arrow icon"></span>
-          </button>
-        </div>
-      </div>
+<div class="grid-10">
+  <app-button-outline class="header-filter" (click)="clickMenu()">
+    <span class="icon-filter icon mr-3"></span>
+    <span class="text">Filtros</span>
+  </app-button-outline>
+  <div class="header-botton">
+    <span class="mr-3">{{ polizas() }} pólizas</span>
+    <div>
+      <span class="mr-3"> Ordenar por:</span>
+      <button
+        mat-stroked-button
+        color="primary"
+        class="btn-filter"
+        [matMenuTriggerFor]="beforeMenu">
+        {{ selectedFilter }}
+        <span class="icon-arrow icon"></span>
+      </button>
     </div>
-    <mat-menu
-      #beforeMenu="matMenu"
-      xPosition="before"
-      panelClass="custom-select">
-      <ng-container *ngFor="let filter of filters">
-        <button mat-menu-item (click)="changeFilter(filter)">
-          <span> {{ filter }} </span>
-        </button>
-      </ng-container>
-    </mat-menu>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</div>
+<mat-menu #beforeMenu="matMenu" xPosition="before" panelClass="custom-select">
+  <ng-container *ngFor="let filter of filters">
+    <button mat-menu-item (click)="changeFilter(filter)">
+      <span> {{ filter }} </span>
+    </button>
+  </ng-container>
+</mat-menu>
