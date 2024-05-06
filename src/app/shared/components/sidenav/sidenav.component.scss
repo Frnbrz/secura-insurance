@@ -37,7 +37,7 @@ main {
 }
 
 section {
-  padding: 2rem;
+  padding: 0;
 }
 
 label {
@@ -60,4 +60,95 @@ label {
 
 .mdc-text-field--filled {
   border: 1px solid var(--color-grey-25);
+}
+
+
+
+
+.sidenav__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 40px;
+  width: 100%;
+  height: calc(100vh - 68px);
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sidenav__form-input {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .form__datepicker-inputs {
+    display: flex;
+    gap: 24px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form__datepicker {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 4px;
+}
+
+footer {
+  border: 1px, 0px, 0px, 0px;
+  padding: 0;
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+
+  .mat-divider {
+    height: 20px;
+    border-right-width: 4px;
+  }
+}
+
+.footer__buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+}
+
+.sidenav__form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.mat-mdc-unelevated-button:not(:disabled) {
+  border-radius: 8px;
+  color: rgba(25, 28, 61, 1);
+
+
+  &:hover {
+    background-color: var(--color-primary-75);
+  }
+
+  &:active {
+    border: 1px solid var(--color-primary);
+  }
 }

@@ -24,6 +24,8 @@ export class TableFiltersService {
 
   setFilter(filter: FilterType) {
     this.filters.set(filter)
+
+    console.log('filter', filter)
   }
 
   getFilter() {

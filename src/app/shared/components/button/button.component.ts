@@ -13,5 +13,7 @@ import { RouterModule } from '@angular/router'
 })
 export class ButtonComponent {
   @Input() disabled = false
+  @Input() type = 'button'
   @Input() to = ''
+  @Input() isAnchor = false
 }

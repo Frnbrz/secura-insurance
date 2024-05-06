@@ -1,8 +1,21 @@
 <div class="grid-10">
-  <app-button-outline class="header-filter" (click)="clickMenu()">
-    <span class="icon-filter icon mr-3"></span>
-    <span class="text">Filtros</span>
-  </app-button-outline>
+  <div>
+    <app-button-outline class="header-filter" (click)="clickMenu()">
+      <span class="icon-filter icon mr-3"></span>
+      <span class="text">Filtros</span>
+    </app-button-outline>
+
+    <mat-chip-row
+      *ngFor="let fruit of fruits"
+      (removed)="remove()"
+      [editable]="true"
+      [aria-description]="'press enter to edit ' + fruit.name">
+      {{ fruit.name }}
+      <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+  </div>
   <div class="header-botton">
     <span class="mr-3">{{ polizas() }} pólizas</span>
     <div>

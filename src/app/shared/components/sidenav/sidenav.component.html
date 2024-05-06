@@ -52,35 +52,111 @@
         </header>
         <mat-divider />
         <section>
-          <form action="">
-            <label for="favorite-food">Favorite food</label>
-            <mat-form-field appearance="outline" color="primary" class="test">
-              <input
-                matInput
-                id="favorite-food"
-                placeholder="pat@example.com"
-                [formControl]="email"
-                (blur)="updateErrorMessage()"
-                required />
-              <mat-hint></mat-hint>
-              <mat-error *ngIf="email.invalid">
-                Email is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <label for="favorite-food">Favorite food</label>
-            <mat-form-field appearance="outline" color="primary" class="test">
-              <input
-                matInput
-                id="favorite-food"
-                placeholder="pat@example.com"
-                [formControl]="email"
-                (blur)="updateErrorMessage()"
-                required />
-              <mat-hint></mat-hint>
-              <mat-error *ngIf="email.invalid">
-                Email is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
+          <form
+            (ngSubmit)="onSubmit()"
+            [formGroup]="form"
+            class="sidenav__form">
+            <div class="sidenav__form-container">
+              <div>
+                <label for="favorite-food">No. de póliza</label>
+                <mat-form-field
+                  appearance="outline"
+                  color="primary"
+                  class="sidenav__form-input">
+                  <!-- <mat-label for="favorite-food">No. de póliza</mat-label> -->
+                  <input
+                    matInput
+                    width="100%"
+                    id="favorite-food"
+                    placeholder="Todas las pólizas"
+                    [formControl]="form.controls.nPolicy" />
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+              </div>
+              <div>
+                <label for="favorite-food">Nombre del riesgo</label>
+                <mat-form-field
+                  appearance="outline"
+                  color="primary"
+                  class="sidenav__form-input">
+                  <input
+                    matInput
+                    id="favorite-food"
+                    placeholder="Introduce el nombre del riesgo"
+                    [formControl]="form.controls.riskName" />
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+              </div>
+              <div class="form__datepicker">
+                <label for="">Fecha de validez</label>
+                <div class="form__datepicker-inputs">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input
+                      matInput
+                      [min]="minDate"
+                      [max]="maxDate"
+                      [matDatepicker]="picker" />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <span>al</span>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input
+                      matInput
+                      [min]="minDate"
+                      [max]="maxDate"
+                      [matDatepicker]="picker" />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <label for="favorite-food">Importe</label>
+                <mat-form-field
+                  appearance="outline"
+                  color="primary"
+                  class="sidenav__form-input">
+                  <input
+                    matInput
+                    id="favorite-food"
+                    placeholder="pat@example.com"
+                    [formControl]="form.controls.amoutCantity" />
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+              </div>
+              <div>
+                <label for="favorite-food">Estado</label>
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    placeholder="Todos los estados"
+                    [formControl]="form.controls.state">
+                    <mat-option *ngFor="let state of states" [value]="state.id">
+                      {{ state.label }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <footer>
+              <mat-divider />
+              <div class="footer__buttons">
+                <app-button-outline type="reset">
+                  Borrar filtros
+                </app-button-outline>
+
+                <button mat-flat-button color="primary" type="submit">
+                  Aplicar filtros
+                </button>
+              </div>
+            </footer>
           </form>
         </section>
       </main>

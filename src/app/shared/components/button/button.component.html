@@ -1,10 +1,10 @@
-<ng-container *ngIf="to === ''">
-  <button mat-flat-button color="primary" [disabled]="disabled">
+<ng-container *ngIf="!isAnchor">
+  <button mat-flat-button color="primary" [disabled]="disabled" [type]="type">
     <ng-content></ng-content>
   </button>
 </ng-container>
 
-<ng-container *ngIf="to !== ''">
+<ng-container *ngIf="isAnchor">
   <a mat-button [routerLink]="to" class="button">
     <ng-content></ng-content>
   </a>

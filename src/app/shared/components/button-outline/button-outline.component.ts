@@ -11,5 +11,5 @@ import { MatButtonModule } from '@angular/material/button'
 })
 export class ButtonOutlineComponent {
   @Input() disabled = false
-  @Input() matMenuTriggerFor = {}
+  @Input() type = 'button'
 }
