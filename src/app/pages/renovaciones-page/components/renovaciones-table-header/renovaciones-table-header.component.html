@@ -1,23 +1,44 @@
 <div class="grid-10">
-  <div>
-    <app-button-outline class="header-filter" (click)="clickMenu()">
+  <div class="table-header__filters">
+    <app-button-outline class="header-filter m-3" (click)="clickMenu()">
       <span class="icon-filter icon mr-3"></span>
       <span class="text">Filtros</span>
     </app-button-outline>
 
-    <mat-chip-row
-      *ngFor="let fruit of fruits"
-      (removed)="remove()"
-      [editable]="true"
-      [aria-description]="'press enter to edit ' + fruit.name">
-      {{ fruit.name }}
-      <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
-        <mat-icon>cancel</mat-icon>
-      </button>
-    </mat-chip-row>
+    <ng-container *ngIf="tableFilters().nPolicy !== ''">
+      <mat-chip-row
+        (removed)="remove('nPolicy')"
+        [editable]="true"
+        aria-description="press enter to edit ">
+        {{ tableFilters().nPolicy }}
+        <button
+          matChipRemove
+          [attr.aria-label]="'remove ' + tableFilters().nPolicy">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </ng-container>
+    <ng-container *ngIf="tableFilters().state !== ''">
+      <mat-chip-row
+        (removed)="remove('state')"
+        [editable]="true"
+        aria-description="press enter to edit ">
+        {{ tableFilters().state }}
+        <button
+          matChipRemove
+          [attr.aria-label]="'remove ' + tableFilters().state">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </ng-container>
   </div>
   <div class="header-botton">
-    <span class="mr-3">{{ polizas() }} pólizas</span>
+    <div class="header-botton__left">
+      <span>{{ polizas() }} pólizas</span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span> 7 filtros aplicados </span>
+      <a href=""> Borrar filtros</a>
+    </div>
     <div>
       <span class="mr-3"> Ordenar por:</span>
       <button

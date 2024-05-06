@@ -1,6 +1,6 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
-import { AsyncPipe, NgFor } from '@angular/common'
+import { AsyncPipe, NgFor, NgIf } from '@angular/common'
 import { Component, inject, ViewChild } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatChipsModule } from '@angular/material/chips'
@@ -32,6 +32,7 @@ export interface Fruit {
     MatMenuModule,
     MatButtonModule,
     NgFor,
+    NgIf,
     MatListModule,
     MatDividerModule,
     MatSidenavModule,
@@ -54,15 +55,20 @@ export class RenovacionesTableHeaderComponent {
   addOnBlur = true
   announcer = inject(LiveAnnouncer)
   readonly separatorKeysCodes = [ENTER, COMMA] as const
-  fruits: Fruit[] = [{ name: 'Lemon' }, { name: 'Lime' }, { name: 'Apple' }]
 
   changeFilter(filter: any) {
     this.selectedFilter = filter
     if (filter === 'Mayor importe') {
-      this.tableFilterService.setFilter({ amountSort: 'desc' })
+      this.tableFilterService.setFilter({
+        ...this.tableFilters(),
+        amountSort: 'desc',
+      })
     }
     if (filter === 'Menor importe') {
-      this.tableFilterService.setFilter({ amountSort: 'asc' })
+      this.tableFilterService.setFilter({
+        ...this.tableFilters(),
+        amountSort: 'asc',
+      })
     }
   }
 
@@ -70,7 +76,8 @@ export class RenovacionesTableHeaderComponent {
     this.toolbarStateService.toggle(true)
   }
 
-  remove(): void {
-    console.log('remove')
+  remove(filter: string): void {
+    // filter name key value reset with setFilter
+    this.tableFilterService.setFilter({ ...this.tableFilters(), [filter]: '' })
   }
 }

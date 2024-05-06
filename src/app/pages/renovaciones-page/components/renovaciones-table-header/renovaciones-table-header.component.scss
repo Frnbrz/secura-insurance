@@ -126,3 +126,13 @@ section {
   visibility: visible;
   background-color: transparent !important;
 }
+
+.table-header__filters {
+  display: flex;
+  align-items: center;
+}
+
+.header-botton__left {
+  display: flex;
+  gap: 16px;
+}
