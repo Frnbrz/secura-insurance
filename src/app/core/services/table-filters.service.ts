@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core'
 
 export interface FilterType {
-  amountSort?: 'asc' | 'desc'
+  amountSort?: 'asc' | 'desc' | ''
   nPolicy?: string
   riskName?: string
   dateValid?: string
@@ -9,14 +9,7 @@ export interface FilterType {
   state?: string
 }
 
-const entyFilter: FilterType = {
-  amountSort: 'asc',
-  nPolicy: '',
-  riskName: '',
-  dateValid: '',
-  amoutCantity: 0,
-  state: '',
-}
+const entyFilter: FilterType = {}
 
 @Injectable({
   providedIn: 'root',
@@ -25,8 +18,12 @@ export class TableFiltersService {
   private filters = signal<FilterType>(entyFilter)
   private isFilterEnty = signal<boolean>(false)
 
-  setFilterEnty(value: boolean) {
-    this.isFilterEnty.set(value)
+  getFilterEnty() {
+    return this.isFilterEnty
+  }
+
+  getFilterCount() {
+    return Object.keys(this.filters).length
   }
 
   setFilter(filter: FilterType) {
@@ -36,8 +33,7 @@ export class TableFiltersService {
     } else {
       this.isFilterEnty.set(true)
     }
-    console.log('filter', filter)
-    console.log('isFilterEnty', this.isFilterEnty)
+    console.log(this.filters())
   }
 
   getFilter() {
@@ -45,15 +41,7 @@ export class TableFiltersService {
   }
 
   resetFilter() {
-    this.filters.set({
-      amountSort: 'asc',
-      nPolicy: '',
-      riskName: '',
-      dateValid: '',
-      amoutCantity: 0,
-      state: '',
-    })
-
+    this.filters.set(entyFilter)
     this.isFilterEnty.set(true)
   }
 }

@@ -77,10 +77,16 @@ section {
   .header-filter {
     position: fixed;
     bottom: 0;
-    display: block;
+    left: 0;
     width: 100%;
+    background-color: white;
+    margin: 0;
+
+
 
   }
+
+
 
 }
 
@@ -134,5 +140,11 @@ section {
 
 .header-botton__left {
   display: flex;
+  flex-direction: column;
   gap: 16px;
+
+  div {
+    display: flex;
+    gap: 16px;
+  }
 }

@@ -79,6 +79,7 @@ export class RenovacionesTableComponent implements AfterViewInit {
   tableFilters: Signal<FilterType>
   destroyRef: DestroyRef
   cdr: ChangeDetectorRef
+  originalData: RenovacionesInterface[] = []
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -90,11 +91,24 @@ export class RenovacionesTableComponent implements AfterViewInit {
     this.destroyRef = inject(DestroyRef)
     this.cdr = inject(ChangeDetectorRef)
     this.tableFilters = this.tableFilterService.getFilter()
-
     this.loadCLientes()
 
     effect(() => {
       const amountSort = this.tableFilters()?.amountSort || 'asc'
+      const stateFilter = this.tableFilters()?.state || ''
+
+      console.log('stateFilter', stateFilter)
+
+      if (stateFilter) {
+        this.dataSource.data = this.originalData.filter(
+          renovacion => renovacion.state === stateFilter
+        )
+      }
+
+      if (!stateFilter) {
+        this.dataSource.data = this.originalData
+      }
+
       this.sortData({
         active: 'amount',
         direction: amountSort,
@@ -157,6 +171,8 @@ export class RenovacionesTableComponent implements AfterViewInit {
           this.dataSource = new MatTableDataSource<RenovacionesInterface>(
             renovaciones
           )
+
+          this.originalData = renovaciones
         }
         this.dataSource.paginator = this.paginator
         this.dataSource.sort = this.sort

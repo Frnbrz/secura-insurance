@@ -5,7 +5,7 @@
       <span class="text">Filtros</span>
     </app-button-outline>
 
-    <ng-container *ngIf="tableFilters().nPolicy !== ''">
+    <ng-container *ngIf="tableFilters().nPolicy">
       <mat-chip-row
         (removed)="remove('nPolicy')"
         [editable]="true"
@@ -18,7 +18,7 @@
         </button>
       </mat-chip-row>
     </ng-container>
-    <ng-container *ngIf="tableFilters().state !== ''">
+    <ng-container *ngIf="tableFilters().state">
       <mat-chip-row
         (removed)="remove('state')"
         [editable]="true"
@@ -31,12 +31,41 @@
         </button>
       </mat-chip-row>
     </ng-container>
+    <ng-container *ngIf="tableFilters().riskName">
+      <mat-chip-row
+        (removed)="remove('state')"
+        [editable]="true"
+        aria-description="press enter to edit ">
+        {{ tableFilters().riskName }}
+        <button
+          matChipRemove
+          [attr.aria-label]="'remove ' + tableFilters().riskName">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </ng-container>
+
+    <ng-container *ngIf="tableFilters().amoutCantity">
+      <mat-chip-row
+        (removed)="remove('state')"
+        [editable]="true"
+        aria-description="press enter to edit ">
+        {{ tableFilters().amoutCantity }}
+        <button
+          matChipRemove
+          [attr.aria-label]="'remove ' + tableFilters().amoutCantity">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </ng-container>
   </div>
   <div class="header-botton">
     <div class="header-botton__left">
-      <span>{{ polizas() }} pólizas</span>
-      <mat-divider [vertical]="true"></mat-divider>
-      <span> 7 filtros aplicados </span>
+      <div>
+        <span>{{ polizas() }} pólizas</span>
+        <mat-divider [vertical]="true" />
+        <span> 7 filtros aplicados </span>
+      </div>
       <a href=""> Borrar filtros</a>
     </div>
     <div>

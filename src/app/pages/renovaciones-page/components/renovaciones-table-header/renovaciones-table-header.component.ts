@@ -19,10 +19,6 @@ import {
   ButtonOutlineComponent,
 } from '@src/app/shared/components'
 
-export interface Fruit {
-  name: string
-}
-
 @Component({
   selector: 'app-renovaciones-table-header',
   standalone: true,
@@ -47,7 +43,7 @@ export class RenovacionesTableHeaderComponent {
   @ViewChild('filter') public filter: MatSidenav | undefined
   tableFilterService = inject(TableFiltersService)
   tableFilters = this.tableFilterService.getFilter()
-  filters = ['Mayor importe', 'Menor importe']
+  filters = ['Mayor importe', 'Menor importe', 'Ningun filtro']
   selectedFilter: any = this.filters[0]
   renovacionesService = inject(RenovacionesService)
   polizas = this.renovacionesService.getPolizas()
@@ -70,6 +66,15 @@ export class RenovacionesTableHeaderComponent {
         amountSort: 'asc',
       })
     }
+    if (filter === 'Ningun filtro') {
+      // const filtersDuplicate = { ...this.tableFilters() }
+      // delete filtersDuplicate.amountSort
+      // this.tableFilterService.setFilter(filtersDuplicate)
+      this.tableFilterService.setFilter({
+        ...this.tableFilters(),
+        amountSort: '',
+      })
+    }
   }
 
   clickMenu() {
@@ -78,6 +83,8 @@ export class RenovacionesTableHeaderComponent {
 
   remove(filter: string): void {
     // filter name key value reset with setFilter
-    this.tableFilterService.setFilter({ ...this.tableFilters(), [filter]: '' })
+    const filtersDuplicate: { [key: string]: any } = { ...this.tableFilters() }
+    delete filtersDuplicate[filter]
+    this.tableFilterService.setFilter(filtersDuplicate)
   }
 }

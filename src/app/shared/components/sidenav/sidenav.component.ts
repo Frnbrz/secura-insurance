@@ -106,32 +106,29 @@ export class SidenavComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value)
     if (this.form.invalid) {
       this.errorMessage = 'Debe rellenar los campos correctamente'
       return
     }
     this.errorMessage = ''
     const filterValue: FilterType = { ...(this.form.value as FilterType) }
-    if (filterValue.nPolicy === null) {
-      filterValue.nPolicy = undefined
+    // If value is empty dont add to array
+    if (filterValue.nPolicy === '') {
+      delete filterValue.nPolicy
     }
-    if (filterValue.riskName === null) {
-      filterValue.riskName = undefined
+    if (filterValue.riskName === '') {
+      delete filterValue.riskName
     }
-    if (filterValue.dateValid === null) {
-      filterValue.dateValid = undefined
+    if (filterValue.dateValid === '') {
+      delete filterValue.dateValid
     }
-    if (filterValue.amoutCantity === null) {
-      filterValue.amoutCantity = undefined
-    }
-    if (filterValue.state === null) {
-      filterValue.state = undefined
+    if (filterValue.amoutCantity === 0) {
+      delete filterValue.amoutCantity
     }
     if (filterValue.state === 'all') {
-      filterValue.state = undefined
+      delete filterValue.state
     }
-
+    console.log(filterValue)
     this.tableFiltersService.setFilter(filterValue)
   }
 }
