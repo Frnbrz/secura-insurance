@@ -61,12 +61,19 @@
   </div>
   <div class="header-botton">
     <div class="header-botton__left">
-      <div>
+      <ng-container *ngIf="tableFiltersLength === 0">
         <span>{{ polizas() }} pólizas</span>
-        <mat-divider [vertical]="true" />
-        <span> 7 filtros aplicados </span>
-      </div>
-      <a href=""> Borrar filtros</a>
+      </ng-container>
+      <ng-container *ngIf="tableFiltersLength !== 0">
+        <div>
+          <span>{{ polizas() }} resultados</span>
+          <mat-divider [vertical]="true" />
+          <span> {{ tableFiltersLength }} filtros aplicados </span>
+        </div>
+        <button (click)="deleteFilters()" class="filters__reset">
+          Borrar filtros
+        </button>
+      </ng-container>
     </div>
     <div>
       <span class="mr-3"> Ordenar por:</span>
@@ -76,7 +83,7 @@
         class="btn-filter"
         [matMenuTriggerFor]="beforeMenu">
         {{ selectedFilter }}
-        <span class="icon-arrow icon"></span>
+        <span class="icon-arrow icon ml-2 bold"></span>
       </button>
     </div>
   </div>

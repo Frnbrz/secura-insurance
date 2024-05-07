@@ -4,7 +4,8 @@
       No. de póliza
     </th>
     <td mat-cell *matCellDef="let renovacion">
-      <span>No. de póliza</span>{{ renovacion.nPolicy }}
+      <span>No. de póliza</span
+      ><app-link [to]="renovacion.nPolicy">{{ renovacion.nPolicy }}</app-link>
     </td>
   </ng-container>
 

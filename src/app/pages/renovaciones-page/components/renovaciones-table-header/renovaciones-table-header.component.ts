@@ -1,7 +1,7 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
 import { AsyncPipe, NgFor, NgIf } from '@angular/common'
-import { Component, inject, ViewChild } from '@angular/core'
+import { Component, effect, inject, ViewChild } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatDividerModule } from '@angular/material/divider'
@@ -43,6 +43,7 @@ export class RenovacionesTableHeaderComponent {
   @ViewChild('filter') public filter: MatSidenav | undefined
   tableFilterService = inject(TableFiltersService)
   tableFilters = this.tableFilterService.getFilter()
+  tableFiltersLength = Object.keys(this.tableFilters()).length
   filters = ['Mayor importe', 'Menor importe', 'Ningun filtro']
   selectedFilter: any = this.filters[0]
   renovacionesService = inject(RenovacionesService)
@@ -51,6 +52,14 @@ export class RenovacionesTableHeaderComponent {
   addOnBlur = true
   announcer = inject(LiveAnnouncer)
   readonly separatorKeysCodes = [ENTER, COMMA] as const
+
+  constructor() {
+    effect(() => {
+      this.tableFilters = this.tableFilterService.getFilter()
+      this.tableFiltersLength = Object.keys(this.tableFilters()).length
+      this.polizas = this.renovacionesService.getPolizas()
+    })
+  }
 
   changeFilter(filter: any) {
     this.selectedFilter = filter
@@ -67,13 +76,9 @@ export class RenovacionesTableHeaderComponent {
       })
     }
     if (filter === 'Ningun filtro') {
-      // const filtersDuplicate = { ...this.tableFilters() }
-      // delete filtersDuplicate.amountSort
-      // this.tableFilterService.setFilter(filtersDuplicate)
-      this.tableFilterService.setFilter({
-        ...this.tableFilters(),
-        amountSort: '',
-      })
+      const filtersDuplicate = { ...this.tableFilters() }
+      delete filtersDuplicate.amountSort
+      this.tableFilterService.setFilter(filtersDuplicate)
     }
   }
 
@@ -86,5 +91,9 @@ export class RenovacionesTableHeaderComponent {
     const filtersDuplicate: { [key: string]: any } = { ...this.tableFilters() }
     delete filtersDuplicate[filter]
     this.tableFilterService.setFilter(filtersDuplicate)
+  }
+
+  deleteFilters() {
+    this.tableFilterService.resetFilter()
   }
 }

@@ -22,13 +22,14 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort'
+import { Router } from '@angular/router'
 import { RenovacionesInterface } from '@src/app/core/data/'
 import {
   FilterType,
   RenovacionesService,
   TableFiltersService,
 } from '@src/app/core/services'
-import { SpinnerComponent } from '@src/app/shared/components'
+import { LinkComponent, SpinnerComponent } from '@src/app/shared/components'
 import { CurrencyEuroPipe, DateEuroPipe } from '@src/app/shared/pipes'
 import { Subject } from 'rxjs'
 import { StatusFlagComponent } from '../status-flag/status-flag.component'
@@ -64,6 +65,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
     DateEuroPipe,
     SpinnerComponent,
     MatSortModule,
+    LinkComponent,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: MyCustomPaginatorIntl }],
   templateUrl: './renovaciones-table.component.html',
@@ -80,6 +82,8 @@ export class RenovacionesTableComponent implements AfterViewInit {
   destroyRef: DestroyRef
   cdr: ChangeDetectorRef
   originalData: RenovacionesInterface[] = []
+  tableFiltersLength = 0
+  router = inject(Router)
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -92,28 +96,54 @@ export class RenovacionesTableComponent implements AfterViewInit {
     this.cdr = inject(ChangeDetectorRef)
     this.tableFilters = this.tableFilterService.getFilter()
     this.loadCLientes()
+    this.renovacionesService.setPolizas(this.dataSource.data.length)
 
-    effect(() => {
-      const amountSort = this.tableFilters()?.amountSort || 'asc'
-      const stateFilter = this.tableFilters()?.state || ''
+    effect(
+      () => {
+        const amountSort = this.tableFilters()?.amountSort || undefined
+        const stateFilter = this.tableFilters()?.state || undefined
+        this.tableFiltersLength = Object.keys(this.tableFilters()).length
 
-      console.log('stateFilter', stateFilter)
+        this.router.navigate([], {
+          queryParams: {
+            amountSort: amountSort,
+            stateFilter: stateFilter,
+          },
+          queryParamsHandling: 'merge',
+        })
 
-      if (stateFilter) {
-        this.dataSource.data = this.originalData.filter(
-          renovacion => renovacion.state === stateFilter
-        )
-      }
+        if (stateFilter) {
+          this.dataSource.data = this.originalData.filter(
+            renovacion => renovacion.state === stateFilter
+          )
+        }
 
-      if (!stateFilter) {
-        this.dataSource.data = this.originalData
-      }
+        if (!stateFilter) {
+          this.dataSource.data = this.originalData
+        }
 
-      this.sortData({
-        active: 'amount',
-        direction: amountSort,
-      })
-    })
+        if (amountSort === 'asc') {
+          this.dataSource.data = this.dataSource.data.sort(
+            (a, b) => a.amount - b.amount
+          )
+        }
+
+        if (amountSort === 'desc') {
+          this.dataSource.data = this.dataSource.data.sort(
+            (a, b) => b.amount - a.amount
+          )
+        }
+
+        if (this.tableFiltersLength === 0) {
+          this.dataSource.data = this.originalData
+        }
+
+        if (this.tableFiltersLength !== 0) {
+          this.renovacionesService.setPolizas(this.dataSource.data.length)
+        }
+      },
+      { allowSignalWrites: true }
+    )
   }
 
   ngAfterViewInit() {

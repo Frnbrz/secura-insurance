@@ -143,8 +143,22 @@ section {
   flex-direction: column;
   gap: 16px;
 
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+
   div {
     display: flex;
     gap: 16px;
   }
+}
+
+.filters__reset {
+
+  font-weight: 700;
+  line-height: 18.75px;
+  color: rgba(75, 152, 217, 1);
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }

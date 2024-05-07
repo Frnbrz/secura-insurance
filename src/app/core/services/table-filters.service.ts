@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core'
 
 export interface FilterType {
-  amountSort?: 'asc' | 'desc' | ''
+  amountSort?: 'asc' | 'desc'
   nPolicy?: string
   riskName?: string
   dateValid?: string
