@@ -28,4 +28,12 @@ export class RenovacionesService {
       })
     )
   }
+
+  getRenovacion(id: string): Observable<RenovacionesInterface> {
+    return this.http.get(`${BASE_URL}renovaciones/${id}`).pipe(
+      map((response: any) => {
+        return response.data
+      })
+    )
+  }
 }
