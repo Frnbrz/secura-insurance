@@ -11,7 +11,8 @@ export class DetallesService {
   getDetalleUno() {
     return this.http.get('http://localhost:3000/api/v1/detalles/1').pipe(
       map((response: any) => {
-        this.details.set(response.data)
+        this.setDetails(response.data)
+        console.log(response.data)
         return response.data
       })
     )
@@ -26,5 +27,9 @@ export class DetallesService {
 
   getDetails() {
     return this.details
+  }
+
+  setDetails(data: any) {
+    this.details.set(data)
   }
 }
