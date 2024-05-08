@@ -1,15 +1,30 @@
 import { HttpClient } from '@angular/common/http'
-import { inject, Injectable } from '@angular/core'
+import { inject, Injectable, signal } from '@angular/core'
+import { map } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
 export class DetallesService {
+  details = signal({})
   http = inject(HttpClient)
   getDetalleUno() {
-    return this.http.get('http://localhost:3000/api/v1/detalle/1')
+    return this.http.get('http://localhost:3000/api/v1/detalles/1').pipe(
+      map((response: any) => {
+        this.details.set(response.data)
+        return response.data
+      })
+    )
   }
   getDetalleDos() {
-    return this.http.get('http://localhost:3000/api/v1/detalle/2')
+    return this.http.get('http://localhost:3000/api/v1/detalles/2').pipe(
+      map((response: any) => {
+        return response.data
+      })
+    )
+  }
+
+  getDetails() {
+    return this.details
   }
 }
