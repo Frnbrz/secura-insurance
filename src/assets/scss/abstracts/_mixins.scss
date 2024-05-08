@@ -1,4 +1,8 @@
 $sizes: (
+  25: 0.25,
+  50: 0.5,
+  75: 0.75,
+  100: 1,
   0: 0em,
   1: 0.25em,
   2: 0.5em,
@@ -84,3 +88,14 @@ $sizes: (
 }
 
 @include generate-grid-classes($sizes);
+
+
+@mixin generate-opacity-classes($sizes) {
+  @each $size, $value in $sizes {
+    .opacity-#{$size} {
+      opacity: $value;
+    }
+  }
+}
+
+@include generate-opacity-classes($sizes);

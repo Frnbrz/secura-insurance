@@ -1,12 +1,16 @@
-import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
 @Component({
   selector: 'app-client-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MatCardModule, MatButtonModule],
   templateUrl: './client-details.component.html',
   styleUrls: ['./client-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientDetailsComponent {}
+export class ClientDetailsComponent {
+  actualizarDetalle() {
+    console.log('actualizarDetalle')
+  }
+}

@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+} from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { DetallesService } from '@src/app/core/services'
 import { MainContainerComponent } from '@src/app/shared/layout'
 import {
   ClientDetailsComponent,
@@ -21,4 +28,20 @@ import { BreadCrumbDetailsComponent } from './components/bread-crumb-details/bre
   styleUrls: ['./renovaciones-page-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenovacionesPageDetailsComponent {}
+export class RenovacionesPageDetailsComponent {
+  detailService = inject(DetallesService)
+  destroyRef = inject(DestroyRef)
+
+  constructor() {
+    this.loadDetails()
+  }
+
+  loadDetails() {
+    this.detailService
+      .getDetalleUno()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(data => {
+        console.log(data)
+      })
+  }
+}
