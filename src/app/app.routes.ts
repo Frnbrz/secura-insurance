@@ -14,9 +14,9 @@ export const routes: Routes = [
   {
     path: 'renovaciones/:id',
     loadComponent: () =>
-      import('./pages/renovaciones-page/renovaciones-page.component').then(
-        m => m.RenovacionesPageComponent
-      ),
+      import(
+        './pages/renovaciones-page-details/renovaciones-page-details.component'
+      ).then(m => m.RenovacionesPageDetailsComponent),
   },
   {
     path: '**',
