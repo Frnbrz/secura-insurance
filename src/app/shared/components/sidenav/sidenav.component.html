@@ -58,19 +58,17 @@
             class="sidenav__form">
             <div class="sidenav__form-container">
               <div>
-                <label for="favorite-food">No. de póliza</label>
-                <mat-form-field
-                  appearance="outline"
-                  color="primary"
-                  class="sidenav__form-input">
-                  <!-- <mat-label for="favorite-food">No. de póliza</mat-label> -->
-                  <input
-                    matInput
-                    width="100%"
-                    id="favorite-food"
-                    placeholder="Todas las pólizas"
-                    [formControl]="form.controls.nPolicy" />
-                  <mat-hint></mat-hint>
+                <label for="favorite-food">Estado</label>
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    placeholder="Todos los estados"
+                    [formControl]="form.controls.state">
+                    <mat-option
+                      *ngFor="let cliente of renovaciones"
+                      [value]="cliente.nPolicy">
+                      {{ cliente.nPolicy }}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </div>
               <div>
@@ -87,7 +85,7 @@
                   <mat-hint></mat-hint>
                 </mat-form-field>
               </div>
-              <div class="form__datepicker">
+              <!-- <div class="form__datepicker">
                 <label for="">Fecha de validez</label>
                 <div class="form__datepicker-inputs">
                   <mat-form-field class="example-full-width">
@@ -116,7 +114,7 @@
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
                 </div>
-              </div>
+              </div> -->
               <div>
                 <label for="favorite-food">Importe</label>
                 <mat-form-field

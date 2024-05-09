@@ -1,5 +1,11 @@
 import { NgFor, NgIf, NgOptimizedImage } from '@angular/common'
-import { Component, inject, OnInit, ViewChild } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core'
 import {
   FormControl,
   FormGroup,
@@ -17,9 +23,11 @@ import { MatListModule } from '@angular/material/list'
 import { MatSelectModule } from '@angular/material/select'
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav'
 import {
+  RenovacionesService,
   TableFiltersService,
   ToolbarStateService,
 } from '@src/app/core/services'
+import { RenovacionesInterface } from '../../models'
 import { ButtonComponent } from '../button'
 import { ButtonOutlineComponent } from '../button-outline'
 import { LinkComponent } from '../link'
@@ -61,15 +69,18 @@ interface FilterType {
   ],
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav | undefined
   sideNavService = inject(ToolbarStateService)
   toolbarStateService = inject(ToolbarStateService)
   tableFiltersService = inject(TableFiltersService)
+  renovacionesService = inject(RenovacionesService)
   toolbarState = this.toolbarStateService.getToolbarState()
   sidenavState = this.toolbarStateService.getIsNavSidenav()
   errorMessage = ''
+  renovaciones: RenovacionesInterface[] = []
   minDate: Date
   maxDate: Date
   states = [
@@ -103,9 +114,11 @@ export class SidenavComponent implements OnInit {
         this.sidenav.toggle()
       }
     })
+
+    this.loadClients()
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.invalid) {
       this.errorMessage = 'Debe rellenar los campos correctamente'
       return
@@ -128,7 +141,14 @@ export class SidenavComponent implements OnInit {
     if (filterValue.state === 'all') {
       delete filterValue.state
     }
-    console.log(filterValue)
-    this.tableFiltersService.setFilter(filterValue)
+
+    await this.tableFiltersService.setFilter(filterValue)
+    await this.sideNavService.toggle()
+  }
+
+  loadClients() {
+    this.renovacionesService
+      .getRenovaciones()
+      .subscribe(renovaciones => (this.renovaciones = renovaciones))
   }
 }

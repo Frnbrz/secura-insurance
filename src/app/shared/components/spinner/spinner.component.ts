@@ -9,7 +9,7 @@ import { SpinnerService } from '@src/app/core/services'
   imports: [MatProgressSpinnerModule, NgIf],
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerComponent {
   private readonly spinnerService = inject(SpinnerService)
