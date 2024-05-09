@@ -10,6 +10,7 @@
 
 .card {
   border-radius: 8px;
+  padding: 12px 0px;
 }
 
 .card__button {
@@ -43,6 +44,11 @@
 
 }
 
+main {
+  display: grid;
+  padding: 24px 0px 0px 0px;
+  gap: 32px;
+}
 
 
 .card__button-text {

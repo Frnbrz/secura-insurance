@@ -23,13 +23,13 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort'
 import { Router } from '@angular/router'
-import { RenovacionesInterface } from '@src/app/core/data/'
 import {
   FilterType,
   RenovacionesService,
   TableFiltersService,
 } from '@src/app/core/services'
 import { LinkComponent, SpinnerComponent } from '@src/app/shared/components'
+import { RenovacionesInterface } from '@src/app/shared/models'
 import { CurrencyEuroPipe, DateEuroPipe } from '@src/app/shared/pipes'
 import { Subject } from 'rxjs'
 import { StatusFlagComponent } from '../status-flag/status-flag.component'

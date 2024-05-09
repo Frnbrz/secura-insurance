@@ -1,0 +1,88 @@
+<app-dialog title="Actualizar datos">
+  <form
+    (ngSubmit)="onSubmit($event)"
+    [formGroup]="ownerForm"
+    class="sidenav__form">
+    <div class="sidenav__form-container">
+      <div>
+        <label for="favorite-food">CIF</label>
+        <mat-form-field
+          appearance="outline"
+          color="primary"
+          class="sidenav__form-input">
+          <!-- <mat-label for="favorite-food">No. de póliza</mat-label> -->
+          <input
+            matInput
+            width="100%"
+            id="favorite-food"
+            placeholder="Introduce el CIF"
+            [formControl]="ownerForm.controls.cif"
+            as
+            FormControl />
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <label for="favorite-food">Nombre</label>
+        <mat-form-field
+          appearance="outline"
+          color="primary"
+          class="sidenav__form-input">
+          <input
+            matInput
+            id="favorite-food"
+            placeholder="Introduce el nombre"
+            [formControl]="ownerForm.controls.name" />
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label for="favorite-food">Direccion fiscal</label>
+        <mat-form-field
+          appearance="outline"
+          color="primary"
+          class="sidenav__form-input">
+          <input
+            matInput
+            id="favorite-food"
+            placeholder="Introduce la direccion fiscal"
+            [formControl]="ownerForm.controls.direction" />
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <label for="favorite-food">Estado de la poliza</label>
+        <mat-form-field appearance="outline">
+          <mat-select
+            placeholder="Todos los estados"
+            [formControl]="ownerForm.controls.state">
+            <mat-option *ngFor="let state of states" [value]="state.id">
+              {{ state.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <ng-container *ngIf="error !== ''">
+      <p class="error">{{ error }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="error === ''">
+      <p class="error error__disabled">{{ error }}</p>
+    </ng-container>
+
+    <div class="footer__buttons">
+      <button
+        mat-stroked-button
+        color="primary"
+        type="reset"
+        (click)="resetError()">
+        Resetear
+      </button>
+
+      <button mat-flat-button color="primary" type="submit">Actualizar</button>
+    </div>
+  </form>
+</app-dialog>

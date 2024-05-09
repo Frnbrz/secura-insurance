@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { inject, Injectable, signal } from '@angular/core'
+import { RenovacionesInterface } from '@src/app/shared/models'
 import { map, Observable } from 'rxjs'
-import { RenovacionesInterface } from '../data'
 
 const BASE_URL = 'http://localhost:3000/api/v1/'
 

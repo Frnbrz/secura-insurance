@@ -5,9 +5,10 @@ import {
   inject,
 } from '@angular/core'
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'
-import { InstalmentInterface } from '@src/app/core/data'
+
 import { DetallesService } from '@src/app/core/services'
 import { StatusFlagComponent } from '@src/app/pages/home-page/components'
+import { InstalmentInterface } from '@src/app/shared/models/models'
 import { CurrencyEuroPipe, DateEuroPipe } from '@src/app/shared/pipes'
 
 @Component({

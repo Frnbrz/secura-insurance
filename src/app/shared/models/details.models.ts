@@ -1,4 +1,4 @@
-export interface Details {
+export interface DetailsInterface {
   nPolicy: number
   riskName: string
   ownerData: OwnerData

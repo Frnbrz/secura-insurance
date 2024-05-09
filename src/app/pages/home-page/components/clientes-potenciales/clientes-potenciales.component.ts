@@ -10,9 +10,9 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
-import { ClientePotencialInterface } from '@src/app/core/data'
 import { ClientesService } from '@src/app/core/services'
 import { SectionContainerComponent } from '@src/app/shared/layout'
+import { ClientePotencialInterface } from '@src/app/shared/models'
 
 @Component({
   selector: 'app-clientes-potenciales',

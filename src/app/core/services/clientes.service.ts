@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
+import { ClientePotencialInterface } from '@src/app/shared/models'
 import { map, Observable } from 'rxjs'
-import { ClientePotencialInterface } from '../data'
 
 const BASE_URL = 'http://localhost:3000/api/v1/'
 

@@ -41,7 +41,7 @@ export class RenovacionesPageDetailsComponent {
       .getDetalleUno()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(data => {
-        console.log(data)
+        this.detailService.setDetails(data)
       })
   }
 }

@@ -1,18 +1,67 @@
 import { HttpClient } from '@angular/common/http'
-import { inject, Injectable, signal } from '@angular/core'
+import { inject, Injectable, signal, WritableSignal } from '@angular/core'
 import { map } from 'rxjs'
+interface Detail {
+  nPolicy: number
+  riskName: string
+  ownerData: {
+    name: string
+    surname: string
+    cif: string
+    email: string
+    phone: string
+    fiscalAddress: string
+    state: string
+  }
+  invoicingDepartment: {
+    address: string
+    addressCode: string
+    postalCode: string
+    city: string
+    country: string
+  }
+  instalments: {
+    issueDate: string
+    startDate: string
+    endDate: string
+    amount: number
+    state: string
+  }[]
+}
+
+const emptyDetail: Detail = {
+  nPolicy: 0,
+  riskName: '',
+  ownerData: {
+    name: '',
+    surname: '',
+    cif: '',
+    email: '',
+    phone: '',
+    fiscalAddress: '',
+    state: '',
+  },
+  invoicingDepartment: {
+    address: '',
+    addressCode: '',
+    postalCode: '',
+    city: '',
+    country: '',
+  },
+  instalments: [],
+}
+
+const EntyDetail = { ...emptyDetail }
 
 @Injectable({
   providedIn: 'root',
 })
 export class DetallesService {
-  details = signal({})
+  details: WritableSignal<Detail> = signal(EntyDetail)
   http = inject(HttpClient)
   getDetalleUno() {
     return this.http.get('http://localhost:3000/api/v1/detalles/1').pipe(
       map((response: any) => {
-        this.setDetails(response.data)
-        console.log(response.data)
         return response.data
       })
     )
@@ -25,11 +74,18 @@ export class DetallesService {
     )
   }
 
+  updateDetalleUno(data: any) {
+    return this.http.patch(
+      'http://localhost:3000/api/v1/detalles/1/ownerdata',
+      data
+    )
+  }
+
   getDetails() {
     return this.details
   }
 
-  setDetails(data: any) {
+  setDetails(data: Detail) {
     this.details.set(data)
   }
 }
