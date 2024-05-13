@@ -33,7 +33,7 @@
     </ng-container>
     <ng-container *ngIf="tableFilters().riskName">
       <mat-chip-row
-        (removed)="remove('state')"
+        (removed)="remove('riskName')"
         [editable]="true"
         aria-description="press enter to edit ">
         {{ tableFilters().riskName }}
@@ -47,7 +47,7 @@
 
     <ng-container *ngIf="tableFilters().amoutCantity">
       <mat-chip-row
-        (removed)="remove('state')"
+        (removed)="remove('amoutCantity')"
         [editable]="true"
         aria-description="press enter to edit ">
         {{ tableFilters().amoutCantity }}
