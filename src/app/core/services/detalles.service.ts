@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { inject, Injectable, signal, WritableSignal } from '@angular/core'
+import { inject, Injectable, signal } from '@angular/core'
 import { map } from 'rxjs'
 interface Detail {
   nPolicy: number
@@ -57,7 +57,7 @@ const EntyDetail = { ...emptyDetail }
   providedIn: 'root',
 })
 export class DetallesService {
-  details: WritableSignal<Detail> = signal(EntyDetail)
+  details = signal(EntyDetail)
   http = inject(HttpClient)
   getDetalleUno() {
     return this.http.get('http://localhost:3000/api/v1/detalles/1').pipe(

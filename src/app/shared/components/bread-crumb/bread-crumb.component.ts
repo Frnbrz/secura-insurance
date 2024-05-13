@@ -17,7 +17,7 @@ import { RenovacionesService } from '@src/app/core/services'
 })
 export class BreadCrumbComponent implements OnInit {
   renovacionesService = inject(RenovacionesService)
-  polizas = this.renovacionesService.getPolizas()
+  polizas = this.renovacionesService.getTotalRenovaciones()
   route = inject(ActivatedRoute)
   currentRoute: string | null = null
 

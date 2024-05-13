@@ -62,11 +62,11 @@
   <div class="header-botton">
     <div class="header-botton__left">
       <ng-container *ngIf="tableFiltersLength === 0">
-        <span>{{ polizas() }} pólizas</span>
+        <span>{{ totalPolizas() }} pólizas</span>
       </ng-container>
       <ng-container *ngIf="tableFiltersLength !== 0">
         <div>
-          <span>{{ polizas() }} resultados</span>
+          <span>{{ totalPolizas() }} resultados</span>
           <mat-divider [vertical]="true" />
           <span> {{ tableFiltersLength }} filtros aplicados </span>
         </div>

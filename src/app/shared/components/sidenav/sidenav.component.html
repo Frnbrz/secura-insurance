@@ -9,6 +9,7 @@
               height="64"
               class="social-media-element__img"
               ngSrc="assets/img/logo.svg"
+              priority="{false}"
               alt="Logo of Secure Insurance" />
             <button
               mat-icon-button
@@ -58,17 +59,18 @@
             class="sidenav__form">
             <div class="sidenav__form-container">
               <div>
-                <label for="favorite-food">Estado</label>
-                <mat-form-field appearance="outline">
-                  <mat-select
-                    placeholder="Todos los estados"
-                    [formControl]="form.controls.state">
-                    <mat-option
-                      *ngFor="let cliente of renovaciones"
-                      [value]="cliente.nPolicy">
-                      {{ cliente.nPolicy }}
-                    </mat-option>
-                  </mat-select>
+                <label for="favorite-food">Numero Poliza</label>
+                <mat-form-field
+                  appearance="outline"
+                  color="primary"
+                  class="sidenav__form-input">
+                  <input
+                    matInput
+                    id="favorite-food"
+                    type="number"
+                    placeholder="Introduce el numero de poliza"
+                    [formControl]="form.controls.nPolicy" />
+                  <mat-hint></mat-hint>
                 </mat-form-field>
               </div>
               <div>

@@ -10,20 +10,70 @@ const BASE_URL = 'http://localhost:3000/api/v1/'
 })
 export class RenovacionesService {
   http = inject(HttpClient)
-  private polizas = signal(0)
+  private totalRenovaciones = signal(0)
+  private filteredRenovaciones = signal(0)
+  private renovaciones = signal<RenovacionesInterface[]>([])
 
-  getPolizas() {
-    return this.polizas
+  setTotalRenovaciones(value: number) {
+    this.totalRenovaciones.set(value)
   }
 
-  setPolizas(value: number) {
-    this.polizas.set(value)
+  getTotalRenovaciones() {
+    return this.totalRenovaciones
   }
 
-  getRenovaciones(): Observable<RenovacionesInterface[]> {
-    return this.http.get(`${BASE_URL}renovaciones`).pipe(
+  setFilteredRenovaciones(value: number) {
+    this.filteredRenovaciones.set(value)
+  }
+
+  getFilteredRenovaciones() {
+    return this.filteredRenovaciones
+  }
+
+  setRenovaciones(value: RenovacionesInterface[]) {
+    this.renovaciones.set(value)
+  }
+
+  getRenovacionesArray() {
+    return this.renovaciones
+  }
+
+  getRenovaciones(tableFilters: any = {}): Observable<RenovacionesInterface[]> {
+    console.log(tableFilters)
+
+    const url = `${BASE_URL}renovaciones`
+
+    const searchParams = [
+      'state',
+      'nPolicy',
+      'dateValid',
+      'amoutCantity',
+      'riskName',
+    ]
+    const sortParams = ['amount']
+
+    const params: string[] = []
+
+    searchParams.forEach(param => {
+      if (tableFilters[param]) {
+        params.push(`searchBy=${param}:${tableFilters[param]}`)
+      }
+    })
+
+    sortParams.forEach(param => {
+      if (tableFilters[param]) {
+        params.push(`sortBy=${param}:${tableFilters[param]}`)
+      }
+    })
+
+    const fullUrl = params.length ? `${url}?${params.join('&')}` : url
+
+    return this.http.get(fullUrl).pipe(
       map((response: any) => {
-        this.setPolizas(response.data.length)
+        this.setFilteredRenovaciones(response.totalItems)
+        if (JSON.stringify(tableFilters) === JSON.stringify({})) {
+          this.setTotalRenovaciones(response.totalItems)
+        }
         return response.data
       })
     )

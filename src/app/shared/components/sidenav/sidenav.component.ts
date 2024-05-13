@@ -2,10 +2,12 @@ import { NgFor, NgIf, NgOptimizedImage } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   inject,
   OnInit,
   ViewChild,
 } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import {
   FormControl,
   FormGroup,
@@ -34,7 +36,7 @@ import { LinkComponent } from '../link'
 import { LanguageMenuComponent } from '../navbar'
 
 interface FilterType {
-  amountSort?: 'asc' | 'desc'
+  amount?: 'asc' | 'desc'
   nPolicy?: string
   riskName?: string
   dateValid?: string
@@ -76,7 +78,6 @@ export class SidenavComponent implements OnInit {
   sideNavService = inject(ToolbarStateService)
   toolbarStateService = inject(ToolbarStateService)
   tableFiltersService = inject(TableFiltersService)
-  renovacionesService = inject(RenovacionesService)
   toolbarState = this.toolbarStateService.getToolbarState()
   sidenavState = this.toolbarStateService.getIsNavSidenav()
   errorMessage = ''
@@ -89,7 +90,9 @@ export class SidenavComponent implements OnInit {
     { id: 'vencida', label: 'Vencida' },
     { id: 'pagada', label: 'Pagada' },
   ]
-
+  renovacionesService = inject(RenovacionesService)
+  destroyRef = inject(DestroyRef)
+  tableFilters = this.tableFiltersService.getFilter()
   form = new FormGroup({
     nPolicy: new FormControl<string>('', [Validators.minLength(3)]),
     riskName: new FormControl<string>('', [Validators.minLength(3)]),
@@ -114,8 +117,6 @@ export class SidenavComponent implements OnInit {
         this.sidenav.toggle()
       }
     })
-
-    this.loadClients()
   }
 
   async onSubmit() {
@@ -144,11 +145,16 @@ export class SidenavComponent implements OnInit {
 
     await this.tableFiltersService.setFilter(filterValue)
     await this.sideNavService.toggle()
+
+    this.loadCLientes(this.tableFilters())
   }
 
-  loadClients() {
+  loadCLientes(tableFilters?: any) {
     this.renovacionesService
-      .getRenovaciones()
-      .subscribe(renovaciones => (this.renovaciones = renovaciones))
+      .getRenovaciones(tableFilters)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(renovaciones => {
+        this.renovacionesService.setRenovaciones(renovaciones)
+      })
   }
 }

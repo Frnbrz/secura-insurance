@@ -1,7 +1,8 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
 import { AsyncPipe, NgFor, NgIf } from '@angular/common'
-import { Component, effect, inject, ViewChild } from '@angular/core'
+import { Component, DestroyRef, effect, inject, ViewChild } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatDividerModule } from '@angular/material/divider'
@@ -47,17 +48,18 @@ export class RenovacionesTableHeaderComponent {
   filters = ['Mayor importe', 'Menor importe', 'Ningun filtro']
   selectedFilter: any = this.filters[0]
   renovacionesService = inject(RenovacionesService)
-  polizas = this.renovacionesService.getPolizas()
+  totalPolizas = this.renovacionesService.getFilteredRenovaciones()
   toolbarStateService = inject(ToolbarStateService)
   addOnBlur = true
   announcer = inject(LiveAnnouncer)
   readonly separatorKeysCodes = [ENTER, COMMA] as const
+  destroyRef = inject(DestroyRef)
 
   constructor() {
     effect(() => {
       this.tableFilters = this.tableFilterService.getFilter()
       this.tableFiltersLength = Object.keys(this.tableFilters()).length
-      this.polizas = this.renovacionesService.getPolizas()
+      this.totalPolizas = this.renovacionesService.getFilteredRenovaciones()
     })
   }
 
@@ -66,34 +68,47 @@ export class RenovacionesTableHeaderComponent {
     if (filter === 'Mayor importe') {
       this.tableFilterService.setFilter({
         ...this.tableFilters(),
-        amountSort: 'desc',
+        amount: 'desc',
       })
     }
     if (filter === 'Menor importe') {
       this.tableFilterService.setFilter({
         ...this.tableFilters(),
-        amountSort: 'asc',
+        amount: 'asc',
       })
     }
     if (filter === 'Ningun filtro') {
       const filtersDuplicate = { ...this.tableFilters() }
-      delete filtersDuplicate.amountSort
+      delete filtersDuplicate.amount
       this.tableFilterService.setFilter(filtersDuplicate)
     }
+
+    this.loadCLientes(this.tableFilters())
   }
 
   clickMenu() {
     this.toolbarStateService.toggle(true)
   }
 
+  loadCLientes(tableFilters?: any) {
+    this.renovacionesService
+      .getRenovaciones(tableFilters)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(renovaciones => {
+        this.renovacionesService.setRenovaciones(renovaciones)
+      })
+  }
+
   remove(filter: string): void {
-    // filter name key value reset with setFilter
     const filtersDuplicate: { [key: string]: any } = { ...this.tableFilters() }
     delete filtersDuplicate[filter]
     this.tableFilterService.setFilter(filtersDuplicate)
+
+    this.loadCLientes(this.tableFilters())
   }
 
   deleteFilters() {
     this.tableFilterService.resetFilter()
+    this.loadCLientes()
   }
 }
