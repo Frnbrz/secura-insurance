@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { RouterLink } from '@angular/router'
 import { ButtonComponent } from '@src/app/shared/components'
 import { SectionContainerComponent } from '@src/app/shared/layout'
 import { RenovacionesTableComponent } from '../renovaciones-table'
@@ -10,6 +11,8 @@ import { RenovacionesTableComponent } from '../renovaciones-table'
     ButtonComponent,
     RenovacionesTableComponent,
     SectionContainerComponent,
+    ButtonComponent,
+    RouterLink,
   ],
   templateUrl: './proximas-renovaciones.component.html',
   styleUrls: ['./proximas-renovaciones.component.scss'],

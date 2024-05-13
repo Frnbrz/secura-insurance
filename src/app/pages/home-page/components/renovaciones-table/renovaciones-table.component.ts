@@ -8,6 +8,7 @@ import {
   inject,
   Injectable,
   Input,
+  OnInit,
   ViewChild,
 } from '@angular/core'
 
@@ -68,7 +69,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   styleUrls: ['./renovaciones-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenovacionesTableComponent {
+export class RenovacionesTableComponent implements OnInit {
   var = false
   @Input() isOnHomePage = false
   dataSource = new MatTableDataSource<RenovacionesInterface>([])
@@ -83,17 +84,28 @@ export class RenovacionesTableComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
   constructor() {
-    this.loadCLientes()
-    this.dataSource = new MatTableDataSource<RenovacionesInterface>(
-      this.renovaciones()
-    )
-
     effect(() => {
       this.tableFilters = this.tableFilterService.getFilter()
       this.tableFiltersLength = Object.keys(this.tableFilters()).length
       this.renovaciones = this.renovacionesService.getRenovacionesArray()
       this.dataSource.data = this.renovaciones()
     })
+  }
+
+  ngOnInit() {
+    console.log(this.isOnHomePage)
+    if (this.isOnHomePage) {
+      const tableFilters = {
+        page: 1,
+        pageSize: 3,
+      }
+      this.loadCLientes(tableFilters)
+    } else {
+      this.loadCLientes()
+    }
+    this.dataSource = new MatTableDataSource<RenovacionesInterface>(
+      this.renovaciones()
+    )
   }
 
   compare(a: number | string, b: number | string, isAsc: boolean) {
@@ -106,7 +118,6 @@ export class RenovacionesTableComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(renovaciones => {
         this.renovacionesService.setRenovaciones(renovaciones)
-
         this.cdr.detectChanges()
       })
   }

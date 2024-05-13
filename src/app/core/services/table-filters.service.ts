@@ -7,6 +7,8 @@ export interface FilterType {
   dateValid?: string
   amoutCantity?: number
   state?: string
+  page?: number
+  pageSize?: number
 }
 
 const entyFilter: FilterType = {}

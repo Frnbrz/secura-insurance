@@ -66,6 +66,14 @@ export class RenovacionesService {
       }
     })
 
+    if (tableFilters.page) {
+      params.push(`page=${tableFilters.page}`)
+    }
+
+    if (tableFilters.pageSize) {
+      params.push(`pageSize=${tableFilters.pageSize}`)
+    }
+
     const fullUrl = params.length ? `${url}?${params.join('&')}` : url
 
     return this.http.get(fullUrl).pipe(

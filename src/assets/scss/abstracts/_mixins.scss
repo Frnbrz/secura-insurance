@@ -99,3 +99,11 @@ $sizes: (
 }
 
 @include generate-opacity-classes($sizes);
+
+@mixin mobile-display-none {
+  @include mobile() {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+}

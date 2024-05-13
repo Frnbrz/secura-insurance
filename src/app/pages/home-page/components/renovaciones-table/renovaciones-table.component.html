@@ -74,5 +74,5 @@
   [showFirstLastButtons]="true"
   aria-label="Select page"
   class="table__pagination"
-  [ngClass]="isOnHomePage ? 'home' : ''">
+  [ngClass]="{ 'hide-pagination': isOnHomePage }">
 </mat-paginator>
