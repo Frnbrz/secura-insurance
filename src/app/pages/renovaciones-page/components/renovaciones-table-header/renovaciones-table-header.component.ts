@@ -78,9 +78,8 @@ export class RenovacionesTableHeaderComponent {
       })
     }
     if (filter === 'Ningun filtro') {
-      const filtersDuplicate = { ...this.tableFilters() }
-      delete filtersDuplicate.amount
-      this.tableFilterService.setFilter(filtersDuplicate)
+      delete this.tableFilters().amount
+      this.tableFilterService.setFilter(this.tableFilters())
     }
 
     this.loadCLientes(this.tableFilters())

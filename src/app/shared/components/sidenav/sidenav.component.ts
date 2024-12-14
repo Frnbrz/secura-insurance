@@ -119,7 +119,7 @@ export class SidenavComponent implements OnInit {
     })
   }
 
-  async onSubmit() {
+  onSubmit() {
     if (this.form.invalid) {
       this.errorMessage = 'Debe rellenar los campos correctamente'
       return
@@ -127,24 +127,30 @@ export class SidenavComponent implements OnInit {
     this.errorMessage = ''
     const filterValue: FilterType = { ...(this.form.value as FilterType) }
     // If value is empty dont add to array
-    if (filterValue.nPolicy === '') {
+    if (filterValue.nPolicy === '' || filterValue.nPolicy === null) {
       delete filterValue.nPolicy
     }
-    if (filterValue.riskName === '') {
+    if (filterValue.riskName === '' || filterValue.riskName === null) {
       delete filterValue.riskName
     }
-    if (filterValue.dateValid === '') {
+    if (filterValue.dateValid === '' || filterValue.dateValid === null) {
       delete filterValue.dateValid
     }
-    if (filterValue.amoutCantity === 0) {
+    if (filterValue.amoutCantity === 0 || filterValue.amoutCantity === null) {
       delete filterValue.amoutCantity
     }
-    if (filterValue.state === 'all') {
+    if (
+      filterValue.state === 'all' ||
+      filterValue.state === '' ||
+      filterValue.state === null
+    ) {
       delete filterValue.state
     }
-
-    await this.tableFiltersService.setFilter(filterValue)
-    await this.sideNavService.toggle()
+    this.tableFiltersService.setFilter({
+      ...this.tableFilters(),
+      ...filterValue,
+    })
+    this.sideNavService.toggle()
 
     this.loadCLientes(this.tableFilters())
   }

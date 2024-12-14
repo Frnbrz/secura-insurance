@@ -55,8 +55,12 @@ export class RenovacionesService {
     const params: string[] = []
 
     searchParams.forEach(param => {
-      if (tableFilters[param]) {
-        params.push(`searchBy=${param}:${tableFilters[param]}`)
+      if (tableFilters[param] !== undefined) {
+        let queryParam = param
+        if (param === 'amoutCantity') {
+          queryParam = 'amount'
+        }
+        params.push(`searchBy=${queryParam}:${tableFilters[param]}`)
       }
     })
 
@@ -65,6 +69,8 @@ export class RenovacionesService {
         params.push(`sortBy=${param}:${tableFilters[param]}`)
       }
     })
+
+    console.log(params)
 
     if (tableFilters.page) {
       params.push(`page=${tableFilters.page}`)
